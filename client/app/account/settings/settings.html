@@ -1,0 +1,65 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Change Email</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="emailForm" ng-submit="changeEmail(emailForm)" novalidate>
+
+        <div class="form-group">
+          <label>New Email</label>
+
+          <input type="email" name="newEmail" class="form-control" ng-model="account.newEmail"
+                 ng-minlength="3"
+                 required/>
+          <p class="help-block"
+             ng-show="(emailForm.newEmail.$error.minlength || emailForm.newEmail.$error.required) && (emailForm.newEmail.$dirty || newEmailSubmitted)">
+            Email must be at least 3 characters.
+          </p>
+        </div>
+
+        <p class="help-block" ng-show="newEmailSubmitted"> {{ message }} </p>
+
+        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <h1>Change Password</h1>
+    </div>
+    <div class="col-sm-12">
+      <form class="form" name="passwordForm" ng-submit="changePassword(passwordForm)" novalidate>
+
+        <div class="form-group">
+          <label>Current Password</label>
+
+          <input type="password" name="password" class="form-control" ng-model="account.oldPassword"
+                 mongoose-error/>
+          <p class="help-block" ng-show="passwordForm.password.$error.mongoose">
+              {{ errors.other }}
+          </p>
+        </div>
+
+        <div class="form-group">
+          <label>New Password</label>
+
+          <input type="password" name="newPassword" class="form-control" ng-model="account.newPassword"
+                 ng-minlength="3"
+                 required/>
+          <p class="help-block"
+             ng-show="(passwordForm.newPassword.$error.minlength || passwordForm.newPassword.$error.required) && (passwordForm.newPassword.$dirty || newPasswordSubmitted)">
+            Password must be at least 3 characters.
+          </p>
+        </div>
+
+        <p class="help-block" ng-show="newPasswordSubmitted"> {{ message }} </p>
+
+        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+      </form>
+    </div>
+  </div>
+</div>

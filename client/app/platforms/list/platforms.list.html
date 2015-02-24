@@ -1,0 +1,17 @@
+<div class="col-xs-12">
+  <ul class="media-list">
+    <li class="media" ng-repeat="platform in platforms">
+      <div class="media-left pull-left">
+        <a ui-sref="platforms.detail({ id: platform.slug })" title="{{platform.name}}">
+          <cl-image public-id="{{platform.hero.file.public_id}}" class="media-object">
+            <cl-transformation height="75" width="75" crop="fill" gravity="north" />
+          </cl-image>
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{platform.name}}</h4>
+        <p ng-bind-html="platform.description.brief.html"></p>
+      </div>
+    </li>
+  </ul>
+</div>
