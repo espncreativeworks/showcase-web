@@ -2,5 +2,5 @@
 
 angular.module('espnCreativeworksShowcaseApp')
   .controller('ProjectsListCtrl', function ($scope, Project) {
-    $scope.projects = Project.featured();
+    $scope.projects = Project.query();
   });
