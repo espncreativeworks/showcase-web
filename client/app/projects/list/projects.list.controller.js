@@ -1,6 +1,8 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('ProjectsListCtrl', function ($scope, Project) {
+  .controller('ProjectsListCtrl', ['$scope', 'Page', 'Project', function ($scope, Page, Project) {
+    Page.meta.title = 'Projects';
     $scope.projects = Project.query();
-  });
+
+  }]);

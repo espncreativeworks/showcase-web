@@ -1,0 +1,35 @@
+.fullpage-project-list-item {
+
+  .project-tagline,
+  .project-title {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .project-tagline {
+    text-transform: uppercase;
+  }
+
+  .project-title {
+    font-style: italic;
+  }  
+}
+
+@media (min-width: $screen-sm-min){
+  .fullpage-project-list-item {
+
+    .project-tagline {
+      font-size: 48px;
+      text-transform: uppercase;
+    }
+
+    .project-title {
+      font-size: 15px;
+      font-style: italic;
+    }  
+
+    .project-controls {
+      padding-top: 41px;
+    }
+  }
+}
