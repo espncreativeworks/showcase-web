@@ -7,8 +7,11 @@ angular.module('espnCreativeworksShowcaseApp', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'cloudinary'
+  'cloudinary',
+  'angular-momentjs'
 ])
+  .constant('jQuery', window.jQuery)
+  .constant('Modernizr', window.Modernizr)
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
       .otherwise('/');
