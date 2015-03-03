@@ -1,0 +1,7 @@
+<div class="col-xs-12">
+  <ul class="list-unstyled">
+    <li ng-repeat="location in locations">
+      <a ui-sref="locations.detail({ id: location.slug })" title="{{location.name}}">{{location.name}}</a>
+    </li>
+  </ul>
+</div>
