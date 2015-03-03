@@ -6,7 +6,7 @@ angular.module('espnCreativeworksShowcaseApp')
     return {
       templateUrl: 'components/fullpage/fullpage.html',
       restrict: 'EA',
-      replace: true,
+      // replace: true,
       transclude: true,
       scope: {
         slides: '=',
@@ -20,11 +20,13 @@ angular.module('espnCreativeworksShowcaseApp')
         } else {
           todo = -1;
           scope.$watch('slides.$resolved', function (){
+            console.log('slides.$resolved changed!');
             todo = scope.slides.length; 
           }); 
         }
 
         scope.$on('fullpage-slide:added', function (evt, slide){
+          console.log('on fullpage-slide:added');
           added++;
           if (added === todo && !done && !Modernizr.touch){
             $(element).fullpage(scope.options || {});
