@@ -12,13 +12,29 @@ angular.module('espnCreativeworksShowcaseApp', [
 ])
   .constant('jQuery', window.jQuery)
   .constant('Modernizr', window.Modernizr)
-  .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
+  .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$sceDelegateProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
     $urlRouterProvider
       .otherwise('/');
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
-  })
+
+    $sceDelegateProvider.resourceUrlWhitelist([
+      'self', // Allow same origin resource loads
+      'http://res.cloudinary.com/**', // Allow loading from CDN. Notice the difference between * and **
+      'https://res.cloudinary.com/**',
+      'http://cdn.embedly.com/**', 
+      'https://cdn.embedly.com/**',
+      'http://*.vimeo.com/**', 
+      'https://*.vimeo.com/**',
+      'http://*.youtube.com/**', 
+      'https://*.youtube.com/**',
+      'http://*.go.com/**', 
+      'https://*.go.com/**',
+      'http://i.ytimg.com/**',
+      'https://i.ytimg.com/**'
+    ]);
+  }])
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
     return {

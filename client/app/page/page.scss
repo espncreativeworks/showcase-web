@@ -1,6 +1,11 @@
 hr {
+
   &.narrow {
     width: 50%;
+  }
+
+  &.narrower {
+    width: 77%;
   }
 
   &.thick {
@@ -14,21 +19,59 @@ hr {
   &.dark {
     border-top-color: $gray-dark;
   }
+
+  &.light {
+    border-top-color: $espn-light;
+  }
+
+  &.short {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+
+.espn-title {
+  font-family: $espn-font-family-headings;
+  font-weight: 400;
 }
 
 .btn-espn {
   border-radius: 0;
   border-width: 4px;
   border-style: solid;
-  border-color: $espn-white;
-  color: $espn-white;
+  border-color: $espn-light;
+  color: $espn-light;
+  font-family: $espn-font-family-headings;
+  font-weight: 400;
+  text-transform: uppercase;
 
   &:hover,
   &:active,
   &.active {
-    border-color: darken($espn-white, 15%);
-    color: darken($espn-white, 15%);
+    border-color: darken($espn-light, 15%);
+    color: darken($espn-light, 15%);
     text-decoration: none;
   }
 }
 
+.transform-translate-align {
+  position: relative;
+
+  &.absolute {
+    position: absolute;
+  }
+
+  &.vertical {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &.horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &.horizontal.vertical {
+    transform: translateX(-50%) translateY(-50%);
+  }
+}

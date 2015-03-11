@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <base href="/">
     <title ng-bind="page.meta.title + page.meta.titleSuffix"></title>
-    <meta name="description" ng-attr-content="{{page.meta.description}}">
+    <meta name="description" ng-attr-content="page.meta.description">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
@@ -25,6 +25,9 @@
       <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
+
+    <script src="//use.typekit.net/qme5qin.js"></script>
+    <script>try{Typekit.load();}catch(e){}</script>
   </head>
   <body ng-class="page.body.class">
     <!--[if lt IE 7]>
@@ -131,6 +134,14 @@
           <script src="app/projects/list/projects.list.js"></script>
           <script src="app/projects/projects.js"></script>
           <script src="app/projects/projects.service.js"></script>
+          <script src="app/videos/detail/videos.detail.controller.js"></script>
+          <script src="app/videos/detail/videos.detail.js"></script>
+          <script src="app/videos/list/videos.list.controller.js"></script>
+          <script src="app/videos/list/videos.list.js"></script>
+          <script src="app/videos/modal/videos.modal.controller.js"></script>
+          <script src="app/videos/modal/videos.modal.js"></script>
+          <script src="app/videos/videos.js"></script>
+          <script src="app/videos/videos.service.js"></script>
           <script src="components/auth/account.service.js"></script>
           <script src="components/auth/auth.service.js"></script>
           <script src="components/background-image/background-image.directive.js"></script>
@@ -142,6 +153,7 @@
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <script src="components/socket/socket.service.js"></script>
+          <script src="components/video-embed/video-embed.directive.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
 </body>

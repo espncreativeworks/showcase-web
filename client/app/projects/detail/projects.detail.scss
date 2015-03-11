@@ -1,0 +1,106 @@
+body.project-detail {
+
+  .section {
+    background-color: $espn-light;
+    color: $espn-dark;
+  }
+
+  .project-hero {
+    text-align: center;
+    color: $espn-light;
+  }
+
+  .project-title,
+  .project-tagline {
+    color: $espn-light;
+  }
+
+  .project-title {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .project-tagline {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .project-summary {
+    background-color: $espn-light;
+  }
+
+  .section.execution {
+    background-image: url($image-path + 'bg_project_execution.png');
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: 32px 32px;
+  }
+
+  .section.execution .fp-tableCell {
+    vertical-align: inherit;
+  }
+
+  .execution-description-container {
+    background-color: $espn-light;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .execution-media-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .video-item {
+    padding-bottom: 80px;
+  }
+
+  .video-title {
+    font-size: 27px;
+    margin-bottom: 0;
+  }
+
+  .video-caption {
+    font-size: 16px;
+  }
+
+  .video-credits {
+    font-size: 14px;
+    font-style: italic;
+    font-weight: 300;
+  }
+}
+
+@media (min-width: $screen-md-min){
+  body.project-detail {
+
+    .project-title {
+      font-size: 30px;
+    }
+    
+    .project-tagline {
+      font-size: 96px;
+    }
+
+    .execution-description-container {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .execution-media-container {
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .video-item {
+      padding-bottom: 40px;
+    }
+
+    .video-title {
+      margin-top: 0;
+    }
+  } 
+}

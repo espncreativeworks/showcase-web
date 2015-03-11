@@ -1,9 +1,22 @@
-body.home .section {
-  text-align: center;
-  background-color: $gray-dark;
+body.home {
 
-  .intro-controls-container {
-    padding-top: 40px;
+  .espncw-description {
+    font-size: 18px;
+  }
+  
+  .espncw-tagline {
+    font-size: 24px;
+    font-weight: 500;
+    font-style: italic;
+  }
+
+  .section {
+    text-align: center;
+    background-color: $gray-dark;
+    
+    .intro-controls-container {
+      padding-top: 40px;
+    }
   }
 }
 

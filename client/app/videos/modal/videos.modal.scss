@@ -1,0 +1,35 @@
+body.video-modal.modal-open .modal-content {
+  .modal-header,
+  .modal-footer {
+    color: $espn-dark;
+    background-image: url($image-path + 'bg_project_execution.png');
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: 32px 32px;
+  }
+
+  .modal-header {
+    border-bottom: 4px solid $espn-light;
+  }
+
+  .modal-footer {
+    border-top: 4px solid $espn-light;
+  }
+
+  .modal-body {
+    padding: 0;
+    background-color: $espn-dark;
+  }
+
+  .modal-control {
+    color: $espn-red;
+    border-color: $espn-red;
+
+    &:hover,
+    &:active,
+    &.active {
+      color: darken($espn-red, 33%);
+      border-color: darken($espn-red, 33%);
+    }
+  }
+}

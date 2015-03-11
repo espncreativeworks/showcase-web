@@ -1,14 +1,18 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 $fa-font-path: "/bower_components/font-awesome/fonts";
 
-// colors
+// project specific
 $espn-red: #f14237;
-$espn-white: #fff;
+$espn-light: #fff;
+$espn-dark: #000000;
+$espn-font-family-sans-serif: "proxima-nova";
+$espn-font-family-headings: "octin-college";
 
 // bootstrap overrides
 $text-color: #fff;
 $body-bg: #333;
 $link-color: $espn-red;
+$font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
@@ -28,7 +32,11 @@ $link-color: $espn-red;
 @import 'platforms/list/platforms.list.scss';
 @import 'projects/detail/projects.detail.scss';
 @import 'projects/list/projects.list.scss';
+@import 'videos/detail/videos.detail.scss';
+@import 'videos/list/videos.list.scss';
+@import 'videos/modal/videos.modal.scss';
 @import 'fullpage/fullpage.scss';
 @import 'fullpage/slide/slide.scss';
 @import 'modal/modal.scss';
+@import 'video-embed/video-embed.scss';
 // endinjector
