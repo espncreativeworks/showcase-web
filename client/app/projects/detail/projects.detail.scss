@@ -1,10 +1,5 @@
 body.project-detail {
 
-  .section {
-    background-color: $espn-light;
-    color: $espn-dark;
-  }
-
   .project-hero {
     text-align: center;
     color: $espn-light;
@@ -27,19 +22,27 @@ body.project-detail {
     margin-bottom: 0;
   }
 
-  .project-summary {
+  .project-summary-container {
+    color: $espn-dark;
     background-color: $espn-light;
   }
 
-  .section.execution {
+  .project-summary {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .project-highlights ul {
+    padding-left: 15px;
+  }
+
+  .execution {
+    color: $espn-dark;
+    background-color: $espn-light;
     background-image: url($image-path + 'bg_project_execution.png');
     background-repeat: repeat;
     background-position: 0 0;
     background-size: 32px 32px;
-  }
-
-  .section.execution .fp-tableCell {
-    vertical-align: inherit;
   }
 
   .execution-description-container {
@@ -61,6 +64,17 @@ body.project-detail {
   .video-title {
     font-size: 27px;
     margin-bottom: 0;
+  }
+
+  .video-detail-link {
+    color: inherit;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &.active {
+      color: inherit;
+    }
   }
 
   .video-caption {

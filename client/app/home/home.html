@@ -1,43 +1,43 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<div fullpage slides="projects" options="fullpage.options">
-  <div class="intro" fullpage-slide background-image="'assets/images/bg_home.png'">
-    <div class="container">
+<div>
+  <div class="intro section" fullpage background-image="'assets/images/bg_home.png'">
+    <div class="container transform-translate-align vertical">
       <div class="row">
         <div class="col-xs-12">
           <h1 class="espncw-title">ESPN CreativeWorks</h1>
         </div>
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
           <hr class="narrow thick red">
           <p class="espncw-description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore dolor perferendis adipisci porro ex iste ratione, itaque cumque sint architecto placeat sapiente quae esse iure eum, perspiciatis ducimus. Amet, nisi!</p>
           <hr class="narrow thick red">
-          <p class="espncw-tagline">Informed / Authentic / Connected / Efficient / Multi-Screen</p>
+          <p class="espncw-tagline hidden-xs">Informed / Authentic / Connected / Efficient / Multi-Screen</p>
         </div>
-        <div class="col-xs-12 intro-controls-container">
-          <a ui-sref="video.detail({ id: 'reel' })" class="btn btn-espn btn-lg">Watch Reel</a>
+        <div class="col-xs-12 controls-container intro-controls-container">
+          <a ui-sref="videos.detail({ id: 'reel' })" class="btn btn-espn btn-lg">Watch Reel</a>
           <a ui-sref="projects.list" class="btn btn-espn btn-lg">View Work</a>
         </div>
       </div>
     </div>
   </div>
-  <div fullpage-slide class="fullpage-project-list-item" background-image="project.hero.file.secure_url" ng-repeat="project in projects">
-    <div class="container">
+  <div fullpage class="section project-list-item" background-image="project.hero.file.secure_url" ng-repeat="project in projects" resolve="projects">
+    <div class="container transform-translate-align vertical">
       <div class="row">
-        <div class="col-xs-8 col-xs-offset-2">
+        <div class="col-xs-12 col-md-8 col-md-offset-2">
           <h2 class="project-tagline espn-title">{{project.tagline}}</h2>
           <hr class="narrow thick">
           <h3 class="project-title">{{project.title}}</h3>
-          <div class="project-controls">
+          <div class="controls-container project-controls">
             <a ui-sref="projects.detail({ id: project.slug })" class="btn btn-espn btn-lg" title="View Project">View Project</a>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div fullpage-slide class="location-list">
-    <div class="container">
-      <div class="row locations-container" ng-controller="LocationsListCtrl">
-        <div class="col-xs-12 col-sm-4 location-list-item" ng-repeat="_location in locations">
+  <div fullpage class="section location-list" resolve="locations" ng-controller="LocationsListCtrl">
+    <div class="container transform-translate-align vertical">
+      <div class="row locations-container" >
+        <div class="col-xs-12 col-md-4 location-list-item" ng-repeat="_location in locations">
           <div class="diamond"></div>
           <h3 class="location-name espn-title">
             <a ui-sref="locations.detail({ id: _location.slug })" ng-attr-title="_location.name">{{_location.name}}</a>

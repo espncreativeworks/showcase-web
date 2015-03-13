@@ -1,51 +1,65 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .directive('fullpage', ['jQuery', 'Modernizr', '$rootScope', function ($, Modernizr, $rootScope) {
-    var done = false;
+  .directive('fullpage', ['jQuery', 'Modernizr', '$window', function ($, Modernizr, $window) {
     return {
-      templateUrl: 'components/fullpage/fullpage.html',
       restrict: 'EA',
-      // replace: true,
-      transclude: true,
-      scope: {
-        slides: '=',
-        options: '='
-      },
       link: function (scope, element, attrs) {
-        var todo, added = 0;
+        var $container = $('<div>', { 'class': 'fullscreen-item-wrapper' })
+          , $children
+          , $childHeight
+          , _height;
 
-        if (scope.slides.$resolved){
-          todo = scope.slides.length; 
+        scope.sections = scope.sections ? scope.sections + 1 : 1;
+
+        if (attrs.resolve){
+          scope.$watch(attrs.resolve + '.$resolved', function (resolved){
+            if (resolved){
+              $children = $(element).children();
+              $childHeight = $children.outerHeight(true);
+              $children = $children.detach();
+              _height = $window.outerHeight > $childHeight ? $window.outerHeight : $childHeight;
+
+              $container.css({ 
+                position: 'relative',
+                width: '100%',
+                height: _height,
+                minHeight: _height 
+              });
+
+              $container.append($children);
+              $(element).append($container);
+            }
+          });
         } else {
-          todo = -1;
-          scope.$watch('slides.$resolved', function (){
-            console.log('slides.$resolved changed!');
-            todo = scope.slides.length; 
-          }); 
+          $children = $(element).children();
+          $childHeight = $children.outerHeight(true);
+          $children = $children.detach();
+          _height = $window.outerHeight > $childHeight ? $window.outerHeight : $childHeight;
+
+          $container.css({ 
+            position: 'relative',
+            width: '100%',
+            height: _height
+          });
+
+          $container.append($children);
+          $(element).append($container);
+        }
+        
+
+        $(window).on('resize', onresize);
+
+        function onresize (evt){
+          _height = $window.outerHeight > $childHeight ? $window.outerHeight : $childHeight;
+          $container.css({ 
+            height: _height
+          });
         }
 
-        scope.$on('fullpage-slide:added', function (evt, slide){
-          console.log('on fullpage-slide:added');
-          added++;
-          if (added === todo && !done && !Modernizr.touch){
-            $(element).fullpage(scope.options || {});
-            done = true;
-          } else if (done){
-            $.fn.fullpage.destroy('all');
-            $(element).fullpage(scope.options || {});
-          }
+        scope.$on('destroy', function (){ 
+          $(window).off('resize', onresize) 
         });
-
-        scope.$on('destroy', function (){
-          console.log('destroying fullpage.scope');
-          $.fn.fullpage.destroy('all');
-        });
-
-        $rootScope.$on('$stateChangeStart', function (){
-          $.fn.fullpage.destroy('all');
-        });
-
       }
     };
   }]);

@@ -5,10 +5,16 @@
   background-size: 32px 32px;
 }
 
+.locations-container {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
 .location-list-item {
-  padding-top: 72px;
+  padding-top: 40px;
 
   .diamond {
+    margin-top: 20px;
     width: 50px;
     height: 50px;
     margin-left: auto;
@@ -29,4 +35,21 @@
     color: $gray-dark;
     text-transform: uppercase;
   }
+}
+
+.locations-container:first-child {
+  padding-top: 0;
+}
+
+@media (min-width: $screen-md-min){
+
+  .locations-container {
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
+  .location-list-item {
+    padding-top: 72px;
+  }
+
 }

@@ -1,6 +1,6 @@
-<div fullpage slides="project.$executions" options="fullpage.options">
-  <div class="project-hero" fullpage-slide background-image="project.hero.file.transformedUrl">
-    <div class="container">
+<div>
+  <div class="project-hero" fullpage="" background-image="project.hero.file.transformedUrl">
+    <div class="container transform-translate-align vertical">
       <div class="row">
         <div class="col-xs-12">
           <h1 class="project-tagline espn-title">{{project.tagline}}</h1>
@@ -14,7 +14,7 @@
       </div>
     </div>
   </div>
-  <div class="" fullpage-slide>
+  <div class="project-summary-container">
     <div class="container">
       <div class="row project-summary">
         <div class="col-xs-12 col-sm-8">
@@ -29,7 +29,7 @@
       </div>
     </div>
   </div>
-  <div class="execution" fullpage-slide ng-repeat="execution in project.$executions">
+  <div class="execution" ng-repeat="execution in project.$executions">
     <div class="execution-description-container">
       <div class="container">
         <div class="row">
@@ -43,7 +43,7 @@
       <div class="row">
         <div class="col-xs-12 execution-media-container">
           <div class="execution-images-container" ng-if="execution.images.length">
-            <cl-image public-id="{{image.file.public_id}}" class="img-responsive" ng-repeat="image in execution.images">
+            <cl-image public-id="{{image.file.public_id}}" class="img-responsive center-block" ng-repeat="image in execution.images">
             </cl-image>
           </div>
 
@@ -53,7 +53,7 @@
                 <video-embed video="video" is-modal="false"></video-embed>
               </div>
               <div class="col-xs-12 col-sm-6">
-                <h4 class="video-title espn-title">{{video.title || video.embed.title}}</h4>
+                <h4 class="video-title espn-title"><a class="video-detail-link" ui-sref="videos.detail({ id: video.slug })" ng-attr-title="video.title || video.embed.title">{{video.title || video.embed.title}}</a></h4>
               </div>
               <div class="col-xs-9 col-sm-6">
                 <hr class="thick light short">

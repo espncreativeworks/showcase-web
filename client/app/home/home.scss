@@ -13,28 +13,18 @@ body.home {
   .section {
     text-align: center;
     background-color: $gray-dark;
-    
-    .intro-controls-container {
-      padding-top: 40px;
-    }
+  }
+
+  .controls-container {
+    padding-top: 40px;
   }
 }
 
 @media (min-width: $screen-sm-min){
-  body.home .section {
-    .intro-controls-container {
+  body.home {
+    .controls-container {
       padding-top: 76px;
     }
   }
-
-  body.home #fp-nav {
-    ul li a span {
-      border-color: #fff;
-      background-color: transparent;
-    }
-
-    ul li a.active span {
-      background-color: #fff;
-    }
-  }
+  
 }
