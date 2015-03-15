@@ -1,17 +1,34 @@
-<div class="col-xs-12">
-  <ul class="media-list">
-    <li class="media" ng-repeat="project in projects">
-      <div class="media-left pull-left">
-        <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
-          <cl-image public-id="{{project.hero.file.public_id}}" class="media-object">
-            <cl-transformation height="75" width="75" crop="fill" gravity="north" />
-          </cl-image>
-        </a>
+<div class="intro section" fullpage background-image="'assets/images/bg_project_list.png'">
+  <div class="container transform-translate-align vertical">
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h1 class="espn-title">Work</h1>
+        <hr class="narrow thick light">
       </div>
-      <div class="media-body">
-        <h4 class="media-heading">{{project.title}}</h4>
-        <p>{{project.tagline}}</p>
-      </div>
-    </li>
-  </ul>
+    </div>
+  </div>
+  <scroll-down></scroll-down>
+</div>
+<div class="project-list-search section">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="media-list">
+          <li class="media" ng-repeat="project in projects">
+            <div class="media-left pull-left">
+              <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
+                <cl-image public-id="{{project.hero.file.public_id}}" class="media-object">
+                  <cl-transformation height="75" width="75" crop="fill" gravity="north" />
+                </cl-image>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">{{project.title}}</h4>
+              <p>{{project.tagline}}</p>
+            </div>
+          </li>
+        </ul>
+      </div>    
+    </div>
+  </div>
 </div>
