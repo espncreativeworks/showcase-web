@@ -3,53 +3,19 @@
     <i class="fa fa-times menu-close"></i>
     <a ui-sref="home" class="menu-link"><span class="logo-container espn text-hide">ESPN</span></a>
     <a ui-sref="{{item.state}}" ng-class="{ active: isActive(item.state) }" ng-attr-title="item.title" ng-repeat="item in menu">{{item.title}}</a>
-    <span class="social-label menu-label">Share:</span>
+  
+    <a ui-sref="admin" ng-show="isAdmin()" ng-class="{ active: isActive('admin') }">Admin</a>
+
+    <span class="account-label menu-label" ng-hide="isLoggedIn()">Account</span>
+    <a ui-sref="signup" ng-hide="isLoggedIn()" ng-class="{ active: isActive('signup') }">Sign up</a>
+    <a ui-sref="login" ng-hide="isLoggedIn()" ng-class="{ active: isActive('login') }">Login</a>
+    <span class="account-label menu-label" ng-show="isLoggedIn()">{{getCurrentAccount().name}}</span>
+    <a ui-sref="settings" ng-show="isLoggedIn()" ng-class="{ active: isActive('settings') }"><span>Settings</span></a>
+    <a href="" ng-click="logout()" ng-show="isLoggedIn()" ng-class="{ active: isActive('logout') }">Logout</a>
+
+    <span class="social-label menu-label">Share</span>
     <a share="" href="javascript:void(0);" class="menu-link social-share" data-share-action="share-facebook" data-share-url="" title="Share on Facebook"><i class="fa fa-facebook fa-2x"></i></a>
     <a share="" href="javascript:void(0);" class="menu-link social-share" data-share-action="share-twitter" data-share-url="" data-share-text="" data-share-hashtags="" title="Share on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
   </div>
   <div id="menu-toggle"><i class="fa fa-bars"></i></div>
 </nav>
-
-<!--
-<div class="navbar navbar-default navbar-static-top" ng-controller="MenuCtrl">
-  <div class="container">
-    <div class="navbar-header">
-      <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a ui-sref="home" class="navbar-brand">espn-creativeworks-showcase</a>
-    </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ng-class="{ active: isActive(item.state) }">
-            <a ui-sref="{{item.state}}">{{item.title}}</a>
-        </li>
-        <li ng-show="isAdmin()" ng-class="{ active: isActive('admin') }">
-          <a ui-sref="admin">Admin</a>
-        </li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="isLoggedIn()" ng-class="{ active: isActive('signup') }">
-          <a ui-sref="signup">Sign up</a>
-        </li>
-        <li ng-hide="isLoggedIn()" ng-class="{ active: isActive('login') }">
-          <a ui-sref="login">Login</a>
-        </li>
-        <li ng-show="isLoggedIn()">
-          <p class="navbar-text">Hello {{ getCurrentAccount().name }}</p>
-        </li>
-        <li ng-show="isLoggedIn()" ng-class="{ active: isActive('settings') }">
-          <a ui-sref="settings"><span class="glyphicon glyphicon-cog"></span></a>
-        </li>
-        <li ng-show="isLoggedIn()" ng-class="{ active: isActive('logout') }">
-          <a href="" ng-click="logout()">Logout</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
--->
