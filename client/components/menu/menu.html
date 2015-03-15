@@ -1,4 +1,17 @@
-<div class="navbar navbar-default navbar-static-top" ng-controller="NavbarCtrl">
+<nav class="menu" id="flyout-menu" menu="" ng-controller="MenuCtrl">
+  <div class="menu-wrap">
+    <i class="fa fa-times menu-close"></i>
+    <a ui-sref="home" class="menu-link"><span class="logo-container espn text-hide">ESPN</span></a>
+    <a ui-sref="{{item.state}}" ng-class="{ active: isActive(item.state) }" ng-attr-title="item.title" ng-repeat="item in menu">{{item.title}}</a>
+    <span class="social-label menu-label">Share:</span>
+    <a share="" href="javascript:void(0);" class="menu-link social-share" data-share-action="share-facebook" data-share-url="" title="Share on Facebook"><i class="fa fa-facebook fa-2x"></i></a>
+    <a share="" href="javascript:void(0);" class="menu-link social-share" data-share-action="share-twitter" data-share-url="" data-share-text="" data-share-hashtags="" title="Share on Twitter"><i class="fa fa-twitter fa-2x"></i></a>
+  </div>
+  <div id="menu-toggle"><i class="fa fa-bars"></i></div>
+</nav>
+
+<!--
+<div class="navbar navbar-default navbar-static-top" ng-controller="MenuCtrl">
   <div class="container">
     <div class="navbar-header">
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
@@ -39,3 +52,4 @@
     </div>
   </div>
 </div>
+-->

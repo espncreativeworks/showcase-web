@@ -1,0 +1,39 @@
+$logo-espn-default: $image-path + "logo_espn.png";
+$logo-espn-hires: $image-path + "logo_espn@2x.png";
+$logo-espn-hover-default: $image-path + "logo_espn_hover.png";
+$logo-espn-hover-hires: $image-path + "logo_espn_hover@2x.png";
+$logo-espn-width: 85px;
+$logo-espn-height: 21px;
+
+.logo-container {
+  display: block;
+  width: 100%;
+  height: auto;
+  
+  .logo {
+    display: block;
+    margin: 0 auto;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.logo-container.espn {
+  display: inline-block;
+  width: $logo-espn-width;
+  height: $logo-espn-height;
+  margin-left: 0;
+  margin-right: 0;
+  margin-bottom: 10px;
+  background-repeat: no-repeat;
+  @include img-retina($logo-espn-default, $logo-espn-hires, $logo-espn-width, $logo-espn-height);
+
+  &:hover {
+    @include img-retina($logo-espn-hover-default, $logo-espn-hover-hires, $logo-espn-width, $logo-espn-height);
+  }
+}

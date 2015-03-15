@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('NavbarCtrl', function ($rootScope, $scope, $location, Auth) {
+  .controller('MenuCtrl', function ($rootScope, $scope, $location, Auth) {
     $scope.menu = [{
       'title': 'Home',
       'state': 'home'

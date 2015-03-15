@@ -27,6 +27,7 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 @import 'home/home.scss';
 @import 'locations/detail/locations.detail.scss';
 @import 'locations/list/locations.list.scss';
+@import 'page/logos.scss';
 @import 'page/page.scss';
 @import 'platforms/detail/platforms.detail.scss';
 @import 'platforms/list/platforms.list.scss';
@@ -36,7 +37,7 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 @import 'videos/list/videos.list.scss';
 @import 'videos/modal/videos.modal.scss';
 @import 'fullpage/fullpage.scss';
+@import 'menu/menu.scss';
 @import 'modal/modal.scss';
-@import 'navbar/navbar.scss';
 @import 'video-embed/video-embed.scss';
 // endinjector
