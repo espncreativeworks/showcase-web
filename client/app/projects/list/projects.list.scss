@@ -1,3 +1,10 @@
+body.project-list {
+
+  .intro .espn-title {
+    font-size: 48px;
+  }
+}
+
 .fullpage-project-list-item {
 
   .project-tagline,
@@ -16,6 +23,14 @@
 }
 
 @media (min-width: $screen-sm-min){
+
+  body.project-list {
+
+    .intro .espn-title {
+      font-size: 96px;
+    }
+  }
+
   .fullpage-project-list-item {
 
     .project-tagline {
