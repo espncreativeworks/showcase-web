@@ -1,0 +1,48 @@
+<div class="container project-filter-container" ng-controller="ProjectsFilterCtrl">
+  <div class="row gutterless project-filter-header">
+    <div class="col-xs-12 col-sm-6">
+      <form action="" class="form" name="filterForm">
+        <div class="form-group">
+          <label for="term" class="sr-only">Search</label>
+          <input id="term" class="form-control" type="text" ng-model="filters.term" placeholder="Search" name="term">  
+        </div>
+      </form>
+    </div>
+    <div class="hidden-xs col-sm-6">
+      <span class="active-filter-label">Active Filters:</span>
+      <ul class="list-unstyled list-inline">
+        
+      </ul>
+    </div>
+  </div>
+  <div class="row hidden-xs project-filter-body">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-4 filter-section-container">
+          <div class="filter-section">
+            <h4 class="filter-section-heading">Platform</h4>
+          </div>
+        </div>
+        <div class="col-sm-4 filter-section-container">
+          <div class="filter-section">
+            <h4 class="filter-section-heading">Sport</h4>
+          </div>
+        </div>
+        <div class="col-sm-4 filter-section-container">
+          <div class="filter-section">
+            <h4 class="filter-section-heading">Industry</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-12 filter-section-container">
+          <div class="filter-section">
+            <h4 class="filter-section-heading">Tags</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

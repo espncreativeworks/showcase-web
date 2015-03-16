@@ -1,0 +1,46 @@
+.project-filter-container {
+
+  .project-filter-header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    .form-group {
+      margin-bottom: 0;
+    }
+
+    input {
+      font-size: 18px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 0;
+      background-color: $espn-dark;
+      color: $espn-light;
+    }
+
+  }
+
+  .project-filter-body {
+    color: $espn-light;
+    background-color: $espn-dark;
+    background-image: url($image-path + 'bg_filter_body.png');
+    background-repeat: repeat;
+    background-position: 0 0;
+    background-size: 32px 32px;
+  }
+
+  .filter-section-container {
+    border-right: 1px solid grey;
+  }
+
+  .filter-section {
+    padding-top: 20px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 20px;
+  }
+
+  .filter-section-heading {
+    margin: 0;
+    font-size: 15px;
+  }
+}

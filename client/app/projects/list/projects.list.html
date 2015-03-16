@@ -9,12 +9,13 @@
   </div>
   <scroll-down></scroll-down>
 </div>
-<div class="project-list-search section">
+<div class="projects section">
+  <ng-include src="'app/projects/filter/projects.filter.html'"></ng-include>
   <div class="container">
-    <div class="row">
+    <div class="row gutterless">
       <div class="col-xs-12">
-        <ul class="media-list">
-          <li class="media" ng-repeat="project in projects">
+        <ul class="media-list project-list-container">
+          <li class="media" ng-repeat="project in projects | filter:filters.active | filter:filters.term">
             <div class="media-left pull-left">
               <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
                 <cl-image public-id="{{project.hero.file.public_id}}" class="media-object">
@@ -28,7 +29,7 @@
             </div>
           </li>
         </ul>
-      </div>    
+      </div>  
     </div>
-  </div>
+  </div>  
 </div>
