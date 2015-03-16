@@ -9,9 +9,26 @@
       </form>
     </div>
     <div class="hidden-xs col-sm-6">
-      <span class="active-filter-label">Active Filters:</span>
-      <ul class="list-unstyled list-inline">
-        
+      <div class="active-filter-label-container" ng-if="filters.active.platforms.length || filters.active.sports.length || filters.active.industries.length || filters.active.tags.length">
+        <span class="active-filter-label">Active Filters:</span>
+      </div>
+      <ul class="active-filter-tag-list list-unstyled list-inline">
+        <!-- platform filter tags -->
+        <li class="active-filter-tag-container" ng-repeat="platform in filters.active.platforms">
+          <tag text="platform.name" removable="true" onremove="removeFilter('platforms', platform)"></tag>
+        </li>
+        <!-- sport filter tags -->
+        <li class="active-filter-tag-container" ng-repeat="sport in filters.active.sports">
+          <tag text="sport.name" removable="true" onremove="removeFilter('sports', sport)"></tag>
+        </li>
+        <!-- industry filter tags -->
+        <li class="active-filter-tag-container" ng-repeat="industry in filters.active.industries">
+          <tag text="industry.name" removable="true" onremove="removeFilter('industries', industry)"></tag>
+        </li>
+        <!-- execution tag filter tags -->
+        <li class="active-filter-tag-container" ng-repeat="tag in filters.active.tags">
+          <tag text="tag.name" removable="true" onremove="removeFilter('tags', tag)"></tag>
+        </li>
       </ul>
     </div>
   </div>
@@ -21,16 +38,31 @@
         <div class="col-sm-4 filter-section-container">
           <div class="filter-section">
             <h4 class="filter-section-heading">Platform</h4>
+            <ul class="list-unstyled">
+              <li class="filter-control-container" ng-repeat="platform in platforms">
+                <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{platform.name}}" ng-click="addFilter('platforms', platform);">{{platform.name}}</a>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="col-sm-4 filter-section-container">
           <div class="filter-section">
             <h4 class="filter-section-heading">Sport</h4>
+            <ul class="list-unstyled">
+              <li class="filter-control-container" ng-repeat="sport in sports">
+                <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{sport.name}}" ng-click="addFilter('sports', sport);">{{sport.name}}</a>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="col-sm-4 filter-section-container">
           <div class="filter-section">
             <h4 class="filter-section-heading">Industry</h4>
+            <ul class="list-unstyled">
+              <li class="filter-control-container" ng-repeat="industry in industries">
+                <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{industry.name}}" ng-click="addFilter('industries', industry);">{{industry.name}}</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -40,6 +72,11 @@
         <div class="col-sm-12 filter-section-container">
           <div class="filter-section">
             <h4 class="filter-section-heading">Tags</h4>
+            <ul class="list-unstyled">
+              <li class="filter-control-container" ng-repeat="tag in tags">
+                <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{tag.name}}" ng-click="addFilter('tags', tag);">{{tag.name}}</a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@
     <div class="row gutterless">
       <div class="col-xs-12">
         <ul class="media-list project-list-container">
-          <li class="media" ng-repeat="project in projects | filter:filters.active | filter:filters.term">
+          <li class="media" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:this:'filteredProjects'">
             <div class="media-left pull-left">
               <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
                 <cl-image public-id="{{project.hero.file.public_id}}" class="media-object">

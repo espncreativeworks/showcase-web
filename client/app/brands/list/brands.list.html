@@ -1,0 +1,7 @@
+<div class="col-xs-12">
+  <ul class="list-unstyled">
+    <li ng-repeat="brand in brands">
+      <a ui-sref="brands.detail({ id: brand.slug })" title="{{brand.name}}">{{brand.name}}</a>
+    </li>
+  </ul>
+</div>
