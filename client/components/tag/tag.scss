@@ -1,0 +1,32 @@
+.tag {
+  $tag-font-size: 12px;
+  $tag-padding-top: 6px;
+  $tag-padding-left: 12px;
+
+  display: inline-block;
+  padding: $tag-padding-top $tag-padding-left;
+  border-radius: 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: transparent;
+  color: $espn-light;
+  background-color: $espn-red;
+  font-size: $tag-font-size;
+  font-family: $espn-font-family-sans-serif;
+  font-weight: 300;
+  line-height: $tag-font-size + ($tag-padding-top * 2);
+
+  .tag-remove-link {
+    cursor: pointer;
+    margin-left: 4px;
+    color: $espn-light;
+    
+    &:focus,
+    &:hover,
+    &:active,
+    &.active {
+      color: darken($espn-light, 15%);
+      text-decoration: none;
+    } 
+  }
+}
