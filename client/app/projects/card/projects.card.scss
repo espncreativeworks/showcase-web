@@ -1,0 +1,21 @@
+.packery-sizer, .packery-object{
+	width: 100%;
+  max-width: 467px;
+  height: auto; 
+  padding: 10px;
+}
+
+.card {
+	.card-header {
+		font-family: $espn-font-family-headings;
+		color: #000;
+		text-transform: uppercase;
+		margin: 5px 0 0 0 !important;
+	}	
+	.card-desc {
+		font-family: $font-family-sans-serif;
+		color: #b7b7b7;
+		font-style: italic;
+		font-size: 12px;
+	}
+}
