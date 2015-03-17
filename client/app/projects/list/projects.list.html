@@ -9,11 +9,12 @@
   </div>
   <scroll-down></scroll-down>
 </div>
-<div class="project-list-search section">
+<div class="projects section">
+  <ng-include src="'app/projects/filter/projects.filter.html'"></ng-include>
   <div class="container">
     <div class="row">
       <packery class="col-xs-12" item-selector=".card">
-      	<packery-object class="card" ng-repeat="project in projects">
+      	<packery-object class="card" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:this:'filteredProjects'">
       	    <div class="image">
       	      <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
       	        <cl-image public-id="{{project.hero.file.public_id}}" class="img-responsive center-block">
@@ -27,5 +28,5 @@
       	</packery-object>
       </packery>
     </div>
-  </div>
+  </div>  
 </div>

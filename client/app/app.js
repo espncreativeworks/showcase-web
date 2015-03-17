@@ -9,7 +9,8 @@ angular.module('espnCreativeworksShowcaseApp', [
   'ui.bootstrap',
   'cloudinary',
   'angular-momentjs',
-  'angular-packery'
+  'angular-packery',
+  'ngUnderscore'
 ])
   .constant('jQuery', window.jQuery)
   .constant('Modernizr', window.Modernizr)
