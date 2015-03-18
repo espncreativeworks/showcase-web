@@ -68,4 +68,52 @@
       </div>
     </div>
   </div>
+  <div class="footer">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-xs-3 footer-tags">
+  				<div class="row title">
+  					<div class="col-xs-12 text-center">Tags</div>
+  				</div>
+  				<div class="row tags">
+  					<ul class="col-xs-12 active-filter-tag-list list-unstyled list-inline">
+  					  <!-- platform filter tags -->
+  					  <li class="active-filter-tag-container" ng-repeat="tag in project.$tags">
+  					    <tag text="tag.name"></tag>
+  					  </li>
+  					</ul>  				
+  				</div>
+  			</div>
+  			<div class="col-xs-6 related-projects">
+  				<div class="row title">
+  					<div class="col-xs-12 text-center">Related Projects</div>
+  				</div>
+  				<div class="row project">
+  					<div class="col-xs-6" ng-repeat="project in project.$related">
+	  					<div class="image">
+	  					  <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
+	  					    <cl-image public-id="{{project.hero.file.public_id}}" class="img-responsive center-block">
+	  					    </cl-image>
+	  					  </a>
+	  					</div>
+	 						<div class="card-body">
+	 						  <h4 class="card-header">{{project.tagline}}</h4>
+  						  <p class="card-desc">{{project.title}}</p>	
+  						</div>
+	  				</div>
+   				</div>
+  			</div>
+  			<div class="col-xs-3 footer-view-all">
+  				<div class="row title">
+  					<div class="col-xs-12 text-center">View All Projects</div>
+  					<div class="col-xs-12 center-block icon">
+  						<a ui-sref="projects.list">
+  							<img class="center-block" src="assets/images/icon_view_all_projects.png" />
+  						</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
+  </div>
 </div>

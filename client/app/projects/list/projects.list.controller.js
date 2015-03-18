@@ -96,6 +96,9 @@ angular.module('espnCreativeworksShowcaseApp')
         if ($scope.filters.active[key] && project[key]){
           var filterIds = _.map($scope.filters.active[key], function (item){ return item._id; })
             , projectKeyIds = _.map(project[key], function (item){ return item._id; });
+            
+          console.log("filterIds: " + filterIds);
+          console.log("projectKeyIds: " + projectKeyIds);
           
           // check each project keyId against those in the filter
           // if found, set result to true
