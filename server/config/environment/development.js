@@ -9,7 +9,7 @@ module.exports = {
   },
 
   cms: {
-    uri: 'https://showcase-cms-stg.herokuapp.com/api'
+    uri: process.env.CMS_URI || 'http://localhost:3000/api'
   },
 
   seedDB: true

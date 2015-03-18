@@ -11,8 +11,6 @@ angular.module('espnCreativeworksShowcaseApp')
 
     $scope.$watch('filteredProjects', function (newProjects, oldProjects){
       if ($scope.projects.$resolved && angular.isDefined(newProjects) && angular.isDefined(oldProjects) && !_.isEqual(newProjects, oldProjects) ){
-        console.log('New Projects', newProjects);
-        console.log('New Old Projects', newProjects);
         $scope.$broadcast('projects:filtered', newProjects);  
       }
     }, true);
