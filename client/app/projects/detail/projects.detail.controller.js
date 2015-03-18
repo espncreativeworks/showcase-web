@@ -48,7 +48,6 @@ angular.module('espnCreativeworksShowcaseApp')
     	for(var i = 0; i < $scope.project.related.length; i++){
     	   $scope.project.$rel = Project.get({ id: $scope.project.related[i] });
     	   $scope.project.$related.push($scope.project.$rel);
-    	   console.log($scope.project.$rel);
     	}
     	
     });
