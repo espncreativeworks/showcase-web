@@ -5,6 +5,22 @@ $logo-espn-hover-hires: $image-path + "logo_espn_hover@2x.png";
 $logo-espn-width: 85px;
 $logo-espn-height: 21px;
 
+$logo-espncw: $image-path + "logo_espncw.png";
+$logo-espncw-hires: $image-path + "logo_espncw@2x.png";
+// defined in _variables.scss
+// $logo-espncw-width: 123px;
+// $logo-espncw-height: 58px; 
+
+$logo-espncw-sm: $image-path + "logo_espncw_sm.png";
+$logo-espncw-sm-hires: $image-path + "logo_espncw_sm@2x.png";
+$logo-espncw-sm-width: 270px;
+$logo-espncw-sm-height: 121px;
+
+$logo-espncw-md: $image-path + "logo_espncw_md.png";
+$logo-espncw-md-hires: $image-path + "logo_espncw_md@2x.png";
+$logo-espncw-md-width: 360px;
+$logo-espncw-md-height: 161px;
+
 .logo-container {
   display: block;
   width: 100%;
@@ -35,5 +51,34 @@ $logo-espn-height: 21px;
 
   &:hover {
     @include img-retina($logo-espn-hover-default, $logo-espn-hover-hires, $logo-espn-width, $logo-espn-height);
+  }
+}
+
+.logo-container.espncw,
+.logo-container.espncw.xs {
+  display: inline-block;
+  width: $logo-espncw-width;
+  height: $logo-espncw-height;
+  margin-left: 0;
+  margin-right: 0;
+  background-repeat: no-repeat;
+  @include img-retina($logo-espncw, $logo-espncw-hires, $logo-espncw-width, $logo-espncw-height);
+}
+
+@media (min-width: $screen-sm-min){
+  .logo-container.espncw,
+  .logo-container.espncw.sm {
+    width: $logo-espncw-sm-width;
+    height: $logo-espncw-sm-height;
+    @include img-retina($logo-espncw-sm, $logo-espncw-sm-hires, $logo-espncw-sm-width, $logo-espncw-sm-height);
+  }
+}
+
+@media (min-width: $screen-md-min){
+  .logo-container.espncw,
+  .logo-container.espncw.md {
+    width: $logo-espncw-md-width;
+    height: $logo-espncw-md-height;
+    @include img-retina($logo-espncw-md, $logo-espncw-md-hires, $logo-espncw-md-width, $logo-espncw-md-height);
   }
 }

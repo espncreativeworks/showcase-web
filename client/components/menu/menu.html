@@ -1,7 +1,10 @@
 <nav class="menu" id="flyout-menu" menu="" ng-controller="MenuCtrl">
   <div class="menu-wrap">
     <i class="fa fa-times menu-close"></i>
-    <a ui-sref="home" class="menu-link" title="Home"><span class="logo-container espn text-hide">ESPN</span></a>
+    <a ui-sref="home" class="menu-link" title="Home">
+      <span class="sr-only">ESPN CreativeWorks</span>
+      <span class="logo-container menu-logo espncw xs"></span>
+    </a>
     <a ui-sref="{{item.state}}" class="menu-link" ng-class="{ active: isActive(item.state) }" ng-attr-title="item.title" ng-repeat="item in menu">{{item.title}}</a>
   
     <a ui-sref="admin" class="menu-link" ng-show="isAdmin()" ng-class="{ active: isActive('admin') }">Admin</a>

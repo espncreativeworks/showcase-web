@@ -1,9 +1,29 @@
 $espn-menu-font-size: 44px;
-$espn-menu-font-size-sm: 72px;
-$espn-menu-bg-color: rgba(0,0,0,0.8);
+$espn-menu-line-height: $espn-menu-font-size;
+$espn-menu-font-size-sm: 56px;
+$espn-menu-line-height-sm: $espn-menu-font-size-sm;
+$espn-menu-bg-color: rgba(0,0,0,0.9);
+
 $espn-menu-item-bg-color-hover: transparentize($espn-red, .65);
+$espn-menu-item-padding-top: 8px;
+$espn-menu-item-padding-bottom: $espn-menu-item-padding-top;
 $espn-menu-item-color: #808080;
 $espn-menu-item-color-hover: #ffffff;
+
+$espn-menu-logo-height: $logo-espncw-height;
+$espn-menu-logo-margin-top: (($espn-menu-line-height + $espn-menu-item-padding-top + $espn-menu-item-padding-bottom) - $espn-menu-logo-height) / 2;
+$espn-menu-logo-margin-top-sm: (($espn-menu-line-height-sm + $espn-menu-item-padding-top + $espn-menu-item-padding-bottom) - $espn-menu-logo-height) / 2;
+
+$espn-menu-close-width: $espn-menu-font-size;
+$espn-menu-close-height: $espn-menu-close-width;
+$espn-menu-close-top: 16px;
+$espn-menu-close-right: 16px;
+$espn-menu-close-line-height: $espn-menu-font-size;
+$espn-menu-close-width-sm: $espn-menu-font-size-sm;
+$espn-menu-close-height-sm: $espn-menu-close-width-sm;
+$espn-menu-close-top-sm: 16px;
+$espn-menu-close-right-sm: 16px;
+$espn-menu-close-line-height-sm: $espn-menu-font-size-sm;
 
 .menu {
   position: fixed;
@@ -33,17 +53,17 @@ $espn-menu-item-color-hover: #ffffff;
 
 .menu .menu-link {
   font-size: $espn-menu-font-size;
-  line-height: $espn-menu-font-size;
+  line-height: $espn-menu-line-height;
 }
 
 .menu .menu-link,
 .menu .menu-label {
   display: block;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: $espn-menu-item-padding-top;
+  padding-bottom: $espn-menu-item-padding-bottom;
   font-size: $espn-menu-font-size;
   font-weight: 400;
-  line-height: $espn-menu-font-size;
+  line-height: $espn-menu-line-height;
   letter-spacing: 0.1em;
   color: $espn-menu-item-color;
   text-transform: uppercase;
@@ -68,6 +88,10 @@ $espn-menu-item-color-hover: #ffffff;
   background-color: $espn-menu-item-bg-color-hover;
 }
 
+.menu .menu-logo {
+  margin-top: $espn-menu-logo-margin-top;
+}
+
 .menu .menu-label {
   color: $espn-red;
   font-style: italic;
@@ -83,7 +107,6 @@ $espn-menu-item-color-hover: #ffffff;
   vertical-align: middle;
   text-align: center;
   margin-top: 12px;
-  padding-left: 25px;
 }
 
 .menu .social-share:hover {
@@ -98,13 +121,13 @@ $espn-menu-item-color-hover: #ffffff;
   cursor: pointer;
   display: block;
   position: absolute;
-  font-size: 14px;
+  font-size: $espn-menu-font-size;
   color: #808080;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  top: 15px;
-  right: 0px;
+  width: $espn-menu-close-width;
+  height: $espn-menu-close-height;
+  line-height: $espn-menu-close-line-height;
+  top: $espn-menu-close-top;
+  right: $espn-menu-close-right;
   @include transition(all .1s ease-in-out);
 }
 
@@ -169,6 +192,19 @@ $espn-menu-item-color-hover: #ffffff;
   .menu .menu-link, 
   .menu .menu-label {
     font-size: $espn-menu-font-size-sm;
-    line-height: $espn-menu-font-size-sm;
+    line-height: $espn-menu-line-height-sm;
   } 
+
+  .menu .menu-logo {
+    margin-top: $espn-menu-logo-margin-top-sm;
+  }
+
+  .menu-close {
+    font-size: $espn-menu-font-size-sm;
+    width: $espn-menu-close-width-sm;
+    height: $espn-menu-close-height-sm;
+    line-height: $espn-menu-close-line-height-sm;
+    top: $espn-menu-close-top-sm;
+    right: $espn-menu-close-right-sm;
+  }
 }
