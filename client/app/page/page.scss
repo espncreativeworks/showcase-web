@@ -55,6 +55,22 @@ hr {
   }
 }
 
+.btn-block-xs {
+  display: block;
+  float: left;
+  width: 100%;
+  margin-top: 22px;
+}
+
+@media (min-width: $screen-sm-min){
+  .btn-block-xs {
+    display: inline-block;
+    float: none;
+    width: auto;
+    margin-top: 0;
+  }
+}
+
 .transform-translate-align {
   position: relative;
 
