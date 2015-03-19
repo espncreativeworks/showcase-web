@@ -24,7 +24,7 @@ module.exports = function(app) {
   var env = app.get('env');
 
   if ('production' === env || 'staging' === env){
-    var prerender = require('node-prerender').set('prerenderToken', process.env.PRERENDER_TOKEN || '');
+    var prerender = require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN || '');
     app.use(prerender);
   }
 
