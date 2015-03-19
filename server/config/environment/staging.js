@@ -1,11 +1,11 @@
 'use strict';
 
-// Test specific configuration
+// Staging specific configuration
 // ===========================
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: process.env.MONGO_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME || 'mongodb://localhost/espn-creativeworks-showcase'
+    uri: process.env.MONGO_URI || process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || process.env.OPENSHIFT_MONGODB_DB_URL+process.env.OPENSHIFT_APP_NAME || 'mongodb://localhost/espn-creativeworks-showcase-stg'
   },
 
   cms: {

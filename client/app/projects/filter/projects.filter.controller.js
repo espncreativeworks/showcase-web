@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('ProjectsFilterCtrl', ['$scope', 'underscore', 'ProjectFilters', 'Execution', 'Brand', function ($scope, _, ProjectFilters, Execution, Brand) {
+  .controller('ProjectsFilterCtrl', ['$scope', 'underscore', 'ProjectFilters', function ($scope, _, ProjectFilters) {
     $scope.filters = ProjectFilters; 
     $scope.executions = [];
     $scope.platforms = [];
@@ -13,30 +13,6 @@ angular.module('espnCreativeworksShowcaseApp')
     var _projects
       , _brandsResolved = false
       , _executionsResolved = false;
-
-    $scope.$on('projects:filtered', function (evt, filteredProjects){
-      _projects = filteredProjects;
-
-      var _sports = [];
-      
-      angular.forEach(filteredProjects, function (project){
-        _sports = _sports.concat(project.sports);
-      });
-
-      $scope.sports = _.uniq(_sports, function (s){ return s._id; });
-
-      if (_brandsResolved){
-        onbrandsresolved(evt, filteredProjects);
-      }
-
-      if (_executionsResolved){
-        onexecutionsresolved(evt, filteredProjects);
-      }
-
-    });
-
-    $scope.$on('brands:resolved', onbrandsresolved);
-    $scope.$on('executions:resolved', onexecutionsresolved);
 
     function onbrandsresolved (evt, filteredProjects){
       _brandsResolved = true;
@@ -88,11 +64,35 @@ angular.module('espnCreativeworksShowcaseApp')
 
     }
 
+    $scope.$on('projects:filtered', function (evt, filteredProjects){
+      _projects = filteredProjects;
+
+      var _sports = [];
+      
+      angular.forEach(filteredProjects, function (project){
+        _sports = _sports.concat(project.sports);
+      });
+
+      $scope.sports = _.uniq(_sports, function (s){ return s._id; });
+
+      if (_brandsResolved){
+        onbrandsresolved(evt, filteredProjects);
+      }
+
+      if (_executionsResolved){
+        onexecutionsresolved(evt, filteredProjects);
+      }
+
+    });
+
+    $scope.$on('brands:resolved', onbrandsresolved);
+    $scope.$on('executions:resolved', onexecutionsresolved);
+
     $scope.addFilter = function addFilter(category, data){
       var exists = false;
       $scope.filters.active[category] = $scope.filters.active[category] || [];
       
-      angular.forEach($scope.filters.active[category], function(filter, index){
+      angular.forEach($scope.filters.active[category], function(filter){
         if (filter._id === data._id){
           exists = true;
         }

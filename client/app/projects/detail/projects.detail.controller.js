@@ -17,7 +17,7 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.project.$promise.then(function (project){
       Page.meta.title = project.meta.title || (project.title + ' Project Details');
       Page.meta.description = project.meta.description || fullDescriptionFilter(project.description, { plaintext: true });
-      $scope.project.hero.file.transformedUrl = $.cloudinary.url($scope.project.hero.file.public_id, { secure: true, transformation: 'project_detail_hero' });
+      $scope.project.hero.file.transformedUrl = $.cloudinary.url($scope.project.hero.file.public_id, { secure: true, transformation: 'project_detail_hero' }); // jshint ignore:line
       
       $scope.project.$executions = Project.executions({ id: project._id }); 
       return $scope.project.$executions.$promise;
@@ -35,7 +35,7 @@ angular.module('espnCreativeworksShowcaseApp')
         });
 
         angular.forEach(execution.videos, function (video){
-          video.embed.trustedHtml = $sce.trustAsHtml(video.embed.html)
+          video.embed.trustedHtml = $sce.trustAsHtml(video.embed.html);
         });   
       });
       

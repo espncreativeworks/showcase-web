@@ -8,4 +8,4 @@ angular.module('espnCreativeworksShowcaseApp')
         templateUrl: 'app/brands/list/brands.list.html',
         controller: 'BrandsListCtrl'
       });
-  })
+  });

@@ -4,6 +4,7 @@
   "bitwise": true,
   "eqeqeq": true,
   "immed": true,
+  "laxcomma": true,
   "latedef": "nofunc",
   "newcap": true,
   "noarg": true,

@@ -47,10 +47,7 @@ angular.module('espnCreativeworksShowcaseApp')
           $(element).append($container);
         }
         
-
-        $(window).on('resize', onresize);
-
-        function onresize (evt){
+        function onwindowresize (){
           _height = $window.outerHeight > $childHeight ? $window.outerHeight : $childHeight;
           $container.css({ 
             height: _height
@@ -58,8 +55,10 @@ angular.module('espnCreativeworksShowcaseApp')
         }
 
         scope.$on('destroy', function (){ 
-          $(window).off('resize', onresize) 
+          $(window).off('resize', onwindowresize);
         });
+
+        $(window).on('resize', onwindowresize);
       }
     };
   }]);

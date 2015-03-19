@@ -11,7 +11,7 @@ angular.module('espnCreativeworksShowcaseApp')
         onremove: '&'
       },
       replace: true,
-      link: function (scope, element, attrs) {
+      link: function () {
 
       }
     };

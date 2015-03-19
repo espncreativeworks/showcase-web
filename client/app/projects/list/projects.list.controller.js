@@ -15,14 +15,14 @@ angular.module('espnCreativeworksShowcaseApp')
       }
     }, true);
 
-    $scope.$watch('brands', function (newVal, oldVal){
-      if (newVal.resolved > 0 && newVal.resolved == newVal.todo){
+    $scope.$watch('brands', function (newVal){
+      if (newVal.resolved > 0 && newVal.resolved === newVal.todo){
         $scope.$broadcast('brands:resolved', $scope.filteredProjects);  
       }
     }, true);
 
-    $scope.$watch('executions', function (newVal, oldVal){
-      if (newVal.resolved > 0 && newVal.resolved == newVal.todo){
+    $scope.$watch('executions', function (newVal){
+      if (newVal.resolved > 0 && newVal.resolved === newVal.todo){
         $scope.$broadcast('executions:resolved', $scope.filteredProjects);  
       }
     }, true);
@@ -66,12 +66,12 @@ angular.module('espnCreativeworksShowcaseApp')
 
             // add platforms to list on project
             project.platforms = project.platforms || [];
-            project.platforms.push(execution.platform)
+            project.platforms.push(execution.platform);
             project.platforms = _.uniq(project.platforms, function (p){ return p._id; });
 
             // add tags to list on project
             project.tags = project.tags || [];
-            project.tags = project.tags.concat(execution.tags)
+            project.tags = project.tags.concat(execution.tags);
             project.tags = _.uniq(project.tags, function (t){ return t._id; });
             
             $scope.executions.resolved++;
@@ -94,9 +94,6 @@ angular.module('espnCreativeworksShowcaseApp')
         if ($scope.filters.active[key] && project[key]){
           var filterIds = _.map($scope.filters.active[key], function (item){ return item._id; })
             , projectKeyIds = _.map(project[key], function (item){ return item._id; });
-            
-          console.log("filterIds: " + filterIds);
-          console.log("projectKeyIds: " + projectKeyIds);
           
           // check each project keyId against those in the filter
           // if found, set result to true
@@ -114,7 +111,7 @@ angular.module('espnCreativeworksShowcaseApp')
           // default to true if no filter set or project doesn't have the key property
           return true;
         }
-      }
+      };
     }
 
     initFilters(filterKeys);

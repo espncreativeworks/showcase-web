@@ -1,1 +1,1 @@
-$.cloudinary.config().cloud_name = 'dlryariek';
+$.cloudinary.config().cloud_name = 'dlryariek'; // jshint ignore:line

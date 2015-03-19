@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/espn-creativeworks-showcase'
+    uri: process.env.MONGO_URI || 'mongodb://localhost/espn-creativeworks-showcase-dev'
   },
 
   cms: {
