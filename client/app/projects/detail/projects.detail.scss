@@ -1,3 +1,5 @@
+$footer-border-color: $espn-neutral;
+
 body.project-detail {
 
   .project-hero {
@@ -99,44 +101,42 @@ body.project-detail {
   	}
   	
   	.footer-tags {
+
   		.tags {
   			padding-top: 20px;
   		}
+
   		.tag-text {
   			font-style: italic;
   		}
   	}
+
   	.related-projects {
-  		border-left: 1px solid rgb(0, 0, 0);
-  		border-left: 1px solid rgba(0, 0, 0, 0.3);
-  		border-right: 1px solid rgb(0, 0, 0);
-  		border-right: 1px solid rgba(0, 0, 0, 0.3);
+      border-left: none;
+      border-right: none;
   		
   		.project {
   			padding: 20px 20px 0 20px;
   		}
   	}
+
   	.footer-view-all {
-  		.icon {
+  		
+      .icon {
   			padding-top: 20px;
   		}
+
   		img {
   			height: 35px;
   		}
   	}
   	
-  	.card-header {
-  		font-family: $espn-font-family-headings;
-  		color: #000;
-  		text-transform: uppercase;
-  		margin: 5px 0 0 0 !important;
-  	}	
-  	.card-desc {
-  		font-family: $font-family-sans-serif;
-  		color: #b7b7b7;
-  		font-style: italic;
-  		font-size: 12px;
-  	}
+  }
+}
+
+@media (min-width: $screen-sm-min){
+  body.project-detail {
+
   }
 }
 
@@ -168,5 +168,17 @@ body.project-detail {
     .video-title {
       margin-top: 0;
     }
-  } 
+
+    .footer .related-projects {
+      border-left: 1px solid $footer-border-color;
+      border-right: 1px solid $footer-border-color;
+    }
+
+  }
+}
+
+@media (min-width: $screen-lg-min){
+  body.project-detail {
+
+  }
 }

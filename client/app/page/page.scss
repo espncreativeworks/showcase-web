@@ -24,6 +24,10 @@ hr {
     border-top-color: $espn-light;
   }
 
+  &.neutral {
+    border-top-color: $espn-neutral;
+  }
+
   &.short {
     margin-top: 10px;
     margin-bottom: 10px;
