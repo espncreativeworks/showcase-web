@@ -60,10 +60,19 @@
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="video-caption" ng-bind-html="video.caption.html"></div>
-                <div class="video-credits">Featuring: 
+                <div class="video-credits" ng-if="video.$people.length">Featuring: 
+                  <ng-pluralize count="video.$people.length" offset="2" when="{
+                    '0': '',
+                    '1': '{{video.$people[0].name | fullname}}',
+                    '2': '{{video.$people[0].name | fullname}} and {{video.$people[1].name | fullname}}',
+                    'one': '{{video.$people[0].name | fullname}}, {{video.$people[1].name | fullname}} and one other',
+                    'other': '{{video.$people[0].name | fullname}}, {{video.$people[1].name | fullname}} and {} others'
+                  }"></ng-pluralize>
+                  <!--
                   <a class="person-link" ui-sref="people.detail({ id: person.slug })" ng-attr-title="{{person.name | fullname}}" ng-repeat="person in video.$people">
                     <span class="person-link-text">{{person.name | fullname}}</span>
                   </a>
+                  -->
                 </div>
               </div>
             </div>
