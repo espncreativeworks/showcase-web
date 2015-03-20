@@ -60,7 +60,11 @@
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="video-caption" ng-bind-html="video.caption.html"></div>
-                <div class="video-credits">Featuring: <span ng-repeat="person in video.people">{{person}}</span></div>
+                <div class="video-credits">Featuring: 
+                  <a class="person-link" ui-sref="people.detail({ id: person.slug })" ng-attr-title="{{person.name | fullname}}" ng-repeat="person in video.$people">
+                    <span class="person-link-text">{{person.name | fullname}}</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>

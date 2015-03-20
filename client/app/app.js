@@ -13,6 +13,7 @@ angular.module('espnCreativeworksShowcaseApp', [
 ])
   .constant('jQuery', window.jQuery)
   .constant('Modernizr', window.Modernizr)
+  .constant('async', window.async)
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$sceDelegateProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
     $urlRouterProvider
       .otherwise('/');

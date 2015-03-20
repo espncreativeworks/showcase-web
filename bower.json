@@ -22,7 +22,8 @@
     "moment-timezone": "~0.3.0",
     "angular-momentjs": "~0.1.9",
     "animate.css": "~3.2.3",
-    "ng-underscore": "~0.1.0"
+    "ng-underscore": "~0.1.0",
+    "async": "~0.9.2"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",

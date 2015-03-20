@@ -33,6 +33,8 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 @import 'page/buttons.scss';
 @import 'page/logos.scss';
 @import 'page/page.scss';
+@import 'people/detail/people.detail.scss';
+@import 'people/list/people.list.scss';
 @import 'platforms/detail/platforms.detail.scss';
 @import 'platforms/list/platforms.list.scss';
 @import 'projects/card/projects.card.directive.scss';
