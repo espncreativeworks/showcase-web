@@ -15,35 +15,7 @@
   <ng-include src="'app/projects/filter/projects.filter.html'"></ng-include>
   <div class="container gutterless">
     <div class="row">
-      <div class="project-card-container col-xs-12 col-sm-6 col-md-4" ng-class="{ featured: project.isFeatured }" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:this:'filteredProjects'">
-        <div class="card">
-          <div class="card-image text-center" ng-class="{ fallback: !project.hero.file.public_id }">
-            <a class="card-image-link" ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
-              <cl-image public-id="{{project.hero.file.public_id}}" class="img-responsive center-block">
-              </cl-image ng-if="project.hero.file.public_id">
-              <i class="fa fa-picture-o fa-4x" ng-if="!project.hero.file.public_id"></i>
-            </a>
-          </div>
-          <div class="card-body">
-            <h4 class="card-header">{{project.tagline}}</h4>
-            <p class="card-desc">{{project.title}}</p>
-          </div>
-        </div>
-      </div>
-<!--       <packery class="col-xs-12" item-selector=".card">
-        <packery-object class="card" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:this:'filteredProjects'">
-            <div class="image">
-              <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
-                <cl-image public-id="{{project.hero.file.public_id}}" class="img-responsive center-block">
-                </cl-image>
-              </a>
-            </div>
-            <div class="card-body">
-              <h4 class="card-header">{{project.tagline}}</h4>
-              <p class="card-desc">{{project.title}}</p>
-            </div>
-        </packery-object>
-      </packery> -->
+    <project-card project="project" cols="'col-xs-12 col-sm-6 col-md-4'" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:$parent:'filteredProjects'"></project-card>
     </div>
   </div>  
 </div>

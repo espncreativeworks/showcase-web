@@ -71,9 +71,11 @@
   <div class="footer">
   	<div class="container">
   		<div class="row">
-  			<div class="col-xs-3 footer-tags">
+  			<div class="col-xs-12 col-md-3 footer-tags">
   				<div class="row title">
-  					<div class="col-xs-12 text-center">Tags</div>
+  					<div class="col-xs-12 text-center">
+              <h6 class="footer-header">Tags</h6>
+            </div>
   				</div>
   				<div class="row tags">
   					<ul class="col-xs-12 active-filter-tag-list list-unstyled list-inline">
@@ -84,28 +86,27 @@
   					</ul>  				
   				</div>
   			</div>
-  			<div class="col-xs-6 related-projects">
+  			<div class="col-xs-12 col-md-6 related-projects">
   				<div class="row title">
-  					<div class="col-xs-12 text-center">Related Projects</div>
+            <div class="col-xs-12 visible-xs visible-sm">
+              <hr class="neutral short">  
+            </div>
+  					<div class="col-xs-12 text-center">
+             <h6 class="footer-header">Related Projects</h6>     
+            </div>
   				</div>
   				<div class="row project">
-  					<div class="col-xs-6" ng-repeat="project in project.$related">
-	  					<div class="image">
-	  					  <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
-	  					    <cl-image public-id="{{project.hero.file.public_id}}" class="img-responsive center-block">
-	  					    </cl-image>
-	  					  </a>
-	  					</div>
-	 						<div class="card-body">
-	 						  <h4 class="card-header">{{project.tagline}}</h4>
-  						  <p class="card-desc">{{project.title}}</p>	
-  						</div>
-	  				</div>
+            <project-card project="project" cols="'col-xs-12 col-sm-6'" ng-repeat="project in project.$related"></project-card>
    				</div>
   			</div>
-  			<div class="col-xs-3 footer-view-all">
+  			<div class="col-xs-12 col-md-3 footer-view-all">
   				<div class="row title">
-  					<div class="col-xs-12 text-center">View All Projects</div>
+            <div class="col-xs-12 visible-xs visible-sm">
+              <hr class="neutral short">  
+            </div>
+  					<div class="col-xs-12 text-center">
+              <h6 class="footer-header">View All Projects</h6>     
+            </div>
   					<div class="col-xs-12 center-block icon">
   						<a ui-sref="projects.list">
   							<img class="center-block" src="assets/images/icon_view_all_projects.png" />
