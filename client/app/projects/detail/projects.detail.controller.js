@@ -23,7 +23,7 @@ angular.module('espnCreativeworksShowcaseApp')
       if (!project.related.length){
         $scope.project.$related = Project.featured();
         $scope.project.$related.$promise.then(function (featuredProjects){
-          var featuredProjects = angular.copy(featuredProjects);
+          featuredProjects = angular.copy(featuredProjects);
           featuredProjects = _.shuffle(featuredProjects);
           featuredProjects = _.sample(featuredProjects, 2);
           $scope.project.$related = featuredProjects;
