@@ -78,15 +78,15 @@ $espn-menu-close-line-height-sm: $espn-menu-font-size-sm;
   text-decoration: none;
 }
 
-.menu .menu-link.active {
-  background-color: $espn-menu-item-color;
-  color: $espn-menu-item-color-hover;
-}
+// .menu .menu-link.active {
+//   background-color: $espn-menu-item-color;
+//   color: $espn-menu-item-color-hover;
+// }
 
-.menu .menu-link.active:hover {
-  color: $espn-menu-item-color-hover;
-  background-color: $espn-menu-item-bg-color-hover;
-}
+// .menu .menu-link.active:hover {
+//   color: $espn-menu-item-color-hover;
+//   background-color: $espn-menu-item-bg-color-hover;
+// }
 
 .menu .menu-logo {
   margin-top: $espn-menu-logo-margin-top;
@@ -99,7 +99,8 @@ $espn-menu-close-line-height-sm: $espn-menu-font-size-sm;
 
 .menu .menu-link.social-share {
 	display: inline-block;
-	margin-left: 0;
+	margin-left: 4px;
+  margin-right: 4px;
 }
 
 .menu .social-share {

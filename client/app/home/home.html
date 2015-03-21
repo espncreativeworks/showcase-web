@@ -15,9 +15,9 @@
           <p class="espncw-tagline hidden-xs">Informed / Authentic / Connected / Efficient / Multi-Screen</p>
         </div>
         <div class="col-xs-12 controls-container intro-controls-container">
-          <a ui-sref="videos.detail({ id: 'reel' })" class="btn btn-espn btn-lg btn-block-xs">Watch Reel</a>
-          <a ui-sref="projects.list" class="btn btn-espn btn-lg btn-block-xs">View Work</a>
-          <a href="http://www.espncms.com/" class="btn btn-espn btn-lg btn-block-xs">Contact Us</a>
+          <a class="btn btn-espn btn-lg btn-block-xs intro-control" ng-click="watchReel()" title="Watch Reel">Watch Reel</a>
+          <a class="btn btn-espn btn-lg btn-block-xs intro-control" ui-sref="projects.list" title="View Work">View Work</a>
+          <a class="btn btn-espn btn-lg btn-block-xs intro-control" href="http://www.espncms.com/" title="ESPN Customer Marketing and Sales">ESPN CMS</a>
         </div>
       </div>
     </div>
@@ -38,16 +38,14 @@
       </div>
     </div>
   </div>
+  <!--
   <div fullpage class="section location-list" resolve="locations" ng-controller="LocationsListCtrl">
     <div class="container transform-translate-align vertical">
       <div class="row locations-container" >
         <div class="col-xs-12 col-md-4 location-list-item" ng-repeat="_location in locations">
           <div class="diamond"></div>
           <h3 class="location-name espn-title">
-            <!--
             <a ui-sref="locations.detail({ id: _location.slug })" ng-attr-title="_location.name">{{_location.name}}</a>
-            -->
-            <a href="http://www.espncms.com/" target="_blank" ng-attr-title="_location.name">{{_location.name}}</a>
           </h3>
           <hr class="narrower short thick dark center-block">
           <div class="location-time-container">
@@ -57,4 +55,5 @@
       </div>
     </div>
   </div>
+  -->
 </div>

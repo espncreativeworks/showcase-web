@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-image text-center" ng-class="{ fallback: !project.hero.file.public_id }">
       <a class="card-image-link" ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
-        <cl-image public-id="{{project.hero.file.public_id || 'fallback_project_card'}}" class="project-thumbnail img-responsive center-block"></cl-image>
+        <cl-image public-id="{{project.hero.file.public_id || 'fallback_project_card'}}" version="{{project.hero.file.version}}" class="project-thumbnail img-responsive center-block"></cl-image>
         <i class="fa fa-picture-o fa-4x transform-translate-align vertical horizontal absolute" ng-if="!project.hero.file.public_id"></i>
       </a>
     </div>

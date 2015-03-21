@@ -6,14 +6,8 @@ angular.module('espnCreativeworksShowcaseApp')
       'title': 'Home',
       'state': 'home'
     }, {
-      'title': 'Projects',
+      'title': 'Work',
       'state': 'projects.list'
-    }, {
-      'title': 'Executions',
-      'state': 'executions.list'
-    },{
-      'title': 'Platforms',
-      'state': 'platforms.list'
     }];
 
     $scope.isCollapsed = true;
