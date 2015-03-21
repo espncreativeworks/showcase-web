@@ -54,11 +54,16 @@ angular.module('espnCreativeworksShowcaseApp')
           });
         }
 
-        scope.$on('destroy', function (){ 
-          $(window).off('resize', onwindowresize);
-        });
+        // event fires on iOS when scrolling due to showing / hiding
+        // of footer, resizing of address bar
+        // skipping on mobile for now...
+        if (!Modernizr.touch){
+          $(window).on('resize', onwindowresize);
 
-        $(window).on('resize', onwindowresize);
+          scope.$on('destroy', function (){ 
+            $(window).off('resize', onwindowresize);
+          });
+        }
       }
     };
   }]);
