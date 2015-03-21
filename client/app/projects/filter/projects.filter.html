@@ -35,31 +35,43 @@
   <div class="row hidden-xs project-filter-body">
     <div class="col-sm-6">
       <div class="row">
-        <div class="col-sm-4 filter-section-container">
+        <div class="col-sm-3 filter-section-container">
           <div class="filter-section">
-            <h4 class="filter-section-heading">Platform</h4>
-            <ul class="list-unstyled">
-              <li class="filter-control-container" ng-repeat="platform in platforms">
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 class="filter-section-heading">Platform</h4>
+              </div>
+            </div>            
+            <ul class="list-unstyled row">
+              <li class="filter-control-container col-sm-12" ng-repeat="platform in platforms">
                 <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{platform.name}}" ng-click="addFilter('platforms', platform);">{{platform.name}}</a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-sm-4 filter-section-container">
+        <div class="col-sm-3 filter-section-container">
           <div class="filter-section">
-            <h4 class="filter-section-heading">Sport</h4>
-            <ul class="list-unstyled">
-              <li class="filter-control-container" ng-repeat="sport in sports">
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 class="filter-section-heading">Sport</h4>
+              </div>
+            </div>
+            <ul class="list-unstyled row">
+              <li class="filter-control-container col-sm-12" ng-repeat="sport in sports">
                 <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{sport.name}}" ng-click="addFilter('sports', sport);">{{sport.name}}</a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="col-sm-4 filter-section-container">
+        <div class="col-sm-6 filter-section-container">
           <div class="filter-section">
-            <h4 class="filter-section-heading">Industry</h4>
-            <ul class="list-unstyled">
-              <li class="filter-control-container" ng-repeat="industry in industries">
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 class="filter-section-heading">Industry</h4>
+              </div>
+            </div>
+            <ul class="list-unstyled row">
+              <li class="filter-control-container col-sm-6" ng-repeat="industry in industries">
                 <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{industry.name}}" ng-click="addFilter('industries', industry);">{{industry.name}}</a>
               </li>
             </ul>
@@ -71,9 +83,13 @@
       <div class="row">
         <div class="col-sm-12 filter-section-container">
           <div class="filter-section">
-            <h4 class="filter-section-heading">Tags</h4>
-            <ul class="list-unstyled">
-              <li class="filter-control-container" ng-repeat="tag in tags">
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 class="filter-section-heading">Tags</h4>
+              </div>
+            </div>
+            <ul class="list-unstyled row">
+              <li class="filter-control-container col-sm-3" ng-repeat="tag in tags">
                 <a class="filter-control" href="javascript:void(0);" ng-attr-title="Filter by {{tag.name}}" ng-click="addFilter('tags', tag);">{{tag.name}}</a>
               </li>
             </ul>

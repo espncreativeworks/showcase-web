@@ -34,6 +34,27 @@ body.project-detail {
     padding-bottom: 80px;
   }
 
+  .summary-heading {
+    color: $espn-red;
+    text-transform: uppercase;
+  }
+  
+  .brand-links {
+    padding-bottom: 28px;
+  }
+
+  .brand-link {
+    color: $espn-dark;
+    font-style: italic;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus {
+      color: $espn-dark;
+    }
+  }
+
   .project-highlights ul {
     padding-left: 15px;
   }
@@ -89,10 +110,10 @@ body.project-detail {
     font-weight: 300;
   }
   
-  .footer {
+  .project-detail-footer {
   	background-color: #fff;
   	color: #000;
-  	padding: 20px 0px;
+  	padding: 40px 0px;
   	
   	.title {
   		text-transform: uppercase;
@@ -109,6 +130,10 @@ body.project-detail {
   		.tag-text {
   			font-style: italic;
   		}
+
+      .execution-tag-container {
+        padding-bottom: 10px;
+      }
   	}
 
   	.related-projects {
@@ -169,7 +194,11 @@ body.project-detail {
       margin-top: 0;
     }
 
-    .footer .related-projects {
+    .project-detail-footer {
+      padding: 20px 0;
+    }
+
+    .project-detail-footer .related-projects {
       border-left: 1px solid $footer-border-color;
       border-right: 1px solid $footer-border-color;
     }

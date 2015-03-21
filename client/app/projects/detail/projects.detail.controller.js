@@ -17,14 +17,24 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.project.$promise.then(function (project){
       Page.meta.title = project.meta.title || (project.title + ' Project Details');
       Page.meta.description = project.meta.description || fullDescriptionFilter(project.description, { plaintext: true });
-      $scope.project.hero.file.transformedUrl = $.cloudinary.url($scope.project.hero.file.public_id, { secure: true, transformation: 'project_detail_hero' }); // jshint ignore:line
+      $scope.project.hero.file.transformedUrl = $.cloudinary.url($scope.project.hero.file.public_id, { version: $scope.project.hero.file.version, transformation: 'project_detail_hero' }); // jshint ignore:line
       $scope.project.$related = [];
 
-      angular.forEach(project.related, function (projectId, i){
-        if (i < 2){
-          $scope.project.$related.push(Project.get({ id: projectId }));
-        }
-      });
+      if (!project.related.length){
+        $scope.project.$related = Project.featured();
+        $scope.project.$related.$promise.then(function (featuredProjects){
+          var featuredProjects = angular.copy(featuredProjects);
+          featuredProjects = _.shuffle(featuredProjects);
+          featuredProjects = _.sample(featuredProjects, 2);
+          $scope.project.$related = featuredProjects;
+        });
+      } else {
+        angular.forEach(project.related, function (projectId, i){
+          if (i < 2){
+            $scope.project.$related.push(Project.get({ id: projectId }));
+          }
+        });
+      }
 
       $scope.project.$executions = Project.executions({ id: project._id }); 
       return $scope.project.$executions.$promise;

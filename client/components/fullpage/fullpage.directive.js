@@ -18,7 +18,7 @@ angular.module('espnCreativeworksShowcaseApp')
               $children = $(element).children();
               $childHeight = $children.outerHeight(true);
               $children = $children.detach();
-              _height = $window.outerHeight > $childHeight ? $window.outerHeight : $childHeight;
+              _height = $window.innerHeight > $childHeight ? $window.innerHeight : $childHeight;
 
               $container.css({ 
                 position: 'relative',
@@ -35,7 +35,7 @@ angular.module('espnCreativeworksShowcaseApp')
           $children = $(element).children();
           $childHeight = $children.outerHeight(true);
           $children = $children.detach();
-          _height = $window.outerHeight > $childHeight ? $window.outerHeight : $childHeight;
+          _height = $window.innerHeight > $childHeight ? $window.innerHeight : $childHeight;
 
           $container.css({ 
             position: 'relative',
@@ -48,7 +48,7 @@ angular.module('espnCreativeworksShowcaseApp')
         }
         
         function onwindowresize (){
-          _height = $window.outerHeight > $childHeight ? $window.outerHeight : $childHeight;
+          _height = $window.innerHeight > $childHeight ? $window.innerHeight : $childHeight;
           $container.css({ 
             height: _height
           });

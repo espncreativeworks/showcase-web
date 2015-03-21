@@ -1,0 +1,41 @@
+$footer-bg-color: #000;
+$footer-link-color: $footer-bg-color;
+$footer-link-color-hover: $espn-light;
+
+.footer {
+  background-color: $footer-bg-color;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+
+  .diamond {
+    display: inline-block;
+    margin: 0 18px;
+  }
+
+  .footer-link {
+    display: inline-block;
+    margin-left: 5px;
+    line-height: 50px;
+    @include rotate(-45deg);
+    color: $footer-link-color;
+
+    &:hover,
+    &:active,
+    &.active,
+    &:focus {
+      color: $footer-link-color-hover;
+    }
+
+    i {
+      line-height: inherit;
+    }
+  }
+}
+
+@media (min-width: $screen-sm-min){
+  .footer {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+}

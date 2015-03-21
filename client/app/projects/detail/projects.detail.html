@@ -17,10 +17,10 @@
   <div class="project-summary-container">
     <div class="container">
       <div class="row project-summary">
-        <div class="col-xs-12 col-sm-8">
+        <div class="col-xs-12 col-sm-6">
           <p class="project-description" ng-bind-html="project.description | fullDescription"></p>
         </div>
-        <div class="col-xs-12 col-sm-4">
+        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
           <h4 class="summary-heading">Brand</h4>
           <p class="brand-links"><a class="brand-link" ng-href="{{brand.homepage}}" target="_blank" ng-repeat="brand in project.brands"><span class="brand-name">{{brand.name}}</span></a></p>
           <h4 class="summary-heading">Highlights</h4>
@@ -81,7 +81,7 @@
       </div>
     </div>
   </div>
-  <div class="footer">
+  <div class="project-detail-footer">
   	<div class="container">
   		<div class="row">
   			<div class="col-xs-12 col-md-3 footer-tags">
@@ -91,12 +91,14 @@
             </div>
   				</div>
   				<div class="row tags">
-  					<ul class="col-xs-12 active-filter-tag-list list-unstyled list-inline">
-  					  <!-- platform filter tags -->
-  					  <li class="active-filter-tag-container" ng-repeat="tag in project.$tags">
-  					    <tag text="tag.name"></tag>
-  					  </li>
-  					</ul>  				
+            <div class="col-xs-12">
+              <ul class="execution-tag-list list-unstyled list-inline">
+                <!-- execution tags -->
+                <li class="execution-tag-container" ng-repeat="tag in project.$tags">
+                  <tag text="tag.name"></tag>
+                </li>
+              </ul>
+            </div>  				
   				</div>
   			</div>
   			<div class="col-xs-12 col-md-6 related-projects">
