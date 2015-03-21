@@ -8,7 +8,8 @@ angular.module('espnCreativeworksShowcaseApp')
         var $container = $('<div>', { 'class': 'fullscreen-item-wrapper' })
           , $children
           , $childHeight
-          , _height;
+          , _height
+          , padding = 80;
 
         scope.sections = scope.sections ? scope.sections + 1 : 1;
 
@@ -20,11 +21,16 @@ angular.module('espnCreativeworksShowcaseApp')
               $children = $children.detach();
               _height = $window.innerHeight > $childHeight ? $window.innerHeight : $childHeight;
 
+              // adding padding on mobile for now
+              if (Modernizr.touch){
+                _height = _height + (padding * 2);
+              }
+
               $container.css({ 
                 position: 'relative',
                 width: '100%',
                 height: _height,
-                minHeight: _height 
+                minHeight: _height
               });
 
               $container.append($children);
@@ -36,6 +42,11 @@ angular.module('espnCreativeworksShowcaseApp')
           $childHeight = $children.outerHeight(true);
           $children = $children.detach();
           _height = $window.innerHeight > $childHeight ? $window.innerHeight : $childHeight;
+          
+          // adding padding on mobile for now
+          if (Modernizr.touch){
+            _height = _height + (padding * 2);
+          }
 
           $container.css({ 
             position: 'relative',
@@ -49,6 +60,12 @@ angular.module('espnCreativeworksShowcaseApp')
         
         function onwindowresize (){
           _height = $window.innerHeight > $childHeight ? $window.innerHeight : $childHeight;
+
+          // adding padding on mobile for now
+          if (Modernizr.touch){
+            _height = _height + (padding * 2);
+          }
+
           $container.css({ 
             height: _height
           });
