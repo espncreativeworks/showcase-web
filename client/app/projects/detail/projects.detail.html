@@ -60,7 +60,7 @@
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="video-caption" ng-bind-html="video.caption.html"></div>
-                <div class="video-credits" ng-if="video.$people.length">Featuring: 
+                <div class="video-credits" ng-if="video.$people.length"><span class="video-credit-label">Featuring: </span>
                   <ng-pluralize count="video.$people.length" offset="2" when="{
                     '0': '',
                     '1': '{{video.$people[0].name | fullname}}',
