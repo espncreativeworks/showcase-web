@@ -11,11 +11,11 @@
   </div>
   <scroll-down></scroll-down>
 </div>
-<div class="projects project-list-search section">
+<div class="projects section">
   <ng-include src="'app/projects/filter/projects.filter.html'"></ng-include>
   <div class="container gutterless">
-    <div class="row">
-    <project-card project="project" cols="'col-xs-12 col-sm-6 col-md-4'" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:$parent:'filteredProjects'"></project-card>
+    <div class="row project-list-container">
+      <project-card project="project" cols="'col-xs-12 col-sm-6 col-md-4'" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:$parent:'filteredProjects'"></project-card>
     </div>
   </div>  
 </div>

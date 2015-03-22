@@ -17,6 +17,28 @@ body.home {
     font-style: italic;
   }
 
+  .project-hero {
+    text-align: center;
+    color: $espn-light;
+  }
+
+  .project-title,
+  .project-tagline {
+    color: $espn-light;
+  }
+
+  .project-title {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .project-tagline {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
   .section {
     text-align: center;
     background-color: $gray-dark;
@@ -38,5 +60,18 @@ body.home {
       }
     }
   }
-  
+}
+
+@media (min-width: $screen-md-min){
+  body.home {
+
+    .project-title {
+      font-size: 30px;
+    }
+    
+    .project-tagline {
+      font-size: 96px;
+    }
+
+  }
 }

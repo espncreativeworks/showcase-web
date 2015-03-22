@@ -1,4 +1,5 @@
 $footer-border-color: $espn-neutral;
+$summary-font-size: 13px;
 
 body.project-detail {
 
@@ -31,20 +32,26 @@ body.project-detail {
 
   .project-summary {
     padding-top: 80px;
-    padding-bottom: 80px;
+    padding-bottom: 40px;
   }
 
   .summary-heading {
     color: $espn-red;
     text-transform: uppercase;
+    font-size: $summary-font-size;
+  }
+
+  .summary-heading.brand {
+    margin-top: 0;
   }
   
   .brand-links {
-    padding-bottom: 28px;
+    padding-bottom: 14px;
   }
 
   .brand-link {
     color: $espn-dark;
+    font-size: $summary-font-size;
     font-style: italic;
 
     &:hover,
@@ -56,6 +63,7 @@ body.project-detail {
   }
 
   .project-highlights ul {
+    font-size: $summary-font-size;
     padding-left: 15px;
   }
 
@@ -108,6 +116,11 @@ body.project-detail {
     font-size: 14px;
     font-style: italic;
     font-weight: 300;
+  }
+
+  .video-credits .video-credit-label {
+    display: inline-block;
+    margin-right: 2px;
   }
   
   .project-detail-footer {
