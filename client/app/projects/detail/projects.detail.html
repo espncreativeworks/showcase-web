@@ -21,12 +21,15 @@
           <p class="project-description" ng-bind-html="project.description | fullDescription"></p>
         </div>
         <div class="col-xs-12 col-sm-4 col-sm-offset-2">
-          <h4 class="summary-heading">Brand</h4>
-          <p class="brand-links"><a class="brand-link" ng-href="{{brand.homepage}}" target="_blank" ng-repeat="brand in project.brands"><span class="brand-name">{{brand.name}}</span></a></p>
+          <h4 class="summary-heading brand">Brand</h4>
+          <p class="brand-links">
+            <a class="brand-link" ng-href="{{brand.homepage}}" target="_blank" ng-repeat="brand in project.brands"><span class="brand-name">{{brand.name}}</span></a>
+          </p>
           <h4 class="summary-heading">Highlights</h4>
           <div class="project-highlights" ng-bind-html="project.highlights.html"></div>
         </div>
       </div>
+      <hr class="thick red">
     </div>
   </div>
   <div class="execution" ng-repeat="execution in project.$executions">
@@ -60,7 +63,8 @@
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="video-caption" ng-bind-html="video.caption.html"></div>
-                <div class="video-credits" ng-if="video.$people.length"><span class="video-credit-label">Featuring: </span>
+                <div class="video-credits" ng-if="video.$people.length">
+                  <span class="video-credit-label">Featuring:</span>
                   <ng-pluralize count="video.$people.length" offset="2" when="{
                     '0': '',
                     '1': '{{video.$people[0].name | fullname}}',

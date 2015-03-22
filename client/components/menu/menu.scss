@@ -1,3 +1,4 @@
+$espn-menu-font-family: $espn-font-family-headings;
 $espn-menu-font-size: 24px;
 $espn-menu-line-height: $espn-menu-font-size;
 $espn-menu-font-size-sm: 56px;
@@ -49,6 +50,8 @@ $espn-menu-close-line-height-sm: $espn-menu-font-size-sm;
   background-color: $espn-menu-bg-color;
   width: 100%;
   height: 100%;
+  padding-top: 88px;
+  font-family: $espn-menu-font-family;
 }
 
 .menu .menu-link {
@@ -99,8 +102,8 @@ $espn-menu-close-line-height-sm: $espn-menu-font-size-sm;
 
 .menu .menu-link.social-share {
 	display: inline-block;
-	margin-left: 4px;
-  margin-right: 4px;
+	margin-left: 8px;
+  margin-right: 8px;
 }
 
 .menu .social-share {

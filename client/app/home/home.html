@@ -1,5 +1,5 @@
 <div>
-  <div class="intro section" fullpage background-image="'assets/images/bg_home.png'">
+  <div class="intro section project-hero" fullpage background-image="'assets/images/bg_home.png'">
     <div class="container transform-translate-align vertical">
       <div class="row">
         <div class="col-xs-12">
@@ -17,7 +17,7 @@
         <div class="col-xs-12 controls-container intro-controls-container">
           <a class="btn btn-espn btn-lg btn-block-xs intro-control" ng-click="watchReel()" title="Watch Reel">Watch Reel</a>
           <a class="btn btn-espn btn-lg btn-block-xs intro-control" ui-sref="projects.list" title="View Work">View Work</a>
-          <a class="btn btn-espn btn-lg btn-block-xs intro-control" href="http://www.espncms.com/" title="ESPN Customer Marketing and Sales">ESPN CMS</a>
+          <a class="btn btn-espn btn-lg btn-block-xs intro-control" href="http://www.espncms.com/" target="_blank" title="ESPN Customer Marketing and Sales">ESPN CMS</a>
         </div>
       </div>
     </div>
@@ -27,10 +27,14 @@
   <div fullpage class="section project-list-item" background-image="project.hero.file.secure_url" ng-repeat="project in projects" resolve="projects">
     <div class="container transform-translate-align vertical">
       <div class="row">
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
+        <div class="col-xs-12">
           <h2 class="project-tagline espn-title">{{project.tagline}}</h2>
-          <hr class="narrow thick">
-          <h3 class="project-title">{{project.title}}</h3>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+          <hr class="narrow thick light">
+        </div>
+        <div class="col-xs-12">
+          <p class="project-title">{{project.title}}</p>
           <div class="controls-container project-controls">
             <a ui-sref="projects.detail({ id: project.slug })" class="btn btn-espn btn-lg" title="View Project">View Project</a>
           </div>
