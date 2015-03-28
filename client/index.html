@@ -12,7 +12,14 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
     <title ng-bind="page.meta.title + page.meta.titleSuffix"></title>
-    <meta name="description" ng-attr-content="page.meta.description">
+    <meta name="description" ng-attr-content="{{page.meta.description}}">
+    <meta name="keywords" ng-attr-content="{{page.meta.keywords}}">
+
+    <!-- twitter meta -->
+    <meta ng-attr-name="{{key}}" ng-attr-content="{{value}}" ng-repeat="(key,value) in page.meta.twitter">
+    <!-- facebook meta -->
+    <meta ng-attr-property="{{key}}" ng-attr-content="{{value}}" ng-repeat="(key,value) in page.meta.facebook">
+
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
@@ -39,15 +46,58 @@
     <div ui-view=""></div>
     <ng-include src="'components/footer/footer.html'"></ng-include>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-    <script>
-      /*(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <!-- Google Analytics -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+       ga('create', 'UA-61288842-1', 'auto');
+       ga('require', 'displayfeatures');
+       ga('require', 'linkid', 'linkid.js');
+    </script>
 
-      ga('create', 'UA-XXXXX-X');
-      ga('send', 'pageview');*/
+    <!-- Facebook SDK -->
+    <script>
+    (function(d, s, id){
+       var js, fjs = d.getElementsByTagName(s)[0];
+       if (d.getElementById(id)) {return;}
+       js = d.createElement(s); js.id = id;
+       js.src = "//connect.facebook.net/en_US/sdk.js";
+       fjs.parentNode.insertBefore(js, fjs);
+     }(document, 'script', 'facebook-jssdk'));
+
+     window.fbAsyncInit = function (){
+       FB.init({
+         appId: '773090532777126',
+         status: true,
+         xfbml: true,
+         version: 'v2.0'
+       });
+     };
+    </script>
+
+    <!-- Twitter Widgets -->
+    <script>
+      window.twttr = (function (d,s,id) {
+        var t, js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+        js.src="https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+        return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
+      }(document, "script", "twitter-wjs"));
+
+      twttr.ready(function (twttr) {
+        twttr.events.bind('tweet', function (event) {
+          ga('send', {
+            hitType: 'social',
+            socialNetwork: 'Twitter',
+            socialAction: 'Tweet',
+            socialTarget: $(event.target).attr('data-share-url'),
+            page: document.title
+          });
+        });
+      });
     </script>
 
     <!--[if lt IE 9]>
@@ -173,6 +223,7 @@
           <script src="components/modal/modal.service.js"></script>
           <script src="components/mongoose-error/mongoose-error.directive.js"></script>
           <script src="components/scroll-down/scroll-down.directive.js"></script>
+          <script src="components/share/share.directive.js"></script>
           <script src="components/socket/socket.service.js"></script>
           <script src="components/tag/tag.directive.js"></script>
           <script src="components/video-embed/video-embed.directive.js"></script>

@@ -45,7 +45,9 @@ body.project-detail {
     margin-top: 0;
   }
   
-  .brand-links {
+  .brand-links,
+  .project-highlights,
+  .project-sharing-controls {
     padding-bottom: 14px;
   }
 
@@ -61,10 +63,17 @@ body.project-detail {
       color: $espn-dark;
     }
   }
-
+  
+  .project-highlights ol,
   .project-highlights ul {
     font-size: $summary-font-size;
     padding-left: 15px;
+    margin-bottom: 0;
+  }
+
+  .project-sharing-controls .social-share {
+    margin-left: 6px;
+    margin-right: 6px;
   }
 
   .execution {
@@ -187,6 +196,10 @@ body.project-detail {
     
     .project-tagline {
       font-size: 96px;
+    }
+
+    .project-sharing-controls:first-child {
+      margin-left: 0;
     }
 
     .execution-description-container {

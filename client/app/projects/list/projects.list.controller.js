@@ -3,6 +3,11 @@
 angular.module('espnCreativeworksShowcaseApp')
   .controller('ProjectsListCtrl', ['$rootScope', '$scope', 'underscore', 'Page', 'Project', 'ProjectFilters', 'Execution', 'Brand', function ($rootScope, $scope, _, Page, Project, ProjectFilters, Execution, Brand) {
     Page.meta.title = 'Projects';
+    Page.meta.description = 'ESPN CreativeWorks projects.';
+    Page.meta.keywords = 'espn creativeworks projects, espn ads';
+    Page.meta.twitter['twitter:title'] = Page.meta.title;
+    Page.meta.twitter['twitter:description'] = Page.meta.description;
+    Page.meta.facebook['og:description'] = Page.meta.description;
     Page.body.class = $rootScope.$state.includes('projects') ? 'project-list' : Page.body.class;
     $scope.projects = Project.query();
     $scope.filters = ProjectFilters;

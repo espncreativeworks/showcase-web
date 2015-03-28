@@ -17,7 +17,7 @@
   <div class="project-summary-container">
     <div class="container">
       <div class="row project-summary">
-        <div class="col-xs-12 col-sm-6">
+        <div class="hidden-xs col-sm-6">
           <p class="project-description" ng-bind-html="project.description | fullDescription"></p>
         </div>
         <div class="col-xs-12 col-sm-4 col-sm-offset-2">
@@ -27,6 +27,14 @@
           </p>
           <h4 class="summary-heading">Highlights</h4>
           <div class="project-highlights" ng-bind-html="project.highlights.html"></div>
+          <h4 class="summary-heading">Share</h4>
+          <div class="project-sharing-controls">
+            <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-facebook" data-share-url="{{project.sharing.url}}" title="Share on Facebook"><i class="fa fa-facebook fa-2x"></i></a>
+            <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-twitter" data-share-url="{{project.sharing.url}}" data-share-text="{{project.sharing.text}}" data-share-hashtags="" title="Share on Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+          </div>
+        </div>
+        <div class="visible-xs col-xs-12">
+          <p class="project-description" ng-bind-html="project.description | fullDescription"></p>
         </div>
       </div>
       <hr class="thick red">
