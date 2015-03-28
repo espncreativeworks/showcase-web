@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('ProjectsDetailCtrl', ['$scope', '$stateParams', '$sce', 'Page', 'Project', 'People', 'fullDescriptionFilter', 'jQuery', function ($scope, $stateParams, $sce, Page, Project, People, fullDescriptionFilter, $) {
+  .controller('ProjectsDetailCtrl', ['$scope', '$location', '$stateParams', '$sce', 'Page', 'Project', 'People', 'fullDescriptionFilter', 'jQuery', function ($scope, $location, $stateParams, $sce, Page, Project, People, fullDescriptionFilter, $) {
     Page.body.class = 'project-detail';
 
     $scope.fullpage = { 
@@ -15,9 +15,22 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.project = Project.get({ id: $stateParams.id });
     
     $scope.project.$promise.then(function (project){
+
       Page.meta.title = project.meta.title || (project.title + ' Project Details');
       Page.meta.description = project.meta.description || fullDescriptionFilter(project.description, { plaintext: true });
+      Page.meta.keywords = project.meta.keywords || 'espn creativeworks ' + project.title + ', espn ' + project.title;
+      Page.meta.twitter['twitter:title'] = Page.meta.title;
+      Page.meta.twitter['twitter:description'] = Page.meta.description;
+      Page.meta.facebook['og:description'] = Page.meta.description;
+      $scope.project.hero.file.sharingUrl = $.cloudinary.url($scope.project.hero.file.public_id, { version: $scope.project.hero.file.version, transformation: 'social_sharing' }); // jshint ignore:line
+      Page.meta.twitter['twitter:image:src'] = $scope.project.hero.file.sharingUrl;
+      Page.meta.facebook['og:image'] = $scope.project.hero.file.sharingUrl;
       $scope.project.hero.file.transformedUrl = $.cloudinary.url($scope.project.hero.file.public_id, { version: $scope.project.hero.file.version, transformation: 'project_detail_hero' }); // jshint ignore:line
+      $scope.project.meta.canonicalUrl = $location.protocol() + '://' + $location.host() + ($location.port() ? ':' + $location.port() : '' ) + project.meta.uris.web;
+      $scope.project.sharing = {
+        url: $scope.project.meta.canonicalUrl,
+        text: 'Checkout ' + project.tagline + ' from ESPN CreativeWorks'
+      };
       $scope.project.$related = [];
 
       if (!project.related.length){
