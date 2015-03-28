@@ -21,12 +21,13 @@ angular.module('espnCreativeworksShowcaseApp')
       Page.meta.keywords = project.meta.keywords || 'espn creativeworks ' + project.title + ', espn ' + project.title;
       Page.meta.twitter['twitter:title'] = Page.meta.title;
       Page.meta.twitter['twitter:description'] = Page.meta.description;
+      Page.meta.facebook['og:title'] = Page.meta.title;
       Page.meta.facebook['og:description'] = Page.meta.description;
       $scope.project.hero.file.sharingUrl = $.cloudinary.url($scope.project.hero.file.public_id, { version: $scope.project.hero.file.version, transformation: 'social_sharing' }); // jshint ignore:line
       Page.meta.twitter['twitter:image:src'] = $scope.project.hero.file.sharingUrl;
       Page.meta.facebook['og:image'] = $scope.project.hero.file.sharingUrl;
       $scope.project.hero.file.transformedUrl = $.cloudinary.url($scope.project.hero.file.public_id, { version: $scope.project.hero.file.version, transformation: 'project_detail_hero' }); // jshint ignore:line
-      $scope.project.meta.canonicalUrl = $location.protocol() + '://' + $location.host() + ($location.port() ? ':' + $location.port() : '' ) + project.meta.uris.web;
+      $scope.project.meta.canonicalUrl = $location.protocol() + '://' + $location.host() + project.meta.uris.web;
       $scope.project.sharing = {
         url: $scope.project.meta.canonicalUrl,
         text: 'Checkout ' + project.tagline + ' from ESPN CreativeWorks'
