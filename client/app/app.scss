@@ -21,7 +21,7 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 // Component styles are injected through grunt
 // injector
 @import '_variables.scss';
-@import 'account/login/login.scss';
+@import 'account/account.scss';
 @import 'admin/admin.scss';
 @import 'brands/detail/brands.detail.scss';
 @import 'brands/list/brands.list.scss';

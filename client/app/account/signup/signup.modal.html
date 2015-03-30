@@ -1,36 +1,27 @@
-<div fullpage background-image="'assets/images/bg_home.png'">
-  <div class="container auth-container transform-translate-align vertical">
+<div class="modal-header">
+   <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+  <h3 class="modal-title espn-title">Sign Up</h3>
+</div>
+<div class="modal-body">
+  <div class="modal-body-container">
     <div class="row">
-
       <div class="col-xs-12">
-        <div class="page-title text-center">
-          <h1 class="espn-title">Sign Up</h1>
-        </div>
-      </div>
-      
-      <div class="col-xs-12 col-sm-6">
-        <a class="btn btn-block btn-espn btn-auth-social btn-facebook" href="" ng-click="loginOauth('facebook')">
+        <a class="btn btn-block btn-espn btn-facebook" href="" ng-click="loginOauth('facebook')">
           <i class="fa fa-facebook"></i> Sign Up with Facebook
         </a>
-      </div>
-
-      <div class="col-xs-12 col-sm-6">
-        <a class="btn btn-block btn-espn btn-auth-social btn-google-plus" href="" ng-click="loginOauth('google')">
+        <a class="btn btn-block btn-espn btn-google-plus" href="" ng-click="loginOauth('google')">
           <i class="fa fa-google-plus"></i> Sign Up with Google+
         </a>
       </div>
-
       <div class="col-xs-12 auth-or">
         <h6 class="auth-or-text">or</h6>
         <hr class="auth-or-separator">
       </div>
-
       <div class="col-xs-12" ng-hide="signUpWithEmail">
         <div class="signup-with-email">
           <p class="text-center"><a href="javascript:void(0);" ng-click="showSignUpForm()" title="Sign Up With Email"><i class="fa fa-envelope-o"></i> Sign Up With Email</a></p>
         </div>
       </div>
-
       <div class="col-xs-12" ng-show="signUpWithEmail">
         <form class="form auth-form" name="form" ng-submit="register(form)" novalidate>
 
@@ -75,11 +66,12 @@
           </div>
         </form>
       </div>
-
       <div class="col-xs-12">
-        <p class="text-center">Already have an account? <a ui-sref="login" title="Login">Login</a></p>
+        <p class="text-center">Already have an account? <a href="javascript:void(0);" ng-click="toggleAuthModal()" title="Sign Up">Login</a></p>
       </div>
-
     </div>
   </div>
+</div>
+<div class="modal-footer">
+  
 </div>
