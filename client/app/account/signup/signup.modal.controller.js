@@ -51,7 +51,7 @@ angular.module('espnCreativeworksShowcaseApp')
       Page.meta.title = oldTitle;
       Page.body.class = oldClass;
       $modalInstance.dismiss('cancel');
-      var modalInstance = $modal.open({
+      $modal.open({
         templateUrl: 'app/account/login/login.modal.html',
         controller: 'LoginModalCtrl',
         size: 'sm'
