@@ -1,9 +1,13 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('LoginCtrl', function ($scope, Auth, $location, $window) {
+  .controller('LoginCtrl', ['$scope', 'Auth', '$location', '$window', 'Page', function ($scope, Auth, $location, $window, Page){
     $scope.account = {};
     $scope.errors = {};
+    $scope.loginWithEmail = false;
+
+    Page.meta.title = 'Login';
+    Page.body.class = 'auth login';
 
     $scope.login = function(form) {
       $scope.submitted = true;
@@ -26,4 +30,8 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.loginOauth = function(provider) {
       $window.location.href = '/auth/' + provider;
     };
-  });
+
+    $scope.showLoginForm = function (){
+      $scope.loginWithEmail = true;
+    };
+  }]);

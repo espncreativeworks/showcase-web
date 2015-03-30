@@ -1,8 +1,11 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('SettingsCtrl', function ($scope, $timeout, Account, Auth) {
+  .controller('SettingsCtrl', ['$scope', '$timeout', 'Account', 'Auth', 'Page', function ($scope, $timeout, Account, Auth, Page) {
     $scope.errors = {};
+
+    Page.meta.title = 'Settings';
+    Page.body.class = 'auth settings';
 
     $scope.changeEmail = function(form) {
       $scope.newEmailSubmitted = true;
@@ -40,4 +43,4 @@ angular.module('espnCreativeworksShowcaseApp')
         });
       }
 		};
-  });
+  }]);
