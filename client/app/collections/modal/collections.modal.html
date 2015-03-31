@@ -1,0 +1,97 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancel()"><span aria-hidden="true"><i class="fa fa-close"></i></span></button>
+  <h3 class="modal-title collection-title espn-title">Save To Collection</h3>
+</div>
+<div class="modal-body">
+  <div class="modal-body-container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="media-image-container">
+          <cl-image public-id="{{media.file.public_id}}" class="img-responsive center-block" ng-if="type === 'image'"></cl-image>
+          <img ng-src="{{media.embed.thumbnailUrl}}" alt="" class="img-responsive" ng-if="type === 'video'">
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-8">
+        <div class="row">
+          <div class="col-xs-12">
+            <h6 class="media-name">{{media.name || media.title || media.embed.title}}</h6>
+            <p class="media-description hidden-xs" ng-bind-html="media.description.brief.html" ng-if="type !== 'video'"></p>
+            <p class="media-description hidden-xs" ng-bind-html="media.caption.html" ng-if="type === 'video'"></p>
+          </div>
+          <div class="col-xs-12">
+            <div class="select-container select select-block">
+              <div class="select-icon" ng-click="toggleWidget()">
+                <i class="fa fa-sort-desc"></i>
+              </div>
+              <div class="select-widget" ng-class="{ 'hide': hideWidget }">
+                <ul class="select-list list-unstyled">
+                  <li ng-repeat="collection in me.$collections">
+                    <label class="checkbox text-truncate">
+                      <input type="checkbox" checklist-model="selectedCollections" checklist-value="collection">
+                      <span>{{collection.title}}</span>
+                    </label>
+                  </li>
+                </ul>
+                <div class="new-collection-container" ng-class="{ 'create': !hideCreateForm }">
+                  <div class="controls-container">
+                    <a class="create btn btn-primary" href="" ng-click="toggleCreateForm()">Create new</a>
+                    <button class="btn done" ng-click="toggleWidget()">Done</button>
+                  </div>
+                  <form class="form create-collection-form" name="createCollectionForm" ng-submit="createCollection(form)" novalidate>
+                    <div class="row">
+                      <div class="col-xs-6">
+                        <div class="form-group">
+                          <label class="sr-only">Name</label>
+                          <div class="input-group col-xs-12">
+                            <input type="text" name="newCollection.name" class="form-control" ng-model="collection.name" placeholder="Create a new collection" required>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-3">
+                        <div class="form-group">
+                          <label class="sr-only">Visibility</label>
+                          <div class="input-group">
+                            <select name="private" class="form-control wishlist-create-privacy">
+                              <option value="0" selected="">Everyone</option>
+                              <option value="1">Only Me</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-3">
+                        <div class="form-group">
+                          <div class="input-group col-xs-12">
+                            <button type="submit" class="btn btn-primary btn-block">Create</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </form>
+                </div>
+              </div>
+              <span id="selected" class="private" ng-click="toggleWidget()">
+                <span>{{selectedCollections.length}} Collections</span><i></i>
+              </span>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <form class="form update-collection-item-form" name="updateCollectionItemForm" ng-submit="updateCollectionItem(form)" novalidate>
+
+            <div class="form-group">
+              <label>Add a Note</label>
+              <div class="input-group">
+                <textarea name="note" class="form-control" ng-model="collectionItem.note"></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <a href="javascript:void(0);" class="btn btn-espn modal-control" ng-click="save()" title="Save">Save</a>
+</div>

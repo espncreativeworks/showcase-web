@@ -1,0 +1,86 @@
+.btn-toggle-collection {
+  $icon-color: rgba(0,0,0,0.3);
+  $icon-color-hover: rgba(0,0,0,0.6);
+  $icon-color-selected: $espn-red;
+
+  .icon-container,
+  .text-container {
+    display: inline-block;
+    text-decoration: inherit;
+  }
+
+  .icon-container,
+  .text-container {
+    color: $icon-color;
+  }
+
+  .icon-container .hover,
+  .icon-container .selected,
+  .icon-container .selected-hover,
+  .icon-container .updating {
+    display: none;
+  }
+  
+  &:focus,
+  &:hover,
+  &:active,
+  &.active {
+    text-decoration: none;
+  }
+
+  &:not(.selected):not(.loading):hover {
+
+    .icon-container,
+    .text-container {
+      color: $icon-color-hover;
+    }
+
+    .icon-container .default {
+      display: none;
+    }
+
+    .icon-container .hover {
+      display: initial;
+    }
+  }
+
+  &.selected:not(.loading) {
+    .icon-container,
+    .text-container {
+      color: $icon-color-selected;
+    }
+
+    .icon-container .default,
+    .icon-container .hover {
+      display: none;
+    }
+
+    .icon-container .selected {
+      display: initial;
+    }
+
+    &:hover {
+      .icon-container .selected {
+        display: none;
+      }
+
+      .icon-container .selected-hover {
+        display: inline-block;
+      }
+    }
+  }
+
+  &.loading {
+    .icon-container .default,
+    .icon-container .hover,
+    .icon-container .selected,
+    .icon-container .selected-hover {
+      display: none;
+    }
+
+    .icon-container .updating {
+      display: initial;
+    }
+  }
+
+}

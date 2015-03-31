@@ -1,0 +1,12 @@
+<button class="btn-toggle-collection" ng-class="{ 'selected': selected, 'loading': loading }" ng-attr-title="{{actionText}}" ng-click="updateSelection()">
+  <div class="icon-container">
+    <i class="default fa fa-star-o"></i>
+    <i class="hover fa fa-star"></i>
+    <i class="selected fa fa-star"></i>
+    <i class="selected-hover fa fa-star-o"></i>
+    <i class="updating fa fa-cog fa-spin"></i>
+  </div>
+  <div class="text-container" ng-show="mode === 'button'">
+    <span class="link-text">{{actionText}}</span>
+  </div>
+</button>
