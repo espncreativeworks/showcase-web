@@ -18,5 +18,14 @@ angular.module('espnCreativeworksShowcaseApp')
         templateUrl: 'app/account/settings/settings.html',
         controller: 'SettingsCtrl',
         authenticate: true
+      })
+      .state('me', {
+        url: '/me',
+        abstract: true,
+        authenticate: true
+      })
+      .state('users', {
+        url: '/users',
+        abstract: true
       });
   });

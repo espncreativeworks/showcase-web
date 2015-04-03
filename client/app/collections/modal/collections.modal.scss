@@ -1,5 +1,10 @@
+$modal-body-font-size: 16px;
+$modal-header-padding-xs: 5px;
+$modal-header-padding-sm: 15px;
+$modal-footer-padding-xs: 10px;
+$modal-footer-padding-sm: 15px;
+
 body.manage-collections-modal.modal-open {
-  $modal-body-font-size: 16px;
 
   .modal-content {
     border-radius: 0;
@@ -15,11 +20,22 @@ body.manage-collections-modal.modal-open {
   }
 
   .modal-header {
-    border-bottom: 4px solid $espn-dark;
+    position: relative;
+    // border-bottom: 4px solid $espn-dark;
+    border-top: none;
+    padding-top: $modal-header-padding-xs;
+    padding-bottom: $modal-header-padding-xs;
+
+    .close {
+      right: $modal-header-padding-sm;
+    }
   }
 
   .modal-footer {
-    border-top: 4px solid $espn-dark;
+    // border-top: 4px solid $espn-dark;
+    border-top: none;
+    padding-top: $modal-footer-padding-xs;
+    padding-bottom: $modal-footer-padding-xs;
   }
 
   .modal-body {
@@ -223,5 +239,14 @@ body.manage-collections-modal.modal-open {
 
   .create-collection-form .form-group {
     margin-bottom: 0;
+  }
+}
+
+@media (min-width: $screen-sm-min){
+  body.manage-collections-modal.modal-open {
+    .modal-header,
+    .modal-footer {
+      padding: $modal-footer-padding-sm;
+    }
   }
 }

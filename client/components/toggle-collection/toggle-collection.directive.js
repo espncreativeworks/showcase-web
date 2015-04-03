@@ -34,8 +34,8 @@ angular.module('espnCreativeworksShowcaseApp')
           scope.loading = true;
           
           var modalInstance = $modal.open({
-            templateUrl: 'app/collections/modal/collections.modal.html',
-            controller: 'CollectionsModalCtrl',
+            templateUrl: 'app/collection-items/modal/collection-items.modal.html',
+            controller: 'CollectionItemsModalCtrl',
             size: 'lg',
             resolve: {
               media: function (){ return scope.media; },
