@@ -10,7 +10,7 @@
     <meta name="fragment" content="!"> 
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
     <title ng-bind="page.meta.title + page.meta.titleSuffix"></title>
     <meta name="description" ng-attr-content="{{page.meta.description}}">
     <meta name="keywords" ng-attr-content="{{page.meta.keywords}}">
@@ -144,6 +144,7 @@
       <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
       <script src="bower_components/ng-underscore/build/ng-underscore.js"></script>
       <script src="bower_components/async/lib/async.js"></script>
+      <script src="bower_components/checklist-model/checklist-model.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -165,6 +166,22 @@
           <script src="app/brands/detail/brands.detail.js"></script>
           <script src="app/brands/list/brands.list.controller.js"></script>
           <script src="app/brands/list/brands.list.js"></script>
+          <script src="app/collection-items/collection-items.js"></script>
+          <script src="app/collection-items/collection-items.service.js"></script>
+          <script src="app/collection-items/detail/collection-items.detail.controller.js"></script>
+          <script src="app/collection-items/detail/collection-items.detail.js"></script>
+          <script src="app/collection-items/list/collection-items.list.controller.js"></script>
+          <script src="app/collection-items/list/collection-items.list.js"></script>
+          <script src="app/collection-items/modal/collection-items.modal.controller.js"></script>
+          <script src="app/collection-items/modal/collection-items.modal.js"></script>
+          <script src="app/collections/collections.js"></script>
+          <script src="app/collections/collections.service.js"></script>
+          <script src="app/collections/detail/collections.detail.controller.js"></script>
+          <script src="app/collections/detail/collections.detail.js"></script>
+          <script src="app/collections/list/collections.list.controller.js"></script>
+          <script src="app/collections/list/collections.list.js"></script>
+          <script src="app/collections/modal/collections.modal.controller.js"></script>
+          <script src="app/collections/modal/collections.modal.js"></script>
           <script src="app/executions/detail/executions.detail.controller.js"></script>
           <script src="app/executions/detail/executions.detail.js"></script>
           <script src="app/executions/executions.js"></script>
@@ -228,6 +245,7 @@
           <script src="components/share/share.directive.js"></script>
           <script src="components/socket/socket.service.js"></script>
           <script src="components/tag/tag.directive.js"></script>
+          <script src="components/toggle-collection/toggle-collection.directive.js"></script>
           <script src="components/video-embed/video-embed.directive.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->

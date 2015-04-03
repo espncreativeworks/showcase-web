@@ -15,6 +15,7 @@ var AccountSchema = new Schema({
   hashedPassword: String,
   provider: String,
   salt: String,
+  collections: [],
   facebook: {},
   twitter: {},
   google: {},

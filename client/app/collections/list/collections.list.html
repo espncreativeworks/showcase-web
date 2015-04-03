@@ -1,0 +1,25 @@
+<div class="container collecton-list-container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="collection in collections">
+      <div class="collection-list-item-container">
+        <div class="collection-list-item-image-container" background-image="collection.heroUrl">
+          <!-- <img ng-attr-alt="{{collection.title}}" class="img-responsive" ng-src="{{collection.heroUrl}}"> -->
+          <div class="collection-list-item-image-mask"></div>
+        </div>
+        <div class="collection-list-item-body text-center transform-translate-align vertical absolute">
+          <h3 class="collection-title">{{collection.title}}</h3>
+          <a ui-sref="collections.detail({ id: collection._id })" class="btn btn-espn btn-espn-default collection-list-item-control" ng-attr-title="collection.title">
+            {{collection.items.length}} 
+            <ng-pluralize count="collection.items.length" offset="2" when="{
+              '0': 'Listings',
+              '1': 'Listing',
+              '2': 'Listings',
+              'one': 'Listings',
+              'other': 'Listings'
+            }"></ng-pluralize>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -82,3 +82,10 @@ hr {
     padding-right: 0;
   }
 }
+
+html.touch input[type="text"]:focus, 
+html.touch input[type="text"]:hover
+html.touch textarea:focus, 
+html.touch textarea:hover {
+  font-size: 16px; 
+}
