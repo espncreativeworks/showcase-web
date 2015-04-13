@@ -26,4 +26,6 @@ module.exports = {
   cms: {
     uri: process.env.CMS_URI || 'http://localhost:3000/api'
   },
+
+  seedDB: false
 };
