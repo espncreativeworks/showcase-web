@@ -20,7 +20,7 @@ angular.module('espnCreativeworksShowcaseApp')
             $collectionItem.$promise.then(function (collectionItem){
               var imageUrl = null;
               if (collectionItem.images.length){
-                imageUrl = collectionItem.images[0].file.secure_url;
+                imageUrl = collectionItem.images[0].file.secure_url; // jshint ignore:line
               } else if (collectionItem.videos.length){
                 imageUrl = collectionItem.videos[0].embed.thumbnailUrl;
               } else if (collectionItem.documents.length){

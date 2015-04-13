@@ -19,7 +19,7 @@ angular.module('espnCreativeworksShowcaseApp')
 
           if (item.images.length){
             media = item.images[0];
-            item.thumbnailUrl = media.file.secure_url;
+            item.thumbnailUrl = media.file.secure_url; // jshint ignore:line
             item.title = media.title;
             item.description = media.description.brief;
           } else if (item.videos.length){
@@ -32,7 +32,7 @@ angular.module('espnCreativeworksShowcaseApp')
             } else if (media.caption.html){
               item.description = media.caption;  
             } else if (media.embed.description){
-              item.description = { html: media.embed.description, md: media.embed.description }
+              item.description = { html: media.embed.description, md: media.embed.description };
             }
           }
         });

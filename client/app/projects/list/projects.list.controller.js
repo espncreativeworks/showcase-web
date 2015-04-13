@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('ProjectsListCtrl', ['$rootScope', '$scope', 'underscore', 'Page', 'Project', 'ProjectFilters', 'Execution', 'Brand', function ($rootScope, $scope, _, Page, Project, ProjectFilters, Execution, Brand) {
+  .controller('ProjectsListCtrl', ['$rootScope', '$scope', 'underscore', 'Page', 'Project', 'ProjectFilters', function ($rootScope, $scope, _, Page, Project, ProjectFilters) {
     Page.meta.title = 'Projects';
     Page.meta.description = 'ESPN CreativeWorks projects.';
     Page.meta.keywords = 'espn creativeworks projects, espn ads';

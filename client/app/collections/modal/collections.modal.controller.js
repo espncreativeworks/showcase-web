@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('CollectionsModalCtrl',  ['$scope', '$modalInstance', 'Auth', 'Page', 'Collection', function ($scope, $modalInstance, Auth, Page, Collection) {
+  .controller('CollectionsModalCtrl',  ['$scope', '$modalInstance', 'Auth', 'Page', function ($scope, $modalInstance, Auth, Page) {
 
     var oldTitle = angular.copy(Page.meta.title)
       , oldClass = angular.copy(Page.body.class);
