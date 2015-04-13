@@ -5,12 +5,12 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: process.env.MONGO_URI || 'mongodb://localhost/espn-creativeworks-showcase-dev'
+    uri: process.env.MONGO_URI || 'mongodb://localhost/espn-creativeworks-showcase'
   },
 
   cms: {
     uri: process.env.CMS_URI || 'http://localhost:3000/api'
   },
 
-  seedDB: true
+  seedDB: false
 };
