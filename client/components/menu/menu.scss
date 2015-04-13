@@ -1,3 +1,31 @@
+$espn-menu-font-family: $espn-font-family-headings;
+$espn-menu-font-size: 24px;
+$espn-menu-line-height: $espn-menu-font-size;
+$espn-menu-font-size-sm: 56px;
+$espn-menu-line-height-sm: $espn-menu-font-size-sm;
+$espn-menu-bg-color: rgba(0,0,0,0.9);
+
+$espn-menu-item-bg-color-hover: transparentize($espn-red, .65);
+$espn-menu-item-padding-top: 8px;
+$espn-menu-item-padding-bottom: $espn-menu-item-padding-top;
+$espn-menu-item-color: #808080;
+$espn-menu-item-color-hover: #ffffff;
+
+$espn-menu-logo-height: $logo-espncw-height;
+$espn-menu-logo-margin-top: (($espn-menu-line-height + $espn-menu-item-padding-top + $espn-menu-item-padding-bottom) - $espn-menu-logo-height) / 2;
+$espn-menu-logo-margin-top-sm: (($espn-menu-line-height-sm + $espn-menu-item-padding-top + $espn-menu-item-padding-bottom) - $espn-menu-logo-height) / 2;
+
+$espn-menu-close-width: $espn-menu-font-size;
+$espn-menu-close-height: $espn-menu-close-width;
+$espn-menu-close-top: 16px;
+$espn-menu-close-right: 16px;
+$espn-menu-close-line-height: $espn-menu-font-size;
+$espn-menu-close-width-sm: $espn-menu-font-size-sm;
+$espn-menu-close-height-sm: $espn-menu-close-width-sm;
+$espn-menu-close-top-sm: 16px;
+$espn-menu-close-right-sm: 16px;
+$espn-menu-close-line-height-sm: $espn-menu-font-size-sm;
+
 .menu {
   position: fixed;
   right: -200px;
@@ -5,11 +33,13 @@
   height: 100%;
   top: 0;
   z-index: 25;
-  text-align: left;
+  text-align: center;
 }
 
 .menu.menu-open {
-  right: 0px;
+  width: 100%;
+  height: 100%;
+  right: 0;
   z-index: 125;
 }
 
@@ -17,69 +47,77 @@
   position: absolute;
   top: 0;
   left: 0px;
-  background: #000;
-  width: 200px;
+  background-color: $espn-menu-bg-color;
+  width: 100%;
   height: 100%;
+  padding-top: 88px;
+  font-family: $espn-menu-font-family;
 }
 
-.menu h1.logo a {
-  //font-family: 'Raleway', Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  line-height: 40px;
-  text-transform: uppercase;
-  color: #ffffff;
-  margin-top: 20px;
+.menu .menu-link {
+  font-size: $espn-menu-font-size;
+  line-height: $espn-menu-line-height;
 }
 
-.menu h1.logo a:hover {
-  color: #f85c37;
-}
-
-.menu img.logo {
-  margin: 20px 0;
-  max-width: 160px;
-}
-
-.menu a,
+.menu .menu-link,
 .menu .menu-label {
-  margin-left: 20px;
-  color: #808080;
   display: block;
-  font-size: 12px;
+  padding-top: $espn-menu-item-padding-top;
+  padding-bottom: $espn-menu-item-padding-bottom;
+  font-size: $espn-menu-font-size;
   font-weight: 400;
-  line-height: 40px;
+  line-height: $espn-menu-line-height;
   letter-spacing: 0.1em;
+  color: $espn-menu-item-color;
   text-transform: uppercase;
+  background-color: transparent;
 }
 
-.menu a:hover {
-  color: #ffffff;
+.menu .menu-link:hover,
+.menu .menu-link:active,
+.menu .menu-link:focus {
+  color: $espn-menu-item-color-hover;
+  background-color: $espn-menu-item-bg-color-hover;
   text-decoration: none;
 }
 
-.menu a:active {
-  color: #ffffff;
-  text-decoration: none;
+// .menu .menu-link.active {
+//   background-color: $espn-menu-item-color;
+//   color: $espn-menu-item-color-hover;
+// }
+
+// .menu .menu-link.active:hover {
+//   color: $espn-menu-item-color-hover;
+//   background-color: $espn-menu-item-bg-color-hover;
+// }
+
+.menu .menu-logo {
+  margin-top: $espn-menu-logo-margin-top;
 }
 
 .menu .menu-label {
   color: $espn-red;
+  font-style: italic;
 }
 
-.menu a > i {
-  float: left;
+.menu .menu-link.social-share {
+	display: inline-block;
+	margin-left: 8px;
+  margin-right: 8px;
+}
+
+.menu .social-share {
   display: inline-block;
   vertical-align: middle;
-  text-align: left;
-  width: 25px;
-  // font-size: 14px;
-  line-height: 40px;
-  margin: 25px 2px;
+  text-align: center;
+  margin-top: 12px;
 }
 
-.menu a.social-share > i {
+.menu .social-share:hover {
+  background-color: transparent;
+}
+
+.menu .social-share > i {
   margin-top: 0;
 }
 
@@ -87,13 +125,13 @@
   cursor: pointer;
   display: block;
   position: absolute;
-  font-size: 14px;
+  font-size: $espn-menu-font-size;
   color: #808080;
-  width: 40px;
-  height: 40px;
-  line-height: 40px;
-  top: 15px;
-  right: 0px;
+  width: $espn-menu-close-width;
+  height: $espn-menu-close-height;
+  line-height: $espn-menu-close-line-height;
+  top: $espn-menu-close-top;
+  right: $espn-menu-close-right;
   @include transition(all .1s ease-in-out);
 }
 
@@ -144,8 +182,33 @@
   @include transition(all .1s ease-in-out);
 }
 
+#menu-toggle.active {
+	display: none;
+}
+
 #menu-toggle:hover {
   color: $espn-red;
   background: rgba(0,0,0,0.5);
   @include transition(all .1s ease-in-out);
+}
+
+@media (min-width: $screen-sm-min){
+  .menu .menu-link, 
+  .menu .menu-label {
+    font-size: $espn-menu-font-size-sm;
+    line-height: $espn-menu-line-height-sm;
+  } 
+
+  .menu .menu-logo {
+    margin-top: $espn-menu-logo-margin-top-sm;
+  }
+
+  .menu-close {
+    font-size: $espn-menu-font-size-sm;
+    width: $espn-menu-close-width-sm;
+    height: $espn-menu-close-height-sm;
+    line-height: $espn-menu-close-line-height-sm;
+    top: $espn-menu-close-top-sm;
+    right: $espn-menu-close-right-sm;
+  }
 }

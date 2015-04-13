@@ -4,9 +4,15 @@
 
 'use strict';
 
-
 // Set default node environment to development
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+var env = process.env.NODE_ENV;
+
+
+// include newrelic early during startup
+if ('production' === env || 'staging' === env){
+  require('newrelic');
+}
 
 var express = require('express');
 var mongoose = require('mongoose');

@@ -24,6 +24,10 @@ hr {
     border-top-color: $espn-light;
   }
 
+  &.neutral {
+    border-top-color: $espn-neutral;
+  }
+
   &.short {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -34,25 +38,6 @@ hr {
   font-family: $espn-font-family-headings;
   font-weight: 400;
   text-transform: uppercase;
-}
-
-.btn-espn {
-  border-radius: 0;
-  border-width: 4px;
-  border-style: solid;
-  border-color: $espn-light;
-  color: $espn-light;
-  font-family: $espn-font-family-headings;
-  font-weight: 400;
-  text-transform: uppercase;
-
-  &:hover,
-  &:active,
-  &.active {
-    border-color: darken($espn-light, 15%);
-    color: darken($espn-light, 15%);
-    text-decoration: none;
-  }
 }
 
 .transform-translate-align {
@@ -77,12 +62,30 @@ hr {
   }
 }
 
-.row.gutterless {
-  // margin-left: 0;
-  // margin-right: 0;
+.diamond {
+  margin-top: 20px;
+  width: 50px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid $espn-red;
+  @include rotate(45deg);
 
+  &.fill {
+    background-color: $espn-red;
+  }
+}
+
+.row.gutterless {
   & > [class*="col-"] {
     padding-left: 0;
     padding-right: 0;
   }
+}
+
+html.touch input[type="text"]:focus, 
+html.touch input[type="text"]:hover
+html.touch textarea:focus, 
+html.touch textarea:hover {
+  font-size: 16px; 
 }

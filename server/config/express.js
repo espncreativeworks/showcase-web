@@ -23,6 +23,11 @@ var Account = require('../api/account/account.model');
 module.exports = function(app) {
   var env = app.get('env');
 
+  if ('production' === env || 'staging' === env){
+    var prerender = require('prerender-node').set('prerenderToken', process.env.PRERENDER_TOKEN || '');
+    app.use(prerender);
+  }
+
   app.set('views', config.root + '/server/views');
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
@@ -54,11 +59,15 @@ module.exports = function(app) {
     });
   });
   
-  if ('production' === env) {
+  if ('production' === env || 'staging' === env) {
+    var raygun = require('raygun');
+    var raygunClient = new raygun.Client().init({ apiKey: process.env.RAYGUN_APIKEY });
+
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
     app.set('appPath', config.root + '/public');
     app.use(morgan('dev'));
+    app.use(raygunClient.expressHandler);
   }
 
   if ('development' === env || 'test' === env) {

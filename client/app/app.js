@@ -9,10 +9,12 @@ angular.module('espnCreativeworksShowcaseApp', [
   'ui.bootstrap',
   'cloudinary',
   'angular-momentjs',
-  'ngUnderscore'
+  'ngUnderscore',
+  'checklist-model'
 ])
   .constant('jQuery', window.jQuery)
   .constant('Modernizr', window.Modernizr)
+  .constant('async', window.async)
   .config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$httpProvider', '$sceDelegateProvider', function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $sceDelegateProvider) {
     $urlRouterProvider
       .otherwise('/');

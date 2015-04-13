@@ -9,6 +9,8 @@ module.exports = function (grunt) {
     localConfig = {};
   }
 
+  var pkg = grunt.file.readJSON('package.json');
+
   // Load grunt tasks automatically, when needed
   require('jit-grunt')(grunt, {
     express: 'grunt-express-server',
@@ -27,7 +29,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
 
     // Project settings
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: pkg,
     yeoman: {
       // configurable paths
       client: require('./bower.json').appPath || 'client',
@@ -235,7 +237,8 @@ module.exports = function (grunt) {
             '<%= yeoman.dist %>/public/{,*/}*.js',
             '<%= yeoman.dist %>/public/{,*/}*.css',
             '<%= yeoman.dist %>/public/assets/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
-            '<%= yeoman.dist %>/public/assets/fonts/*'
+            '<%= yeoman.dist %>/public/assets/fonts/*',
+            '!<%= yeoman.dist %>/public/bower_components/animate.css'
           ]
         }
       }
@@ -254,7 +257,7 @@ module.exports = function (grunt) {
     // Performs rewrites based on rev and the useminPrepare configuration
     usemin: {
       html: ['<%= yeoman.dist %>/public/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/public/{,*/}*.css'],
+      css: ['<%= yeoman.dist %>/public/{,*/}*.css', '!<%= yeoman.dist %>/public/bower_components/animate.css'],
       js: ['<%= yeoman.dist %>/public/{,*/}*.js'],
       options: {
         assetsDirs: [
@@ -367,7 +370,8 @@ module.exports = function (grunt) {
           dest: '<%= yeoman.dist %>',
           src: [
             'package.json',
-            'server/**/*'
+            'server/**/*',
+            '!server/config/local.env.js'
           ]
         }]
       },
@@ -383,20 +387,26 @@ module.exports = function (grunt) {
       options: {
         dir: 'dist',
         commit: true,
-        push: true,
+        branch: 'dist',
+        push: false,
         connectCommits: false,
         message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
       },
-      heroku: {
+      staging: {
         options: {
-          remote: 'heroku',
-          branch: 'master'
+          branch: 'staging',
+          push: true,
+          remote: 'git@heroku.com:showcase-web-stg.git',
+          remoteBranch: 'master'
         }
       },
-      openshift: {
+      production: {
         options: {
-          remote: 'openshift',
-          branch: 'master'
+          branch: 'master',
+          push: true,
+          remote: 'git@heroku.com:showcase-web.git',
+          remoteBranch: 'master',
+          tag: pkg.version
         }
       }
     },
@@ -614,8 +624,8 @@ module.exports = function (grunt) {
         'injector:sass', 
         'concurrent:test',
         'injector',
-        'autoprefixer',
-        'karma'
+        'autoprefixer'
+        //'karma'
       ]);
     }
 

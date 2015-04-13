@@ -1,0 +1,60 @@
+body.collections-list {
+  background-color: #f5f5f5;
+  color: #565a5c;
+
+  .collecton-list-container {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .collection-list-item-container,
+  .collection-list-item-image-container {
+    position: relative;
+    width: 100%;
+    max-width: 322px;
+    min-height: 202px;
+    max-height: 322px;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+
+  .collection-list-item-container {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .collection-list-item-image-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: auto;
+    height: auto;
+    z-index: 2;
+    background: $espn-dark;
+    opacity: .3;
+  }
+
+  .collection-list-item-body {
+    width: 100%;
+    z-index: 3;
+
+    .collection-title {
+      color: $espn-light;
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .collection-list-item-control {
+      display: inline-block;
+    }
+  }
+  
+}
+
+@media (min-width: $screen-sm-min){
+  body.collections-list {
+
+  } 
+}

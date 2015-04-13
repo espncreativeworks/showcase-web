@@ -34,9 +34,10 @@ angular.module('espnCreativeworksShowcaseApp')
       replace: true,
       scope: {
         video: '=',
-        isModal: '='
+        isModal: '=',
+        isLink: '='
       },
-      link: function (scope, element, attrs) {
+      link: function (scope) {
         scope.touch = Modernizr.touch;
 
         scope.open = function (){

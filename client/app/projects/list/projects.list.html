@@ -3,6 +3,8 @@
     <div class="row">
       <div class="col-xs-12 text-center">
         <h1 class="espn-title">Work</h1>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
         <hr class="narrow thick light">
       </div>
     </div>
@@ -11,25 +13,9 @@
 </div>
 <div class="projects section">
   <ng-include src="'app/projects/filter/projects.filter.html'"></ng-include>
-  <div class="container">
-    <div class="row gutterless">
-      <div class="col-xs-12">
-        <ul class="media-list project-list-container">
-          <li class="media" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:this:'filteredProjects'">
-            <div class="media-left pull-left">
-              <a ui-sref="projects.detail({ id: project.slug })" title="{{project.tagline}}">
-                <cl-image public-id="{{project.hero.file.public_id}}" class="media-object">
-                  <cl-transformation height="75" width="75" crop="fill" gravity="north" />
-                </cl-image>
-              </a>
-            </div>
-            <div class="media-body">
-              <h4 class="media-heading">{{project.title}}</h4>
-              <p>{{project.tagline}}</p>
-            </div>
-          </li>
-        </ul>
-      </div>  
+  <div class="container gutterless">
+    <div class="row project-list-container">
+      <project-card project="project" cols="'col-xs-12 col-sm-6 col-md-4'" ng-repeat="project in projects | filter:platformsFilter | filter:sportsFilter | filter:industriesFilter | filter:tagsFilter | filter:filters.term | as:$parent:'filteredProjects'"></project-card>
     </div>
   </div>  
 </div>

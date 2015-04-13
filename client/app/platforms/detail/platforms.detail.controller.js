@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('PlatformsDetailCtrl', function ($scope, $stateParams, Platform, Execution) {
+  .controller('PlatformsDetailCtrl', function ($scope, $stateParams, Platform) {
     $scope.platform = {};
     $scope.platform = Platform.get({ id: $stateParams.id });
 

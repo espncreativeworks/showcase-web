@@ -28,6 +28,13 @@ angular.module('espnCreativeworksShowcaseApp')
         },
         isArray: true
       },
+      search: {
+        method: 'GET',
+        params: {
+          id: 'search'
+        },
+        isArray: true
+      },
       executions: {
         method: 'GET',
         params: {

@@ -1,82 +1,85 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <h1>Sign up</h1>
-    </div>
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <form class="form" name="form" ng-submit="register(form)" novalidate>
+<div fullpage background-image="'assets/images/bg_home.png'">
+  <div class="container auth-container transform-translate-align vertical">
+    <div class="row">
 
-        <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
-                                            'has-error': form.name.$invalid && submitted }">
-          <label>Name</label>
-
-          <input type="text" name="name" class="form-control" ng-model="account.name"
-                 required/>
-          <p class="help-block" ng-show="form.name.$error.required && submitted">
-            A name is required
-          </p>
+      <div class="col-xs-12">
+        <div class="page-title text-center">
+          <h1 class="espn-title">Sign Up</h1>
         </div>
+      </div>
+      
+      <div class="col-xs-12 col-sm-6">
+        <a class="btn btn-block btn-espn btn-auth-social btn-facebook" href="" ng-click="loginOauth('facebook')">
+          <i class="fa fa-facebook"></i> Sign Up with Facebook
+        </a>
+      </div>
 
-        <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
-                                            'has-error': form.email.$invalid && submitted }">
-          <label>Email</label>
+      <div class="col-xs-12 col-sm-6">
+        <a class="btn btn-block btn-espn btn-auth-social btn-google-plus" href="" ng-click="loginOauth('google')">
+          <i class="fa fa-google-plus"></i> Sign Up with Google+
+        </a>
+      </div>
 
-          <input type="email" name="email" class="form-control" ng-model="account.email"
-                 required
-                 mongoose-error/>
-          <p class="help-block" ng-show="form.email.$error.email && submitted">
-            Doesn't look like a valid email.
-          </p>
-          <p class="help-block" ng-show="form.email.$error.required && submitted">
-            What's your email address?
-          </p>
-          <p class="help-block" ng-show="form.email.$error.mongoose">
-            {{ errors.email }}
-          </p>
+      <div class="col-xs-12 auth-or">
+        <h6 class="auth-or-text">or</h6>
+        <hr class="auth-or-separator">
+      </div>
+
+      <div class="col-xs-12" ng-hide="signUpWithEmail">
+        <div class="signup-with-email">
+          <p class="text-center"><a href="javascript:void(0);" ng-click="showSignUpForm()" title="Sign Up With Email"><i class="fa fa-envelope-o"></i> Sign Up With Email</a></p>
         </div>
+      </div>
 
-        <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted,
-                                            'has-error': form.password.$invalid && submitted }">
-          <label>Password</label>
+      <div class="col-xs-12" ng-show="signUpWithEmail">
+        <form class="form auth-form" name="form" ng-submit="register(form)" novalidate>
 
-          <input type="password" name="password" class="form-control" ng-model="account.password"
-                 ng-minlength="3"
-                 required
-                 mongoose-error/>
-          <p class="help-block"
-             ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">
-            Password must be at least 3 characters.
-          </p>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-            {{ errors.password }}
-          </p>
-        </div>
+          <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted, 'has-error': form.name.$invalid && submitted }">
+            <label class="sr-only">Name</label>
+            <div class="input-group">
+              <input type="text" name="name" class="form-control" ng-model="account.name" placeholder="Name" required/>
+              <div class="input-group-addon">
+                <i class="fa fa-user"></i>
+              </div>  
+            </div>
+            <p class="help-block" ng-show="form.name.$error.required && submitted">A name is required</p>
+          </div>
 
-        <div>
-          <button class="btn btn-primary btn-lg btn-login" type="submit">
-            Sign up
-          </button>
-          <a class="btn btn-default btn-lg btn-register" ui-sref="login">
-            Login
-          </a>
-        </div>
+          <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted, 'has-error': form.email.$invalid && submitted }">
+            <label class="sr-only">Email</label>
+            <div class="input-group">
+              <input type="email" name="email" class="form-control" ng-model="account.email" placeholder="Email Address" required mongoose-error />
+              <div class="input-group-addon">
+                <i class="fa fa-at"></i>
+              </div>  
+            </div>
+            <p class="help-block" ng-show="form.email.$error.email && submitted">Doesn't look like a valid email.</p>
+            <p class="help-block" ng-show="form.email.$error.required && submitted">What's your email address?</p>
+            <p class="help-block" ng-show="form.email.$error.mongoose">{{ errors.email }}</p>
+          </div>
 
-        <hr>
-        <div>
-          <a class="btn btn-facebook" href="" ng-click="loginOauth('facebook')">
-            <i class="fa fa-facebook"></i> Connect with Facebook
-          </a>
-          <a class="btn btn-google-plus" href="" ng-click="loginOauth('google')">
-            <i class="fa fa-google-plus"></i> Connect with Google+
-          </a>
-          <!--
-          <a class="btn btn-twitter" href="" ng-click="loginOauth('twitter')">
-            <i class="fa fa-twitter"></i> Connect with Twitter
-          </a>
-          -->
-        </div>
-        <hr>
-      </form>
+          <div class="form-group" ng-class="{ 'has-success': form.password.$valid && submitted, 'has-error': form.password.$invalid && submitted }">
+            <label class="sr-only">Password</label>
+            <div class="input-group">
+              <input type="password" name="password" class="form-control" ng-model="account.password" ng-minlength="3" placeholder="Password" required mongoose-error />
+              <div class="input-group-addon">
+                <i class="fa fa-lock"></i>
+              </div>
+            </div>
+            <p class="help-block" ng-show="(form.password.$error.minlength || form.password.$error.required) && submitted">Password must be at least 3 characters.</p>
+            <p class="help-block" ng-show="form.password.$error.mongoose">{{ errors.password }}</p>
+          </div>
+
+          <div class="form-group">
+            <button class="btn btn-inverse btn-block btn-espn btn-signup" type="submit">Sign up</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="col-xs-12">
+        <p class="text-center">Already have an account? <a ui-sref="login" title="Login">Login</a></p>
+      </div>
+
     </div>
   </div>
 </div>

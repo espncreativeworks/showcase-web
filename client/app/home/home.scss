@@ -1,4 +1,11 @@
 body.home {
+  
+  .espncw-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1em;
+    font-size: 1em;
+  }
 
   .espncw-description {
     font-size: 18px;
@@ -8,6 +15,28 @@ body.home {
     font-size: 24px;
     font-weight: 500;
     font-style: italic;
+  }
+
+  .project-hero {
+    text-align: center;
+    color: $espn-light;
+  }
+
+  .project-title,
+  .project-tagline {
+    color: $espn-light;
+  }
+
+  .project-title {
+    font-size: 15px;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .project-tagline {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .section {
@@ -24,7 +53,25 @@ body.home {
   body.home {
     .controls-container {
       padding-top: 76px;
+
+      .intro-control {
+        margin-left: 6px;
+        margin-right: 6px;
+      }
     }
   }
-  
+}
+
+@media (min-width: $screen-md-min){
+  body.home {
+
+    .project-title {
+      font-size: 30px;
+    }
+    
+    .project-tagline {
+      font-size: 96px;
+    }
+
+  }
 }

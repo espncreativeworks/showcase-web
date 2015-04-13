@@ -7,7 +7,7 @@ angular.module('espnCreativeworksShowcaseApp')
       scope: {
         url: '=backgroundImage'
       },
-      link: function (scope, element, attrs) {
+      link: function (scope, element) {
         var opts = {}
           , url = scope.url;
 

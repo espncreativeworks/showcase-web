@@ -13,16 +13,6 @@
 .location-list-item {
   padding-top: 40px;
 
-  .diamond {
-    margin-top: 20px;
-    width: 50px;
-    height: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid $espn-red;
-    @include rotate(45deg);
-  }
-
   .location-name {
     margin-top: 22px;
     margin-bottom: 0;

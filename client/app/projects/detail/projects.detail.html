@@ -17,16 +17,24 @@
   <div class="project-summary-container">
     <div class="container">
       <div class="row project-summary">
-        <div class="col-xs-12 col-sm-8">
+        <div class="col-xs-12 col-sm-6">
           <p class="project-description" ng-bind-html="project.description | fullDescription"></p>
         </div>
-        <div class="col-xs-12 col-sm-4">
-          <h4 class="summary-heading">Brand</h4>
-          <p class="brand-links"><a class="brand-link" ng-href="{{brand.homepage}}" target="_blank" ng-repeat="brand in project.brands"><span class="brand-name">{{brand.name}}</span></a></p>
+        <div class="col-xs-12 col-sm-4 col-sm-offset-2">
+          <h4 class="summary-heading brand">Client</h4>
+          <p class="brand-links">
+            <a class="brand-link" ng-href="{{brand.homepage}}" target="_blank" ng-repeat="brand in project.brands"><span class="brand-name">{{brand.name}}</span></a>
+          </p>
           <h4 class="summary-heading">Highlights</h4>
           <div class="project-highlights" ng-bind-html="project.highlights.html"></div>
+          <h4 class="summary-heading">Share</h4>
+          <div class="project-sharing-controls">
+            <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-facebook" data-share-url="{{project.sharing.url}}" title="Share on Facebook"><i class="fa fa-facebook fa-2x"></i></a>
+            <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-twitter" data-share-url="{{project.sharing.url}}" data-share-text="{{project.sharing.text}}" data-share-hashtags="" title="Share on Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+          </div>
         </div>
       </div>
+      <hr class="thick red">
     </div>
   </div>
   <div class="execution" ng-repeat="execution in project.$executions">
@@ -43,8 +51,11 @@
       <div class="row">
         <div class="col-xs-12 execution-media-container">
           <div class="execution-images-container" ng-if="execution.images.length">
-            <cl-image public-id="{{image.file.public_id}}" class="img-responsive center-block" ng-repeat="image in execution.images">
+            <cl-image public-id="{{image.file.public_id}}" class="img-responsive center-block" ng-repeat-start="image in execution.images">
             </cl-image>
+            <div class="execution-controls text-center" ng-repeat-end>
+              <toggle-collection class="btn btn-espn btn-espn-default" media="image" type="'image'" mode="'button'"></toggle-collection>
+            </div>
           </div>
 
           <div class="execution-videos-container" ng-if="execution.videos.length">
@@ -53,19 +64,95 @@
                 <video-embed video="video" is-modal="false"></video-embed>
               </div>
               <div class="col-xs-12 col-sm-6">
-                <h4 class="video-title espn-title"><a class="video-detail-link" ui-sref="videos.detail({ id: video.slug })" ng-attr-title="video.title || video.embed.title">{{video.title || video.embed.title}}</a></h4>
+                <div class="row video-item-title-container">
+                  <div class="col-xs-9 text-left">
+                    <h4 class="video-title espn-title">
+                      <a class="video-detail-link" ui-sref="videos.detail({ id: video.slug })" ng-attr-title="video.title || video.embed.title">{{video.title || video.embed.title}}</a>
+                    </h4>
+                  </div>
+                  <div class="col-xs-3 text-right">
+                    <div class="execution-controls">
+                      <toggle-collection class="btn btn-link btn-espn-link" media="video" type="'video'" mode="'link'"></toggle-collection>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="col-xs-9 col-sm-6">
+              <div class="col-xs-12 col-sm-6">
                 <hr class="thick light short">
               </div>
               <div class="col-xs-12 col-sm-6">
                 <div class="video-caption" ng-bind-html="video.caption.html"></div>
-                <div class="video-credits">Featuring: <span ng-repeat="person in video.people">{{person}}</span></div>
+                <div class="video-credits" ng-if="video.$people.length">
+                  <span class="video-credit-label">Featuring:</span>
+                  <ng-pluralize count="video.$people.length" offset="2" when="{
+                    '0': '',
+                    '1': '{{video.$people[0].name | fullname}}',
+                    '2': '{{video.$people[0].name | fullname}} and {{video.$people[1].name | fullname}}',
+                    'one': '{{video.$people[0].name | fullname}}, {{video.$people[1].name | fullname}} and one other',
+                    'other': '{{video.$people[0].name | fullname}}, {{video.$people[1].name | fullname}} and {} others'
+                  }"></ng-pluralize>
+                  <!--
+                  <a class="person-link" ui-sref="people.detail({ id: person.slug })" ng-attr-title="{{person.name | fullname}}" ng-repeat="person in video.$people">
+                    <span class="person-link-text">{{person.name | fullname}}</span>
+                  </a>
+                  -->
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="project-detail-footer">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-xs-12 col-md-3 footer-tags">
+  				<div class="row title">
+  					<div class="col-xs-12 text-center">
+              <h6 class="footer-header">Tags</h6>
+            </div>
+  				</div>
+  				<div class="row tags">
+            <div class="col-xs-12">
+              <ul class="execution-tag-list list-unstyled list-inline">
+                <!-- execution tags -->
+                <li class="execution-tag-container" ng-repeat="tag in project.$tags">
+                  <tag text="tag.name"></tag>
+                </li>
+              </ul>
+            </div>  				
+  				</div>
+  			</div>
+  			<div class="col-xs-12 col-md-6 related-projects">
+  				<div class="row title">
+            <div class="col-xs-12 visible-xs visible-sm">
+              <hr class="neutral short">  
+            </div>
+  					<div class="col-xs-12 text-center">
+             <h6 class="footer-header">Related Projects</h6>     
+            </div>
+  				</div>
+  				<div class="row project">
+            <project-card project="project" cols="'col-xs-12 col-sm-6'" ng-repeat="project in project.$related"></project-card>
+   				</div>
+  			</div>
+  			<div class="col-xs-12 col-md-3 footer-view-all">
+  				<div class="row title">
+            <div class="col-xs-12 visible-xs visible-sm">
+              <hr class="neutral short">  
+            </div>
+  					<div class="col-xs-12 text-center">
+              <h6 class="footer-header">View All Projects</h6>     
+            </div>
+  					<div class="col-xs-12 center-block icon">
+  						<a ui-sref="projects.list">
+  							<img class="center-block" src="assets/images/icon_view_all_projects.png" />
+  						</a>
+  					</div>
+  				</div>
+  			</div>
+  		</div>
+  	</div>
   </div>
 </div>
