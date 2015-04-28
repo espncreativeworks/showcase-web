@@ -54,9 +54,26 @@ angular.module('espnCreativeworksShowcaseApp')
       return $scope.project.$executions.$promise;
       
     }).then(function (executions){
+      executions.sort(function (a, b){
+        return a.sortOrder - b.sortOrder;
+      });
+
       $scope.project.$tags = [];
 
       angular.forEach(executions, function (execution){
+        
+        execution.videos.sort(function (a, b){
+          return a.sortOrder - b.sortOrder;
+        });
+
+        execution.images.sort(function (a, b){
+          return a.sortOrder - b.sortOrder;
+        });
+
+        execution.documents.sort(function (a, b){
+          return a.sortOrder - b.sortOrder;
+        });
+
         angular.forEach(execution.tags, function (tag){
           var platformId = tag.platform + '';
           tag.platform = {};
