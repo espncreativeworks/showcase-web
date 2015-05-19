@@ -5,9 +5,7 @@ angular.module('espnCreativeworksShowcaseApp')
     return {
       restrict: 'A',
       link: function (scope, element, attrs) {
-        console.log(attrs.bubble);
         var currentVal = JSON.parse(attrs.bubble);
-        console.log(typeof currentVal);
 
         $.each(currentVal, function (key, val){
           $(element).on(key, function (evt){
