@@ -55,7 +55,7 @@
             <div class="multiple-image-container" ng-if="execution.images.length > 1">
               <carousel>
                 <slide ng-repeat="image in execution.images">
-                  <div image-zoom id="image.file.public_id" version="image.file.version" ng-transclude>
+                  <div image-zoom ng-transclude>
                     <cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block" bubble='{"load": "zoomload"}'></cl-image>
                   </div>
                   <div class="execution-controls text-center">
@@ -66,7 +66,7 @@
             </div>
 
             <div class="single-image-container" ng-if="execution.images.length == 1">
-              <div image-zoom url="execution.images[0].file.public_id" version="execution.images[0].file.version" ng-transclude>
+              <div image-zoom ng-transclude>
                 <cl-image public-id="{{execution.images[0].file.public_id}}" version="{{execution.images[0].file.version}}" class="img-responsive center-block" bubble='{"load": "zoomload"}'></cl-image>
               </div>
               <div class="execution-controls text-center">

@@ -5,10 +5,6 @@ angular.module('espnCreativeworksShowcaseApp')
     return {
       restrict: 'A',
       transclude: true,
-      scope: {
-        id: '=',
-        version: '='
-      },
       link: function (scope, element, attrs) {
 
         $(element).on('zoomload', 'img', function (){
@@ -19,6 +15,7 @@ angular.module('espnCreativeworksShowcaseApp')
         });
         
         scope.$on('$destroy', function (){
+          $(element).off('zoomload');
           $(element).trigger('zoom.destroy');
         });
       }
