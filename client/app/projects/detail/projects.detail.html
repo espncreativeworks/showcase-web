@@ -55,20 +55,22 @@
             <div class="multiple-image-container" ng-if="execution.images.length > 1">
               <carousel>
                 <slide ng-repeat="image in execution.images">
-                  <cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block">
-                </cl-image>
-                <div class="execution-controls text-center">
-                  <toggle-collection class="btn btn-link btn-espn-link" media="image" type="'image'" mode="'link'"></toggle-collection>
-                </div> 
+                  <div image-zoom id="image.file.public_id" version="image.file.version" ng-transclude>
+                    <cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block" bubble='{"load": "zoomload"}'></cl-image>
+                  </div>
+                  <div class="execution-controls text-center">
+                    <toggle-collection class="btn btn-link btn-espn-link" media="image" type="'image'" mode="'link'"></toggle-collection>
+                  </div> 
                 </slide>
               </carousel>
             </div>
 
             <div class="single-image-container" ng-if="execution.images.length == 1">
-              <cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block" ng-repeat-start="image in execution.images">
-              </cl-image>
-              <div class="execution-controls text-center" ng-repeat-end>
-                <toggle-collection class="btn btn-link btn-espn-link" media="image" type="'image'" mode="'link'"></toggle-collection>
+              <div image-zoom url="execution.images[0].file.public_id" version="execution.images[0].file.version" ng-transclude>
+                <cl-image public-id="{{execution.images[0].file.public_id}}" version="{{execution.images[0].file.version}}" class="img-responsive center-block" bubble='{"load": "zoomload"}'></cl-image>
+              </div>
+              <div class="execution-controls text-center">
+                <toggle-collection class="btn btn-link btn-espn-link" media="execution.images[0]" type="'image'" mode="'link'"></toggle-collection>
               </div>  
             </div>
             

@@ -25,7 +25,8 @@
     "ng-underscore": "~0.1.0",
     "async": "~0.9.2",
     "checklist-model": "~0.2.4",
-    "angulartics": "~0.17.2"
+    "angulartics": "~0.17.2",
+    "jquery-zoom": "~1.7.14"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
