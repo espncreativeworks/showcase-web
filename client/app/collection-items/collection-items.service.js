@@ -17,7 +17,7 @@ angular.module('espnCreativeworksShowcaseApp')
       get: {
         method: 'GET',
         params: {
-          populate: ['belongsTo', 'images', 'videos', 'documents'].join(',')
+          populate: ['belongsTo', 'image', 'video', 'document'].join(',')
         }
       }
     });

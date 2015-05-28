@@ -1,4 +1,4 @@
-<button class="btn-toggle-collection" ng-class="{ 'selected': selected, 'loading': loading }" ng-attr-title="{{actionText}}" ng-click="updateSelection()">
+<button class="btn-toggle-collection" ng-class="{ 'selected': selected, 'loading': loading }" ng-attr-title="{{actionText}}" ng-click="updateSelection()" ng-show="isLoggedIn">
   <div class="icon-container">
     <i class="default fa fa-star-o"></i>
     <i class="hover fa fa-star"></i>

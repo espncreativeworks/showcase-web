@@ -39,9 +39,11 @@ angular.module('espnCreativeworksShowcaseApp', [
       'http://i.ytimg.com/**',
       'https://i.ytimg.com/**'
     ]);
+
+
   }])
 
-  .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
+  .factory('authInterceptor', ['$rootScope', '$q', '$cookieStore', '$location', function ($rootScope, $q, $cookieStore, $location) {
     return {
       // Add authorization token to headers
       request: function (config) {
@@ -65,9 +67,9 @@ angular.module('espnCreativeworksShowcaseApp', [
         }
       }
     };
-  })
+  }])
 
-  .run(function ($rootScope, $location, $state, $stateParams, Auth) {
+  .run(['$rootScope', '$location', '$state', '$stateParams', 'Auth', function ($rootScope, $location, $state, $stateParams, Auth) {
 
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$stateChangeStart', function (event, next) {
@@ -80,4 +82,4 @@ angular.module('espnCreativeworksShowcaseApp', [
 
     $rootScope.$state = $state;
     $rootScope.$stateParams = $stateParams;
-  });
+  }]);
