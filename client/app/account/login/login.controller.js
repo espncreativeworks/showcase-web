@@ -12,7 +12,7 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.login = function(form) {
       $scope.submitted = true;
 
-      if(form.$valid) {
+      if (form.$valid) {
         Auth.login({
           email: $scope.account.email,
           password: $scope.account.password

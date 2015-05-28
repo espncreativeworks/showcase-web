@@ -17,6 +17,12 @@ angular.module('espnCreativeworksShowcaseApp')
       $modalInstance.dismiss('cancel');
     };
 
+    $scope.createCollection = function (form){
+      if (form.$valid) {
+        
+      }
+    };
+
     $scope.save = function (){
       // TODO: implement saving
       $modalInstance.close(true);

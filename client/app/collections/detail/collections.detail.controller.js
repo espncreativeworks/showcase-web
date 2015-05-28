@@ -6,6 +6,7 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.collection = Collection.get({ id: $stateParams.id });
 
     $scope.collection.$promise.then(function (collection){
+      console.log(collection.creator);
       Page.meta.title = collection.meta.title || (collection.title + ' Collection Details');
       $scope.collection.$items = [];
       angular.forEach(collection.items, function (itemId){ 
@@ -17,13 +18,13 @@ angular.module('espnCreativeworksShowcaseApp')
           item.title = null;
           item.description = null;
 
-          if (item.images.length){
-            media = item.images[0];
-            item.thumbnailUrl = media.file.secure_url;
+          if (item.image){
+            media = item.image;
+            item.thumbnailUrl = media.file.secure_url; // jshint ignore:line
             item.title = media.title;
             item.description = media.description.brief;
-          } else if (item.videos.length){
-            media = item.videos[0];
+          } else if (item.video){
+            media = item.video;
             item.thumbnailUrl = media.embed.thumbnailUrl;
             item.title = media.title || media.embed.title;
             
@@ -32,7 +33,7 @@ angular.module('espnCreativeworksShowcaseApp')
             } else if (media.caption.html){
               item.description = media.caption;  
             } else if (media.embed.description){
-              item.description = { html: media.embed.description, md: media.embed.description }
+              item.description = { html: media.embed.description, md: media.embed.description };
             }
           }
         });

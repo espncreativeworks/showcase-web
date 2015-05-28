@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('CollectionItemsDetailCtrl', function ($scope, $stateParams, CollectionItem, Page) {
+  .controller('CollectionItemsDetailCtrl', function ($scope, $stateParams, CollectionItem, Page, fullDescriptionFilter) {
     $scope.collectionItem = {};
     $scope.collectionItem = CollectionItem.get({ id: $stateParams.id }); 
 
