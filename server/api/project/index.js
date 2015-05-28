@@ -6,6 +6,7 @@ var controller = require('./project.controller');
 var router = express.Router();
 
 router.get('/', controller.index);
+router.get('/search', controller.search);
 router.get('/featured', controller.featured);
 router.get('/:id', controller.show);
 router.get('/:id/tags', controller.tags);

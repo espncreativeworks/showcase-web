@@ -1,0 +1,100 @@
+.carousel {
+  .carousel-indicators,
+  .carousel-control {
+    cursor: pointer;
+  }
+
+  .carousel-indicators {
+    display: none;
+  }
+
+  .carousel-control {
+    position: absolute;
+    background: none;
+    top: 40%;
+    transform: translateY(-60%);
+    @include diamond(25px, 25px, 1px solid $espn-dark, 45deg, 0 0 0 0);
+    color: $espn-dark;
+    font-size: 1em;
+    text-align: center;
+
+    & > .glyphicon {
+      display: none;
+    }
+
+    &.left {
+      left: 12.5px;
+    }
+
+    &.right {
+      right: 12.5px;
+    }
+
+    &.left:before,
+    &.right:before {
+      // from FontAwesome
+      display: inline-block;
+      font: normal normal normal 14px/1 FontAwesome; // shortening font declaration
+      font-size: inherit; // can't have font-size inherit on line above, so need to override
+      text-rendering: auto; // optimizelegibility throws things off #1094
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transform: translate(0, 0);
+      
+      width: 25px;
+      height: 25px;
+      line-height: 20px;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      @include rotate(-45deg);
+    }
+
+    &.left:before { 
+      text-indent: -1.5px;
+      content: "\f104"; 
+    }
+
+    &.right:before { 
+      text-indent: 1.5px;
+      content: "\f105"; 
+    }
+
+  }
+}
+
+@media (min-width: $screen-sm-min){
+
+  .carousel .carousel-control {
+    top: 45%;
+    transform: translateY(-50%);
+    @include diamond(50px, 50px, 1px solid $espn-dark, 45deg, 0 0 0 0);
+    font-size: 2em;
+    
+    &.left {
+      left: 25px;
+    }
+
+    &.right {
+      right: 25px;
+    }
+
+    &.left:before,
+    &.right:before {
+      width: 50px;
+      height: 50px;
+      line-height: 45px;
+    }
+
+    &.left:before { 
+      text-indent: -3px;
+      // content: "\f104"; 
+    }
+
+    &.right:before { 
+      text-indent: 3px;
+      // content: "\f105"; 
+    }
+
+  }
+}

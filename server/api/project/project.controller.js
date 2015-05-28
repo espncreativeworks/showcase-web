@@ -13,6 +13,15 @@ exports.index = function(req, res) {
   }).pipe(res);
 };
 
+// Get list of projects optimized for search
+exports.search = function(req, res) {
+  request({ 
+    method: 'GET',
+    uri: resourceBase + '/search',
+    qs: req.query
+  }).pipe(res);
+};
+
 // Get list of featured projects
 exports.featured = function(req, res) {
   request({ 
