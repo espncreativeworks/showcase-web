@@ -1,0 +1,26 @@
+body.video-detail {
+	
+	background-color: $espn-light;
+	color: $espn-dark;
+
+	.video-hero-container {
+		padding-top: 22px;
+		padding-bottom: 22px;
+	}
+
+	.espn-title {
+		margin-top: 0;
+	}
+
+}
+
+@media (min-width: $screen-sm-min){
+	body.video-detail {
+
+    .video-hero-container {
+      padding-bottom: 44px;
+    }
+
+  }
+
+}

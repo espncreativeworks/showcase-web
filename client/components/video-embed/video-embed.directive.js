@@ -2,18 +2,19 @@
 
 angular.module('espnCreativeworksShowcaseApp')
   .directive('videoEmbed', ['$sce', '$modal', 'jQuery', 'Modernizr', function ($sce, $modal, $, Modernizr) {
-    function generateSrc(video, scope){
-      var params = {
+    function generateSrc(scope){
+      var video = angular.copy(scope.video)
+        , params = {
           vimeo: {
             color: 'ffffff',
             title: 0,
             byline: 0,
             portrait: 0,
             badge: 0,
-            autoplay: scope.isModal ? 1 : 0,
+            autoplay: scope.autoplay ? 1 : 0,
           },
           youtube: {
-            autoplay: scope.isModal ? 1 : 0,
+            autoplay: scope.autoplay ? 1 : 0,
             modestbranding: 1,
             showinfo: 0,
             rel: 0
@@ -35,7 +36,9 @@ angular.module('espnCreativeworksShowcaseApp')
       scope: {
         video: '=',
         isModal: '=',
-        isLink: '='
+        isLink: '=',
+        isInline: '=',
+        autoplay: '='
       },
       link: function (scope) {
         scope.touch = Modernizr.touch;
@@ -52,11 +55,15 @@ angular.module('espnCreativeworksShowcaseApp')
           });
         };
 
-        scope.$watch('video', function (newVal) {
-          if (newVal) {
-            scope.src = generateSrc(newVal, scope);
-          }
-        });
+        if (scope.video.embed) {
+          scope.src = generateSrc(scope);
+        } else {
+          scope.$watch('video.$resolved', function (newVal) {
+            if (newVal) {
+              scope.src = generateSrc(scope);
+            }
+          });
+        }
       }
     };
   }]);
