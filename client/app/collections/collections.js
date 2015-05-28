@@ -10,10 +10,12 @@ angular.module('espnCreativeworksShowcaseApp')
       })
       .state('me.collections', {
         url: '/collections',
-        abstract: true
+        abstract: true,
+        templateUrl: 'app/collections/collections.html'
       })
       .state('users.collections', {
         url: '/:id/collections',
-        abstract: true
+        abstract: true,
+        templateUrl: 'app/collections/collections.html'
       });
   });

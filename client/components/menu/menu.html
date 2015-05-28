@@ -10,6 +10,7 @@
     <a href="javascript:void(0);" class="menu-link" ng-class="{ active: isActive('login') }" ng-hide="isLoggedIn()" ng-click="showLogin()">Login</a>
     <span class="account-label menu-label" ng-show="isLoggedIn()">{{getCurrentAccount().name}}</span>
     <a ui-sref="settings" class="menu-link" ng-show="isLoggedIn()" ng-class="{ active: isActive('settings') }"><span>Settings</span></a>
+    <a ui-sref="me.collections.list" class="menu-link" ng-show="isLoggedIn()" ng-class="{ active: isActive('me.collections.list') }"><span>Collections</span></a>
     <a href="" class="menu-link" ng-click="logout()" ng-show="isLoggedIn()" ng-class="{ active: isActive('logout') }">Logout</a>
 
     <span class="social-label menu-label">Share</span>

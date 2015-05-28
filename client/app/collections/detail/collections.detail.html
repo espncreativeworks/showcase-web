@@ -8,7 +8,7 @@
         <div class="media-body">
           <div class="row collection-header-text">
             <div class="col-xs-12">
-              <a ui-sref="users.collections({ id: collection.creator.slug })" class="h4">{{collection.creator.name}}'s Collections</a>
+              <a ui-sref="users.collections.list({ id: collection.creator._id })" class="h4">{{collection.creator.name}}'s Collections</a>
               <div>
                 <span class="collection-name">{{collection.title}}</span>: <strong>{{collection.items.length}}</strong> <a ui-sref="collections.edit({ id: collection._id })" title="Edit" class="edit-button">Edit</a>
               </div>
@@ -54,7 +54,7 @@
               <div class="form-group">
                 <label class="sr-only">Add a Note</label>
                 <div class="input-group col-xs-12">
-                  <textarea name="note" class="form-control" ng-model="item.note" placeholder="Add Note"></textarea>
+                  <textarea name="note" class="form-control" ng-model="item.notes" placeholder="Add Note"></textarea>
                 </div>
               </div>
               <div class="form-group">

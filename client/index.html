@@ -36,7 +36,6 @@
       <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
-
     <script src="//use.typekit.net/qme5qin.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
     <meta name="google-site-verification" content="IgHudSIAb5AIPLwV1RWFpuCWSNLYIdyDRISDKSNdtL4" />
@@ -65,6 +64,7 @@
        if (d.getElementById(id)) {return;}
        js = d.createElement(s); js.id = id;
        js.src = "//connect.facebook.net/en_US/sdk.js";
+       js.async = true;
        fjs.parentNode.insertBefore(js, fjs);
      }(document, 'script', 'facebook-jssdk'));
 
@@ -84,6 +84,7 @@
         var t, js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
         js.src="https://platform.twitter.com/widgets.js";
+        js.async = true;
         fjs.parentNode.insertBefore(js, fjs);
         return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f) } });
       }(document, "script", "twitter-wjs"));
@@ -170,108 +171,107 @@
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,client}) app/app.js -->
-        <script src="app/app.js"></script>
-          <!-- injector:js -->
-          <script src="app/account/account.js"></script>
-          <script src="app/account/login/login.controller.js"></script>
-          <script src="app/account/login/login.modal.controller.js"></script>
-          <script src="app/account/settings/settings.controller.js"></script>
-          <script src="app/account/signup/signup.controller.js"></script>
-          <script src="app/account/signup/signup.modal.controller.js"></script>
-          <script src="app/admin/admin.controller.js"></script>
-          <script src="app/admin/admin.js"></script>
-          <script src="app/brands/brands.js"></script>
-          <script src="app/brands/brands.service.js"></script>
-          <script src="app/brands/detail/brands.detail.controller.js"></script>
-          <script src="app/brands/detail/brands.detail.js"></script>
-          <script src="app/brands/list/brands.list.controller.js"></script>
-          <script src="app/brands/list/brands.list.js"></script>
-          <script src="app/collection-items/collection-items.js"></script>
-          <script src="app/collection-items/collection-items.service.js"></script>
-          <script src="app/collection-items/detail/collection-items.detail.controller.js"></script>
-          <script src="app/collection-items/detail/collection-items.detail.js"></script>
-          <script src="app/collection-items/list/collection-items.list.controller.js"></script>
-          <script src="app/collection-items/list/collection-items.list.js"></script>
-          <script src="app/collection-items/modal/collection-items.modal.controller.js"></script>
-          <script src="app/collection-items/modal/collection-items.modal.js"></script>
-          <script src="app/collections/collections.js"></script>
-          <script src="app/collections/collections.service.js"></script>
-          <script src="app/collections/detail/collections.detail.controller.js"></script>
-          <script src="app/collections/detail/collections.detail.js"></script>
-          <script src="app/collections/list/collections.list.controller.js"></script>
-          <script src="app/collections/list/collections.list.js"></script>
-          <script src="app/collections/modal/collections.modal.controller.js"></script>
-          <script src="app/collections/modal/collections.modal.js"></script>
-          <script src="app/executions/detail/executions.detail.controller.js"></script>
-          <script src="app/executions/detail/executions.detail.js"></script>
-          <script src="app/executions/executions.js"></script>
-          <script src="app/executions/executions.service.js"></script>
-          <script src="app/executions/list/executions.list.controller.js"></script>
-          <script src="app/executions/list/executions.list.js"></script>
-          <script src="app/home/home.controller.js"></script>
-          <script src="app/home/home.js"></script>
-          <script src="app/locations/detail/locations.detail.controller.js"></script>
-          <script src="app/locations/detail/locations.detail.js"></script>
-          <script src="app/locations/list/locations.list.controller.js"></script>
-          <script src="app/locations/list/locations.list.js"></script>
-          <script src="app/locations/locations.js"></script>
-          <script src="app/locations/locations.service.js"></script>
-          <script src="app/page/page.controller.js"></script>
-          <script src="app/page/page.service.js"></script>
-          <script src="app/people/detail/people.detail.controller.js"></script>
-          <script src="app/people/detail/people.detail.js"></script>
-          <script src="app/people/list/people.list.controller.js"></script>
-          <script src="app/people/list/people.list.js"></script>
-          <script src="app/people/people.js"></script>
-          <script src="app/people/people.service.js"></script>
-          <script src="app/platforms/detail/platforms.detail.controller.js"></script>
-          <script src="app/platforms/detail/platforms.detail.js"></script>
-          <script src="app/platforms/list/platforms.list.controller.js"></script>
-          <script src="app/platforms/list/platforms.list.js"></script>
-          <script src="app/platforms/platforms.js"></script>
-          <script src="app/platforms/platforms.service.js"></script>
-          <script src="app/projects/card/projects.card.controller.js"></script>
-          <script src="app/projects/card/projects.card.directive.js"></script>
-          <script src="app/projects/card/projects.card.js"></script>
-          <script src="app/projects/detail/projects.detail.controller.js"></script>
-          <script src="app/projects/detail/projects.detail.js"></script>
-          <script src="app/projects/filter/projects.filter.controller.js"></script>
-          <script src="app/projects/filter/projects.filter.service.js"></script>
-          <script src="app/projects/list/projects.list.controller.js"></script>
-          <script src="app/projects/list/projects.list.js"></script>
-          <script src="app/projects/projects.js"></script>
-          <script src="app/projects/projects.service.js"></script>
-          <script src="app/videos/detail/videos.detail.controller.js"></script>
-          <script src="app/videos/detail/videos.detail.js"></script>
-          <script src="app/videos/list/videos.list.controller.js"></script>
-          <script src="app/videos/list/videos.list.js"></script>
-          <script src="app/videos/modal/videos.modal.controller.js"></script>
-          <script src="app/videos/modal/videos.modal.js"></script>
-          <script src="app/videos/videos.js"></script>
-          <script src="app/videos/videos.service.js"></script>
-          <script src="components/as/as.filter.js"></script>
-          <script src="components/auth/account.service.js"></script>
-          <script src="components/auth/auth.service.js"></script>
-          <script src="components/background-image/background-image.directive.js"></script>
-          <script src="components/bubble/bubble.directive.js"></script>
-          <script src="components/config/config.cloudinary.js"></script>
-          <script src="components/full-description/full-description.filter.js"></script>
-          <script src="components/fullname/fullname.filter.js"></script>
-          <script src="components/fullpage/fullpage.directive.js"></script>
-          <script src="components/image-zoom/image-zoom.directive.js"></script>
-          <script src="components/menu/menu.controller.js"></script>
-          <script src="components/menu/menu.directive.js"></script>
-          <script src="components/modal/modal.service.js"></script>
-          <script src="components/mongoose-error/mongoose-error.directive.js"></script>
-          <script src="components/scroll-down/scroll-down.directive.js"></script>
-          <script src="components/share/share.directive.js"></script>
-          <script src="components/socket/socket.service.js"></script>
-          <script src="components/tag/tag.directive.js"></script>
-          <script src="components/toggle-collection/toggle-collection.directive.js"></script>
-          <script src="components/trap-events/trap-events.directive.js"></script>
-          <script src="components/video-embed/video-embed.directive.js"></script>
-          <!-- endinjector -->
-        <!-- endbuild -->
+    <!-- build:js({.tmp,client}) app/app.js -->
+    <script src="app/app.js"></script>
+      <!-- injector:js -->
+      <script src="app/account/account.js"></script>
+      <script src="app/account/login/login.controller.js"></script>
+      <script src="app/account/login/login.modal.controller.js"></script>
+      <script src="app/account/settings/settings.controller.js"></script>
+      <script src="app/account/signup/signup.controller.js"></script>
+      <script src="app/account/signup/signup.modal.controller.js"></script>
+      <script src="app/admin/admin.controller.js"></script>
+      <script src="app/admin/admin.js"></script>
+      <script src="app/brands/brands.js"></script>
+      <script src="app/brands/brands.service.js"></script>
+      <script src="app/brands/detail/brands.detail.controller.js"></script>
+      <script src="app/brands/detail/brands.detail.js"></script>
+      <script src="app/brands/list/brands.list.controller.js"></script>
+      <script src="app/brands/list/brands.list.js"></script>
+      <script src="app/collection-items/collection-items.js"></script>
+      <script src="app/collection-items/collection-items.service.js"></script>
+      <script src="app/collection-items/detail/collection-items.detail.controller.js"></script>
+      <script src="app/collection-items/detail/collection-items.detail.js"></script>
+      <script src="app/collection-items/list/collection-items.list.controller.js"></script>
+      <script src="app/collection-items/list/collection-items.list.js"></script>
+      <script src="app/collection-items/modal/collection-items.modal.controller.js"></script>
+      <script src="app/collection-items/modal/collection-items.modal.js"></script>
+      <script src="app/collections/collections.js"></script>
+      <script src="app/collections/collections.service.js"></script>
+      <script src="app/collections/detail/collections.detail.controller.js"></script>
+      <script src="app/collections/detail/collections.detail.js"></script>
+      <script src="app/collections/list/collections.list.controller.js"></script>
+      <script src="app/collections/list/collections.list.js"></script>
+      <script src="app/collections/modal/collections.modal.controller.js"></script>
+      <script src="app/collections/modal/collections.modal.js"></script>
+      <script src="app/executions/detail/executions.detail.controller.js"></script>
+      <script src="app/executions/detail/executions.detail.js"></script>
+      <script src="app/executions/executions.js"></script>
+      <script src="app/executions/executions.service.js"></script>
+      <script src="app/executions/list/executions.list.controller.js"></script>
+      <script src="app/executions/list/executions.list.js"></script>
+      <script src="app/home/home.controller.js"></script>
+      <script src="app/home/home.js"></script>
+      <script src="app/locations/detail/locations.detail.controller.js"></script>
+      <script src="app/locations/detail/locations.detail.js"></script>
+      <script src="app/locations/list/locations.list.controller.js"></script>
+      <script src="app/locations/list/locations.list.js"></script>
+      <script src="app/locations/locations.js"></script>
+      <script src="app/locations/locations.service.js"></script>
+      <script src="app/page/page.controller.js"></script>
+      <script src="app/page/page.service.js"></script>
+      <script src="app/people/detail/people.detail.controller.js"></script>
+      <script src="app/people/detail/people.detail.js"></script>
+      <script src="app/people/list/people.list.controller.js"></script>
+      <script src="app/people/list/people.list.js"></script>
+      <script src="app/people/people.js"></script>
+      <script src="app/people/people.service.js"></script>
+      <script src="app/platforms/detail/platforms.detail.controller.js"></script>
+      <script src="app/platforms/detail/platforms.detail.js"></script>
+      <script src="app/platforms/list/platforms.list.controller.js"></script>
+      <script src="app/platforms/list/platforms.list.js"></script>
+      <script src="app/platforms/platforms.js"></script>
+      <script src="app/platforms/platforms.service.js"></script>
+      <script src="app/projects/card/projects.card.controller.js"></script>
+      <script src="app/projects/card/projects.card.directive.js"></script>
+      <script src="app/projects/card/projects.card.js"></script>
+      <script src="app/projects/detail/projects.detail.controller.js"></script>
+      <script src="app/projects/detail/projects.detail.js"></script>
+      <script src="app/projects/filter/projects.filter.controller.js"></script>
+      <script src="app/projects/filter/projects.filter.service.js"></script>
+      <script src="app/projects/list/projects.list.controller.js"></script>
+      <script src="app/projects/list/projects.list.js"></script>
+      <script src="app/projects/projects.js"></script>
+      <script src="app/projects/projects.service.js"></script>
+      <script src="app/videos/detail/videos.detail.controller.js"></script>
+      <script src="app/videos/detail/videos.detail.js"></script>
+      <script src="app/videos/list/videos.list.controller.js"></script>
+      <script src="app/videos/list/videos.list.js"></script>
+      <script src="app/videos/modal/videos.modal.controller.js"></script>
+      <script src="app/videos/modal/videos.modal.js"></script>
+      <script src="app/videos/videos.js"></script>
+      <script src="app/videos/videos.service.js"></script>
+      <script src="components/as/as.filter.js"></script>
+      <script src="components/auth/account.service.js"></script>
+      <script src="components/auth/auth.service.js"></script>
+      <script src="components/background-image/background-image.directive.js"></script>
+      <script src="components/bubble/bubble.directive.js"></script>
+      <script src="components/config/config.cloudinary.js"></script>
+      <script src="components/full-description/full-description.filter.js"></script>
+      <script src="components/fullname/fullname.filter.js"></script>
+      <script src="components/fullpage/fullpage.directive.js"></script>
+      <script src="components/image-zoom/image-zoom.directive.js"></script>
+      <script src="components/menu/menu.controller.js"></script>
+      <script src="components/menu/menu.directive.js"></script>
+      <script src="components/modal/modal.service.js"></script>
+      <script src="components/mongoose-error/mongoose-error.directive.js"></script>
+      <script src="components/scroll-down/scroll-down.directive.js"></script>
+      <script src="components/share/share.directive.js"></script>
+      <script src="components/socket/socket.service.js"></script>
+      <script src="components/tag/tag.directive.js"></script>
+      <script src="components/toggle-collection/toggle-collection.directive.js"></script>
+      <script src="components/video-embed/video-embed.directive.js"></script>
+      <!-- endinjector -->
+    <!-- endbuild -->
 </body>
 </html>

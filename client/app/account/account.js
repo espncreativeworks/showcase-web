@@ -21,11 +21,13 @@ angular.module('espnCreativeworksShowcaseApp')
       })
       .state('me', {
         url: '/me',
+        template: '<ui-view/>',
         abstract: true,
         authenticate: true
       })
       .state('users', {
         url: '/users',
+        template: '<ui-view/>',
         abstract: true
       });
   });

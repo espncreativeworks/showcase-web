@@ -37,13 +37,13 @@
                     <button class="create btn btn-primary hidden-xs" ng-click="toggleCreateForm()">Create new</button>
                     <button class="btn btn-default done" ng-click="toggleWidget()">Done</button>
                   </div>
-                  <form class="form create-collection-form" name="createCollectionForm" ng-submit="createCollection(form)" novalidate>
+                  <form class="form create-collection-form" name="createCollectionForm" ng-submit="createCollection(createCollectionForm)" novalidate>
                     <div class="row">
                       <div class="col-xs-6">
                         <div class="form-group">
                           <label class="sr-only">Name</label>
                           <div class="input-group col-xs-12">
-                            <input type="text" name="newCollection.name" class="form-control" ng-model="collection.name" placeholder="Create a new collection" required>
+                            <input type="text" name="newCollection.title" class="form-control" ng-model="newCollection.title" placeholder="Create a new collection" required>
                           </div>
                         </div>
                       </div>
@@ -51,9 +51,7 @@
                         <div class="form-group">
                           <label class="sr-only">Visibility</label>
                           <div class="input-group">
-                            <select name="private" class="form-control wishlist-create-privacy">
-                              <option value="0" selected="">Everyone</option>
-                              <option value="1">Only Me</option>
+                            <select name="newCollection.visibility" class="form-control wishlist-create-privacy" ng-options="option.value as option.label for option in visibilityOptions" ng-model="newCollection.visibility" required>
                             </select>
                           </div>
                         </div>
@@ -81,7 +79,7 @@
             <div class="form-group">
               <label>Add a Note</label>
               <div class="input-group">
-                <textarea name="note" class="form-control" ng-model="collectionItem.note"></textarea>
+                <textarea name="notes" class="form-control" ng-model="notes"></textarea>
               </div>
             </div>
 
