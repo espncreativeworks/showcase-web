@@ -1,10 +1,10 @@
-<div class="video-embed-container">
-  <div ng-if="touch || isModal">
+<div>
+  <div class="video-embed-container" ng-show="!isLink && (touch || isInline)">
     <div class="video-player-container embed-responsive embed-responsive-16by9">
-      <iframe class="player embed-responsive-item" width="100%" height="auto" src="{{src}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      <iframe class="player embed-responsive-item" width="100%" height="auto" ng-src="{{src}}" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
   </div>
-  <div ng-if="!touch && !isModal">
+  <div class="video-embed-container" ng-hide="!isLink && (touch || isInline)">
     <div class="video-player-container-placeholder embed-responsive embed-responsive-16by9">
       <img ng-src="{{video.embed.thumbnailUrl}}" alt="" class="img-responsive">
       <a href="javascript:void(0);" class="embed-control transform-translate-align horizontal vertical absolute" ng-click="open()" ng-attr-title="Play {{video.title}}"><i class="fa fa-5x fa-play-circle-o"></i><span class="text-hide">Play</span></a>
