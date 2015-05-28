@@ -92,3 +92,13 @@ html.touch textarea:focus,
 html.touch textarea:hover {
   font-size: 16px; 
 }
+
+#body-container {
+  min-height: 600px;
+}
+
+@media (min-width: $screen-sm-min) {
+  #body-container {
+    min-height: 1000px;
+  }
+}
