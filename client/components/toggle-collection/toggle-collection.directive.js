@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .directive('toggleCollection', ['$modal', function ($modal) {
+  .directive('toggleCollection', ['$modal', 'Auth', 'Collection', 'CollectionItem', function ($modal, Auth, Collection, CollectionItem) {
     function updateActionText (scope){
       if (scope.selected){
         scope.actionText = 'Remove From Collection';  
