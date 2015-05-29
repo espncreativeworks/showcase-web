@@ -1,0 +1,21 @@
+<div class="container image-list-container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="espn-title">Images</h1>
+			<hr class="thick light">
+		</div>
+	</div>
+	<div class="row" ng-repeat="(key, values) in $images">
+		<div class="col-xs-12">
+			<h2 class="image-platform-title text-uppercase text-center">{{key}}</h2>
+			<hr class="narrow light">
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="image in values">
+			<div class="image-container">
+				<a ui-sref="images.detail({ id: image.slug })" ng-attr-title="{{image.title}}">
+					<cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block" ng-attr-alt="{{image.title}}"></cl-image>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

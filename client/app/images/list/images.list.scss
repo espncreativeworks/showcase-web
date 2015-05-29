@@ -1,0 +1,25 @@
+body.image-list {
+	color: $espn-dark;
+	background-color: $espn-light;
+	background-image: url($image-path + 'bg_project_execution.png');
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 32px 32px;
+  
+	.footer { 
+		margin-top: 40px; 
+	}
+
+	.image-container {
+		padding-bottom: 22px;
+	}
+
+}
+
+@media (min-width: $screen-sm-min) {
+	body.image-list {
+		.image-container {
+			padding-bottom: 44px;
+		}
+	}
+}
