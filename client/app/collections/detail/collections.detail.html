@@ -1,4 +1,9 @@
 <div class="container collecton-detail-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="espn-title">{{collection.title}} Collection</h1>
+    </div>
+  </div>
   <div class="row collection-toolbar-container">
     <div class="col-xs-12 col-sm-6">
       <div class="media">
@@ -8,9 +13,10 @@
         <div class="media-body">
           <div class="row collection-header-text">
             <div class="col-xs-12">
-              <a ui-sref="users.collections.list({ id: collection.creator._id })" class="h4">{{collection.creator.name}}'s Collections</a>
+              <span class="h4 creator-label">By </span>
+              <a ui-sref="users.collections.list({ id: collection.creator._id })" class="h4 creator-name">{{collection.creator.name}}</a>
               <div>
-                <span class="collection-name">{{collection.title}}</span>: <strong>{{collection.items.length}}</strong> <a ui-sref="collections.edit({ id: collection._id })" title="Edit" class="edit-button">Edit</a>
+                <span class="collection-item-count-label">Items</span>: <strong class="collection-item-count">{{collection.items.length}}</strong> <a ui-sref="collections.edit({ id: collection._id })" title="Edit" class="edit-button">Edit</a>
               </div>
             </div>
           </div>
@@ -21,9 +27,14 @@
       <!-- sharing controls -->
     </div>
   </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <hr class="thick light">
+    </div>
+  </div>
   <div class="row collection-item-container" ng-repeat="item in collection.$items">
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="btn-group btn-group-justified visible-xs visible-sm" role="group">
+      <div class="btn-group btn-group-justified visible-xs visible-sm collection-item-edit-controls" role="group">
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Change</button>
         </div>
@@ -31,16 +42,20 @@
           <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Remove</button>
         </div>
       </div>
-      <div class="collection-item-image-container" background-image="item.thumbnailUrl">
-        <div class="text-hide">{{item.thumbnailUrl}}</div>
+      <div class="collection-item-image-container">
+        <a class="btn btn-link btn-cover" ng-href="{{item.url}}" ng-attr-title="{{item.title}}">
+          <img class="img-responsive" ng-src="{{item.thumbnailUrl}}" ng-attr-alt="{{item.title}}">
+          <span class="text-hide">{{item.thumbnailUrl}}</span>
+        </a>
       </div>
     </div>
     <div class="col-xs-12 col-sm-6 col-md-8">
       <div class="row">
         <div class="col-xs-12 col-md-8">
           <div class="collection-item-body">
-            <h3 class="collection-item-title">{{item.title}}</h3>
+            <h3 class="collection-item-title"><a ng-href="{{item.url}}" ng-attr-title="{{item.title}}">{{item.title}}</a></h3>
             <p class="collection-item-description" ng-bind-html="item.description.html"></p>
+            <p class="collection-item-notes"><span class="notes-label">{{collection.creator.$displayName}}'s notes: </span> {{item.notes}}</p>
           </div>
         </div>
         <div class="col-xs-12 col-md-4">
@@ -49,7 +64,7 @@
       </div>
       <div class="row">
         <div class="col-xs-12 col-md-8">
-          <div class="collection-item-form-container">
+          <div class="collection-item-form-container collection-item-edit-controls">
             <form class="form update-collection-item-form" ng-attr-name="form_{{item._id}}" ng-submit="updateCollectionItem('form_' + item._id, item)" novalidate>
               <div class="form-group">
                 <label class="sr-only">Add a Note</label>
@@ -66,7 +81,7 @@
           </div>
         </div>
         <div class="hidden-xs hidden-sm col-md-4">
-          <div class="btn-group btn-group-justified" role="group">
+          <div class="btn-group btn-group-justified collection-item-edit-controls" role="group">
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Change</button>
             </div>

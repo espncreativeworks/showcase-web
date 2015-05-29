@@ -55,9 +55,9 @@
             <div class="multiple-image-container" ng-if="execution.images.length > 1">
               <carousel>
                 <slide ng-repeat="image in execution.images">
-                  <div image-zoom ng-transclude>
-                    <cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block" bubble='{"load": "zoomload"}'></cl-image>
-                  </div>
+                  <a ui-sref="images.detail({ id: image.slug })" ng-attr-title="{{image.title}}">
+                    <cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block"></cl-image>
+                  </a>
                   <div class="execution-controls text-center">
                     <toggle-collection class="btn btn-link btn-espn-link" media="image" type="'image'" mode="'link'"></toggle-collection>
                   </div> 
@@ -66,9 +66,9 @@
             </div>
 
             <div class="single-image-container" ng-if="execution.images.length == 1">
-              <div image-zoom ng-transclude>
-                <cl-image public-id="{{execution.images[0].file.public_id}}" version="{{execution.images[0].file.version}}" class="img-responsive center-block" bubble='{"load": "zoomload"}'></cl-image>
-              </div>
+              <a ui-sref="images.detail({ id: execution.images[0].slug })" ng-attr-title="{{execution.images[0].title}}">
+                <cl-image public-id="{{execution.images[0].file.public_id}}" version="{{execution.images[0].file.version}}" class="img-responsive center-block"></cl-image>
+              </a>
               <div class="execution-controls text-center">
                 <toggle-collection class="btn btn-link btn-espn-link" media="execution.images[0]" type="'image'" mode="'link'"></toggle-collection>
               </div>  

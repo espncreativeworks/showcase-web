@@ -1,0 +1,46 @@
+body.video-list {
+	color: $espn-dark;
+	background-color: $espn-light;
+	background-image: url($image-path + 'bg_project_execution.png');
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 32px 32px;
+  
+	.footer { 
+		margin-top: 40px; 
+	}
+
+	.video-container {
+		margin-bottom: 22px;
+	}
+
+	.espn-title {
+		margin-bottom: 0;
+	}
+
+}
+
+@media (min-width: $screen-sm-min) {
+	body.video-list {
+		.video-container {
+			margin-bottom: 44px;
+			min-height: 194px;
+		}
+	}
+}
+
+@media (min-width: $screen-md-min) {
+	body.video-list {
+		.video-container {
+			min-height: 165px;
+		}
+	}
+}
+
+@media (min-width: $screen-lg-min) {
+	body.video-list {
+		.video-container {
+			min-height: 202px;
+		}
+	}
+}

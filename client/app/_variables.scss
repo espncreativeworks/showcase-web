@@ -2,3 +2,13 @@ $image-path: "/assets/images/";
 
 $logo-espncw-width: 123px;
 $logo-espncw-height: 58px;
+
+// Should really complete this by adding an xl grid column, too
+// see: http://spin.atomicobject.com/2015/03/06/bootstrap-add-xl-grid-size-option/
+
+// Extra Large screen / extra wide desktop
+$screen-xl:                  1920px;
+$screen-xl-min:              $screen-xl;
+$screen-xl-desktop:          $screen-xl-min;
+
+$screen-lg-max:              ($screen-xl-min - 1);
