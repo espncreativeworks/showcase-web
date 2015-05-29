@@ -27,6 +27,17 @@
   margin-top: 22px;
 }
 
+.btn-cover {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  line-height: 1;
+  box-shadow: none;
+}
+
 @media (min-width: $screen-sm-min){
   .btn-block-xs {
     display: inline-block;

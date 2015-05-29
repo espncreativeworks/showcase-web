@@ -1,7 +1,14 @@
 body.video-detail {
-	
-	background-color: $espn-light;
 	color: $espn-dark;
+  background-color: $espn-light;
+  background-image: url($image-path + 'bg_project_execution.png');
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 32px 32px;
+
+	.footer { 
+		margin-top: 40px; 
+	}
 
 	.video-hero-container {
 		padding-top: 22px;

@@ -1,3 +1,21 @@
-<div class="col-md-12">
-This is the video list view.
+<div class="container video-list-container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h1 class="espn-title">Videos</h1>
+			<hr class="thick light">
+		</div>
+	</div>
+	<div class="row" ng-repeat="(key, values) in $videos">
+		<div class="col-xs-12">
+			<h2 class="video-platform-title text-uppercase text-center">{{key}}</h2>
+			<hr class="narrow light">
+		</div>
+		<div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="video in values">
+			<div class="video-container">
+				<a ui-sref="videos.detail({ id: video.slug })" ng-attr-title="{{video.title}}">
+					<img class="img-responsive center-block" ng-src="{{video.embed.thumbnailUrl}}" ng-attr-alt="{{video.title}}">
+				</a>
+			</div>
+		</div>
+	</div>
 </div>
