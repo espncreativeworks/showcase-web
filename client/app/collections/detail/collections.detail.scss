@@ -1,20 +1,22 @@
 body.collection-detail {
-  background-color: #f5f5f5;
-  color: #565a5c;
+  color: $espn-dark;
+  background-color: $espn-light;
+  background-image: url($image-path + 'bg_project_execution.png');
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 32px 32px;
 
-  .collecton-detail-container {
-    padding-top: 40px;
-    padding-bottom: 40px;
+  .footer { 
+    margin-top: 40px; 
   }
 
   .collection-item-image-container {
     position: relative;
     width: 100%;
-    max-width: 322px;
     min-height: 202px;
     max-height: 322px;
     overflow: hidden;
-    margin: 22px auto;
+    margin: 11px auto;
   }
 
   .collection-item-container {
@@ -26,6 +28,11 @@ body.collection-detail {
     margin-top: 0;
   }
 
+  .collection-item-edit-controls,
+  .edit-button {
+    display: none !important;
+  }
+
   textarea {
     padding: 10px;
     width: 100%;
@@ -33,9 +40,25 @@ body.collection-detail {
   }
 }
 
-@media (min-width: $screen-md-min){
+body.collection-detail.editable {
+  .collection-item-edit-controls,
+  .edit-button {
+    display: block;
+  }
+  .collection-item-notes {
+    display: none;
+  }
+}
+
+@media (min-width: $screen-sm-min){
   body.collection-detail .collection-item-image-container {
     margin-top: 0;
     margin-bottom: 0;
+  }
+}
+
+@media (min-width: $screen-xl-min){
+  body.collection-detail .collection-item-image-container {
+    max-width: 322px;
   }
 }
