@@ -1,0 +1,38 @@
+<div class="image-detail-container">
+	<div class="container">
+		<div class="row image-hero-container">
+			<div class="col-xs-12">
+				<h1 class="espn-title">{{image.title}}</h1>
+				<hr class="thick light">
+			</div>
+			<div class="col-xs-12">
+				<div image-zoom ng-transclude>
+          <cl-image public-id="{{image.file.public_id}}" version="{{image.file.version}}" class="img-responsive center-block" bubble='{"load": "zoomload"}'></cl-image>
+        </div>
+			</div>
+		</div>
+		<div class="row image-details-container">
+			<div class="col-xs-12 col-sm-6">
+				<div class="description-container" ng-if="image.description.extended.html || image.caption.html">
+					<h4 class="detail-heading">Description</h4>
+					<p ng-bind-html="image.description.extended.html || image.caption.html"></p>
+				</div>
+				<div class="featuing-container" ng-if="image.people.length">
+					<h4 class="detail-heading">Featuring</h4>
+					<ul class="list-unstyled list-inline">
+						<li ng-repeat="person in image.people">
+							<span class="person-name">{{person.name | fullname}}</span><span class="separator" ng-if="!$last">,</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6">
+				<h4 class="detail-heading">Share</h4>
+        <div class="project-sharing-controls">
+	        <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-facebook" data-share-url="{{sharing.url}}" title="Share on Facebook"><i class="fa fa-facebook fa-2x"></i></a>
+	        <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-twitter" data-share-url="{{sharing.url}}" data-share-text="{{sharing.text}}" data-share-hashtags="" title="Share on Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
