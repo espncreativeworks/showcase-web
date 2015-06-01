@@ -1,0 +1,21 @@
+body.error-detail {
+
+	#body-container {
+		min-height: 0;
+	}
+
+	.error-detail-container {
+    padding: 20px 40px;
+    max-width: 480px;
+    background-color: $espn-light;
+    color: $espn-dark;
+  }
+
+  .espn-title {
+    margin-top: 0;
+  }
+
+  #global-footer {
+    display: none;
+  }
+}
