@@ -7,5 +7,15 @@ angular.module('espnCreativeworksShowcaseApp')
         url: '/:id',
         templateUrl: 'app/collections/detail/collections.detail.html',
         controller: 'CollectionsDetailCtrl'
-      });
+      })
+      .state('me.collections.detail', {
+        url: '/:collectionId',
+        templateUrl: 'app/collections/detail/collections.detail.html',
+        controller: 'CollectionsDetailCtrl'
+      })
+      .state('users.collections.detail', {
+        url: '/:collectionId',
+        templateUrl: 'app/collections/detail/collections.detail.html',
+        controller: 'CollectionsDetailCtrl'
+      });;
   });

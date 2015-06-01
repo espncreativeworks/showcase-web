@@ -1,15 +1,47 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('CollectionsListCtrl', ['$scope', 'underscore', 'Page', 'Collection', 'CollectionItem', function ($scope, _, Page, Collection, CollectionItem) {
+  .controller('CollectionsListCtrl', ['$rootScope', '$scope', '$stateParams', 'underscore', 'Account', 'Me', 'Page', 'Collection', 'CollectionItem', function ($rootScope, $scope, $stateParams, _, Account, Me, Page, Collection, CollectionItem) {
 
-    Page.meta.title = 'Collections';
     Page.body.class = 'collections-list';
+    var title = null;
 
-    $scope.collections = Collection.query();
+    if ($rootScope.$state.includes('me')){
+      title = 'My Collections';
+      $scope.collectionDetailRoute = function (collection){ 
+        return '/me/collections/' + collection.slug;
+      };
+      $scope.collections = Me.queryCollections();
+    } else if ($rootScope.$state.includes('users')){
+      $scope.collectionDetailRoute = function (collection){ 
+        return '/users/' + $stateParams.userId + '/collections/' + collection.slug;
+      };
+      $scope.collections = Account.queryCollections({ id: $stateParams.userId });
+    } else {
+      title = 'Collections';
+      $scope.collectionDetailRoute = function (collection){ 
+        return '/collections/' + collection.slug;
+      };
+      $scope.collections = Collection.query();
+    }
+
+    // change title only if it has already been set
+    if (title){
+      Page.meta.title = title;
+      $scope.pageTitle = title;
+    }
 
     $scope.collections.$promise.then(function (collections){
-      
+
+      // only change title when it hasn't already been set
+      if (!title) {
+        var displayName = collections[0].creator.name.indexOf(' ') >= 0 ? collections[0].creator.name.split(' ')[0] : collections[0].creator.name;
+        title = displayName + '\'s Collections';
+
+        Page.meta.title = title;
+        $scope.pageTitle = title;
+      }
+
       angular.forEach(collections, function (collection){
         collection.heroUrl = collection.heroUrl || null;
         
