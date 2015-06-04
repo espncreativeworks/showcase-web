@@ -18,6 +18,9 @@ module.exports = function(app) {
   app.use('/api/locations', require('./api/location'));
   app.use('/api/executions', require('./api/execution'));
   app.use('/api/projects', require('./api/project'));
+  app.use('/api/execution-tags', require('./api/execution-tag'));
+  app.use('/api/industries', require('./api/industry'));
+  app.use('/api/sports', require('./api/sport'));
   app.use('/api/platforms', require('./api/platform'));
   app.use('/api/things', require('./api/thing'));
   app.use('/api/accounts', require('./api/account'));

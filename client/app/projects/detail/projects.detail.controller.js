@@ -79,6 +79,7 @@ angular.module('espnCreativeworksShowcaseApp')
           tag.platform = {};
           tag.platform._id = platformId;
           tag.platform.slug = execution.platform.slug;
+          tag.href = '/projects?tags=' + tag._id;
           $scope.project.$tags.push(tag);  
         });
 

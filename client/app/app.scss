@@ -32,11 +32,15 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 @import 'collections/list/collections.list.scss';
 @import 'collections/modal/collections.modal.scss';
 @import 'errors/errors.scss';
+@import 'execution-tags/detail/execution-tags.detail.scss';
+@import 'execution-tags/list/execution-tags.list.scss';
 @import 'executions/detail/executions.detail.scss';
 @import 'executions/list/executions.list.scss';
 @import 'home/home.scss';
 @import 'images/detail/images.detail.scss';
 @import 'images/list/images.list.scss';
+@import 'industries/detail/industries.detail.scss';
+@import 'industries/list/industries.list.scss';
 @import 'locations/detail/locations.detail.scss';
 @import 'locations/list/locations.list.scss';
 @import 'page/buttons.scss';
@@ -52,6 +56,8 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 @import 'projects/detail/projects.detail.scss';
 @import 'projects/filter/projects.filter.scss';
 @import 'projects/list/projects.list.scss';
+@import 'sports/detail/sports.detail.scss';
+@import 'sports/list/sports.list.scss';
 @import 'videos/detail/videos.detail.scss';
 @import 'videos/list/videos.list.scss';
 @import 'videos/modal/videos.modal.scss';

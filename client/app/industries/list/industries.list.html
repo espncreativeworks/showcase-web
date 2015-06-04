@@ -1,0 +1,17 @@
+<div class="col-xs-12">
+  <ul class="media-list">
+    <li class="media" ng-repeat="industry in industries">
+      <div class="media-left pull-left">
+        <a ui-sref="industries.detail({ id: industry.slug })" title="{{industry.name}}">
+          <cl-image public-id="{{industry.hero.file.public_id}}" class="media-object">
+            <cl-transformation height="75" width="75" crop="fill" gravity="north" />
+          </cl-image>
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{industry.name}}</h4>
+        <p ng-bind-html="industry.description.brief.html"></p>
+      </div>
+    </li>
+  </ul>
+</div>

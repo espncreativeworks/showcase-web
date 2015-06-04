@@ -1,0 +1,17 @@
+<div class="col-xs-12">
+  <ul class="media-list">
+    <li class="media" ng-repeat="executionTag in executionTags">
+      <div class="media-left pull-left">
+        <a ui-sref="executionTags.detail({ id: executionTag.slug })" title="{{executionTag.name}}">
+          <cl-image public-id="{{executionTag.hero.file.public_id}}" class="media-object">
+            <cl-transformation height="75" width="75" crop="fill" gravity="north" />
+          </cl-image>
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{executionTag.name}}</h4>
+        <p ng-bind-html="executionTag.description.brief.html"></p>
+      </div>
+    </li>
+  </ul>
+</div>

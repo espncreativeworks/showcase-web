@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('ProjectsFilterCtrl', ['$scope', 'underscore', 'ProjectFilters', function ($scope, _, ProjectFilters) {
+  .controller('ProjectsFilterCtrl', ['$scope', '$location', 'underscore', 'ProjectFilters', 'Platform', 'Sport', 'Industry', 'ExecutionTag', function ($scope, $location, _, ProjectFilters, Platform, Sport, Industry, ExecutionTag) {
     $scope.filters = ProjectFilters; 
     $scope.executions = [];
     $scope.platforms = [];
@@ -47,7 +47,9 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.$on('projects:updated', onprojectsupdated);
 
     $scope.addFilter = function addFilter(category, data){
-      var exists = false;
+      var exists = false
+        , params = $location.search();
+
       $scope.filters.active[category] = $scope.filters.active[category] || [];
       
       angular.forEach($scope.filters.active[category], function(filter){
@@ -57,11 +59,29 @@ angular.module('espnCreativeworksShowcaseApp')
       }); 
 
       if (!exists){
-        $scope.filters.active[category].push(data);  
+        $scope.filters.active[category].push(data); 
+        if (category in params){
+          var old = [];
+          if (params[category].indexOf(',') !== -1){
+            old = params[category].split(',');
+          } else {
+            old.push(params[category]);
+          }
+          
+          if (old.indexOf(data._id) === -1){
+            old.push(data._id);
+            $location.search(category, old.join(','));
+          }
+
+        } else {
+          $location.search(category, data._id);  
+        }
       }
     };
 
     $scope.removeFilter = function removeFilter(category, data){
+      var params = $location.search();
+
       if ($scope.filters.active[category]){
         angular.forEach($scope.filters.active[category], function(filter, index){
           if (filter._id === data._id){
@@ -72,7 +92,97 @@ angular.module('espnCreativeworksShowcaseApp')
         if ($scope.filters.active[category].length === 0){
           delete $scope.filters.active[category];
         }
+
+        if (category in params){
+          var old = [];
+
+          if (params[category].indexOf(',') !== -1){
+            old = params[category].split(',');
+          } else {
+            old.push(params[category]);
+          }
+
+          if (old.indexOf(data._id) !== -1){
+            old.splice(old.indexOf(data._id), 1);
+            $location.search(category, old.join(','));
+          }
+
+          if (!$location.search()[category]){
+            $location.search(category, null);
+          }
+        }
       }
     };
+
+    $scope.initFilter = function (){
+      var params = $location.search();
+
+      if (params.term !== ''){
+        $scope.filters.term = params.term;
+      } else {
+        $location.search('term', null);
+      }
+
+      if (params.platforms) {
+        if ($scope.filters.active.platforms) {
+          $scope.filters.active.platforms = [];
+        }
+        var platformIds = params.platforms.split(',');
+        platformIds.forEach(function (platformId){
+          var $platform = Platform.get({ id: platformId });
+          $platform.$promise.then(function (platform){
+            $scope.addFilter('platforms', platform);
+          });
+        });
+      }
+
+      if (params.sports) {
+        if ($scope.filters.active.sports) {
+          $scope.filters.active.sports = [];
+        }
+        var sportIds = params.sports.split(',');
+        sportIds.forEach(function (sportId){
+          var $sport = Sport.get({ id: sportId });
+          $sport.$promise.then(function (sport){
+            $scope.addFilter('sports', sport);
+          });
+        });
+      }
+
+      if (params.industries) {
+        if ($scope.filters.active.industries) {
+          $scope.filters.active.industries = [];
+        }
+        var industryIds = params.industries.split(',');
+        industryIds.forEach(function (industryId){
+          var $industry = Industry.get({ id: industryId });
+          $industry.$promise.then(function (industry){
+            $scope.addFilter('industries', industry);
+          });
+        });
+      }
+
+      if (params.tags) {
+        if ($scope.filters.active.tags) {
+          $scope.filters.active.tags = [];
+        }
+        var executionTagIds = params.tags.split(',');
+        executionTagIds.forEach(function (executionTagId){
+          var $executionTag = ExecutionTag.get({ id: executionTagId });
+          $executionTag.$promise.then(function (executionTag){
+            $scope.addFilter('tags', executionTag);
+          });
+        });
+      }
+
+      if (params.term !== ''){
+        $scope.filters.term = params.term;
+      } else {
+        $location.search('term', null);
+      }
+
+    };
+
+    $scope.initFilter();
     
   }]);
