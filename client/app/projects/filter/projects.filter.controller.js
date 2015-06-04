@@ -124,7 +124,7 @@ angular.module('espnCreativeworksShowcaseApp')
       }
 
       if (params.platforms) {
-        if ($scope.filters.active.platforms.length) {
+        if ($scope.filters.active.platforms) {
           $scope.filters.active.platforms = [];
         }
         var platformIds = params.platforms.split(',');
@@ -137,7 +137,7 @@ angular.module('espnCreativeworksShowcaseApp')
       }
 
       if (params.sports) {
-        if ($scope.filters.active.sports.length) {
+        if ($scope.filters.active.sports) {
           $scope.filters.active.sports = [];
         }
         var sportIds = params.sports.split(',');
@@ -150,7 +150,7 @@ angular.module('espnCreativeworksShowcaseApp')
       }
 
       if (params.industries) {
-        if ($scope.filters.active.industries.length) {
+        if ($scope.filters.active.industries) {
           $scope.filters.active.industries = [];
         }
         var industryIds = params.industries.split(',');
@@ -163,7 +163,7 @@ angular.module('espnCreativeworksShowcaseApp')
       }
 
       if (params.tags) {
-        if ($scope.filters.active.tags.length) {
+        if ($scope.filters.active.tags) {
           $scope.filters.active.tags = [];
         }
         var executionTagIds = params.tags.split(',');
