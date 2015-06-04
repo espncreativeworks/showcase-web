@@ -48,7 +48,7 @@ body.collection-detail {
 body.collection-detail.editable {
   .collection-item-edit-controls,
   .edit-button {
-    display: block;
+    display: initial !important;
   }
   .collection-item-notes {
     display: none;
