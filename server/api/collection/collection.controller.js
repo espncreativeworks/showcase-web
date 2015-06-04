@@ -53,6 +53,47 @@ exports.destroy = function(req, res) {
   }).pipe(res);
 };
 
+// User-scoped collections
+exports.me = {};
+exports.me.index = function(req, res) {
+  request({ 
+    method: 'GET',
+    uri: cmsRoot + '/accounts/me/collections',
+    qs: req.query,
+    headers: {
+      'X-Account-Id': req.account._id
+    }
+  }).pipe(res);
+};
+
+exports.me.show = function(req, res) {
+  request({ 
+    method: 'GET',
+    uri: cmsRoot + '/accounts/me/collections/' + req.params.id,
+    qs: req.query,
+    headers: {
+      'X-Account-Id': req.account._id
+    }
+  }).pipe(res);
+};
+
+exports.account = {};
+exports.account.index = function(req, res) {
+  request({ 
+    method: 'GET',
+    uri: cmsRoot + '/accounts/' + req.params.id + '/collections',
+    qs: req.query
+  }).pipe(res);
+};
+
+exports.account.show = function(req, res) {
+  request({ 
+    method: 'GET',
+    uri: cmsRoot + '/accounts/' + req.params.accountId + '/collections/' + req.params.collectionId,
+    qs: req.query
+  }).pipe(res);
+};
+
 function handleError(res, err) {
   return res.send(500, err);
 }

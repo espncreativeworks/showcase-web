@@ -2,7 +2,8 @@
 
 angular.module('espnCreativeworksShowcaseApp')
   .factory('Account', function ($resource) {
-    return $resource('/api/accounts/:id/:controller', {
+    var populate = ['creator'];
+    return $resource('/api/accounts/:id/:controller/:resourceId', {
       id: '@_id'
     },
     {
@@ -22,6 +23,21 @@ angular.module('espnCreativeworksShowcaseApp')
         method: 'GET',
         params: {
           id:'me'
+        }
+      },
+      queryCollections: {
+        method: 'GET',
+        params: {
+          controller: 'collections',
+          populate: populate.join(',')
+        },
+        isArray: true
+      },
+      getCollection: {
+        method: 'GET',
+        params: {
+          controller: 'collections',
+          populate: populate.join(',')
         }
       }
 	  });

@@ -14,7 +14,7 @@ angular.module('espnCreativeworksShowcaseApp')
         templateUrl: 'app/collections/collections.html'
       })
       .state('users.collections', {
-        url: '/:id/collections',
+        url: '/:userId/collections',
         abstract: true,
         templateUrl: 'app/collections/collections.html'
       });

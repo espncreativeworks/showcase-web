@@ -10,6 +10,11 @@ body.collection-detail {
     margin-top: 40px; 
   }
 
+  .collection-meta {
+    padding-top: 8px;
+    padding-bottom: 3px;
+  }
+
   .collection-item-image-container {
     position: relative;
     width: 100%;
@@ -43,7 +48,7 @@ body.collection-detail {
 body.collection-detail.editable {
   .collection-item-edit-controls,
   .edit-button {
-    display: block;
+    display: initial !important;
   }
   .collection-item-notes {
     display: none;

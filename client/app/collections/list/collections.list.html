@@ -1,7 +1,7 @@
 <div class="container collecton-list-container">
   <div class="row">
     <div class="col-xs-12">
-      <h1 class="espn-title">Collections</h1>
+      <h1 class="espn-title">{{pageTitle}}</h1>
       <hr class="thick light">
     </div>
     <div class="col-xs-12 col-sm-6 col-md-4" ng-repeat="collection in collections">
@@ -12,7 +12,7 @@
         </div>
         <div class="collection-list-item-body text-center transform-translate-align vertical absolute">
           <h3 class="collection-title">{{collection.title}}</h3>
-          <a ui-sref="collections.detail({ id: collection.slug })" class="btn btn-espn btn-espn-default collection-list-item-control" ng-attr-title="collection.title">
+          <a ng-href="{{collectionDetailRoute(collection)}}" class="btn btn-espn btn-espn-default collection-list-item-control" ng-attr-title="collection.title">
             <span class="collection-list-item-count">{{collection.items.length}}</span>
             <ng-pluralize class="collection-list-item-count-label" count="collection.items.length" offset="2" when="{
               '0': 'Listings',

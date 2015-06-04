@@ -7,14 +7,14 @@
   <div class="row collection-toolbar-container">
     <div class="col-xs-12 col-sm-6">
       <div class="media">
-        <a ui-sref="users.show({ id: collection.creator._id })" class="pull-left media-photo media-round" title="{{collection.creator.name}}">
-          <img ng-src="" alt="{{collection.creator.name}}" width="50" height="50">
+        <a ui-sref="users.collections.list({ userId: collection.creator._id })" class="pull-left media-photo media-round" title="{{collection.creator.name}}">
+          <img ng-src="{{collection.creator.$profileImageUrl}}" alt="{{collection.creator.name}}" width="50" height="50">
         </a>
-        <div class="media-body">
+        <div class="media-body collection-meta">
           <div class="row collection-header-text">
             <div class="col-xs-12">
               <span class="h4 creator-label">By </span>
-              <a ui-sref="users.collections.list({ id: collection.creator._id })" class="h4 creator-name">{{collection.creator.name}}</a>
+              <a ui-sref="users.collections.list({ userId: collection.creator._id })" class="h4 creator-name">{{collection.creator.name}}</a>
               <div>
                 <span class="collection-item-count-label">Items</span>: <strong class="collection-item-count">{{collection.items.length}}</strong> <a ui-sref="collections.edit({ id: collection._id })" title="Edit" class="edit-button">Edit</a>
               </div>

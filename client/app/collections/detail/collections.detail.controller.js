@@ -1,13 +1,24 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .controller('CollectionsDetailCtrl', ['$scope', '$stateParams', 'Page', 'Collection', 'CollectionItem', function ($scope, $stateParams, Page, Collection, CollectionItem) {
+  .controller('CollectionsDetailCtrl', ['$rootScope', '$scope', '$stateParams', 'jQuery', 'Page', 'Me', 'Account', 'Collection', 'CollectionItem', function ($rootScope, $scope, $stateParams, $, Page, Me, Account, Collection, CollectionItem) {
     Page.body.class = 'collection-detail';
-    $scope.collection = Collection.get({ id: $stateParams.id });
+
+    if ($rootScope.$state.includes('me')){
+      $scope.collection = Me.getCollection({ resourceId: $stateParams.collectionId });
+    } else if ($rootScope.$state.includes('users')){
+      $scope.collection = Account.getCollection({ 
+        id: $stateParams.userId,
+        resourceId: $stateParams.collectionId 
+      });
+    } else {
+      $scope.collection = Collection.get({ id: $stateParams.id });
+    } 
 
     $scope.collection.$promise.then(function (collection){
       console.log(collection.creator);
       collection.creator.$displayName = collection.creator.name.indexOf(' ') >= 0 ? collection.creator.name.split(' ')[0] : collection.creator.name;
+      collection.creator.$profileImageUrl = $.cloudinary.url('default_profile_image'); // jshint ignore:line
       Page.meta.title = collection.meta.title || (collection.title + ' Collection Details');
       $scope.collection.$items = [];
       angular.forEach(collection.items, function (itemId){ 
