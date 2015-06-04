@@ -16,17 +16,21 @@
   font-weight: 300;
   line-height: $tag-font-size + ($tag-padding-top * 2);
 
+  .tag-link,
   .tag-remove-link {
-    cursor: pointer;
-    margin-left: 4px;
     color: $espn-light;
-    
+    cursor: pointer;
+
     &:focus,
     &:hover,
     &:active,
     &.active {
       color: darken($espn-light, 15%);
       text-decoration: none;
-    } 
+    }
+  }
+
+  .tag-remove-link {
+    margin-left: 4px;
   }
 }

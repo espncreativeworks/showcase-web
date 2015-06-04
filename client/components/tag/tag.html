@@ -1,5 +1,6 @@
 <div class="tag">
-  <span class="tag-text">{{text}}</span>  
+  <span class="tag-text" ng-if="!href">{{text}}</span> 
+  <a class="tag-link" ng-if="href" ng-href="{{href}}" ng-attr-title="Projects by {{text}}">{{text}}</a> 
   <span class="tag-control-container" ng-if="removable">
     <a class="tag-remove-link" href="javascript:void(0);" ng-click="onremove()"><i class="fa fa-remove"></i></a>
   </span>

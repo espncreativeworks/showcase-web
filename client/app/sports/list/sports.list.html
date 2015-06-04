@@ -1,0 +1,17 @@
+<div class="col-xs-12">
+  <ul class="media-list">
+    <li class="media" ng-repeat="sport in sports">
+      <div class="media-left pull-left">
+        <a ui-sref="sports.detail({ id: sport.slug })" title="{{sport.name}}">
+          <cl-image public-id="{{sport.hero.file.public_id}}" class="media-object">
+            <cl-transformation height="75" width="75" crop="fill" gravity="north" />
+          </cl-image>
+        </a>
+      </div>
+      <div class="media-body">
+        <h4 class="media-heading">{{sport.name}}</h4>
+        <p ng-bind-html="sport.description.brief.html"></p>
+      </div>
+    </li>
+  </ul>
+</div>
