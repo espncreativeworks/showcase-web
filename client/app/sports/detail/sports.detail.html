@@ -1,0 +1,13 @@
+<div class="col-xs-12" style="background-image: url({{sport.hero.file.secure_url}}); background-size: contain; min-height: 960px;">
+  <h1>Executions</h1>
+  <ul class="list-unstyled">
+    <li ng-repeat="execution in sport.$executions">
+      <a ui-sref="executions.detail({ id: execution.slug })" title="{{execution.name}}">{{execution.name}}</a>
+    </li>
+  </ul>
+
+  <h1>Tags</h1>
+  <ul class="list-unstyled">
+    <li ng-repeat="tag in sport.$tags">{{tag}}</li>
+  </ul>
+</div>

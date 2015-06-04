@@ -8,7 +8,8 @@ angular.module('espnCreativeworksShowcaseApp')
       scope: {
         text: '=',
         removable: '=',
-        onremove: '&'
+        onremove: '&',
+        href: '='
       },
       replace: true,
       link: function () {
