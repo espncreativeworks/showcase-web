@@ -2,6 +2,11 @@
 
 var path = require('path');
 var _ = require('lodash');
+var fs = require('fs');
+var root = path.normalize(__dirname + '/../../..');
+var manifestPath = path.resolve(root, 'package.json');
+var manifest = fs.readFileSync(manifestPath, { encoding: 'utf8' });
+manifest = JSON.parse(manifest);
 
 function requiredProcessEnv(name) {
   if(!process.env[name]) {
@@ -14,9 +19,10 @@ function requiredProcessEnv(name) {
 // ============================================
 var all = {
   env: process.env.NODE_ENV,
+  version: manifest.version,
 
   // Root path of server
-  root: path.normalize(__dirname + '/../../..'),
+  root: root,
 
   // Server port
   port: process.env.PORT || 9000,
@@ -57,6 +63,12 @@ var all = {
     clientID:     process.env.GOOGLE_ID || 'id',
     clientSecret: process.env.GOOGLE_SECRET || 'secret',
     callbackURL:  (process.env.DOMAIN || '') + '/auth/google/callback'
+  },
+
+  vimeo: {
+    clientID: process.env.VIMEO_CLIENT_ID || '',
+    clientSecret: process.env.VIMEO_CLIENT_SECRET || '',
+    accessToken: process.env.VIMEO_ACCESS_TOKEN || ''
   }
 };
 
