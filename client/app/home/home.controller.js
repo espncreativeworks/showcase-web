@@ -4,6 +4,8 @@ angular.module('espnCreativeworksShowcaseApp')
   .controller('HomeCtrl', ['$scope', 'Page', 'Project', 'Video', '$modal', function ($scope, Page, Project, Video, $modal) {
     Page.meta.title = 'Home'; 
     Page.body.class = 'home';
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
     $scope.projects = Project.featured();
     $scope.fullpage = { options: {} };
     $scope.reel = Video.get({ id: 'espn-creativeworks' });
