@@ -2,6 +2,8 @@
 
 angular.module('espnCreativeworksShowcaseApp')
   .controller('ImagesListCtrl', ['$scope', 'underscore', 'Page', 'Image', function ($scope, _, Page, Image) {
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
   	Page.meta.title = 'Images';
   	Page.meta.description = 'Images from ESPN CreativeWorks';
   	Page.meta.keywords = 'espn creativeworks images, espn creative works images';

@@ -3,7 +3,9 @@
 angular.module('espnCreativeworksShowcaseApp')
   .controller('ProjectsDetailCtrl', ['$scope', '$location', '$stateParams', '$sce', 'Page', 'Project', 'People', 'fullDescriptionFilter', 'jQuery', function ($scope, $location, $stateParams, $sce, Page, Project, People, fullDescriptionFilter, $) {
     Page.body.class = 'project-detail';
-
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
+    
     $scope.fullpage = { 
       options:{
         autoScrolling: false,

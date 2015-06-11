@@ -6,6 +6,8 @@ angular.module('espnCreativeworksShowcaseApp')
   	Page.meta.description = 'Videos from ESPN CreativeWorks';
   	Page.meta.keywords = 'espn creativeworks videos, espn creative works videos';
   	Page.body.class = 'video-list';
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
 
     $scope.videos = Video.query();
     $scope.videos.$promise.then(function (videos){
