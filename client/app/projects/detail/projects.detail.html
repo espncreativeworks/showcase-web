@@ -30,7 +30,7 @@
           <h4 class="summary-heading">Share</h4>
           <div class="project-sharing-controls">
             <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-facebook" data-share-url="{{project.sharing.url}}" title="Share on Facebook"><i class="fa fa-facebook fa-2x"></i></a>
-            <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-twitter" data-share-url="{{project.sharing.url}}" data-share-text="{{project.sharing.text}}" data-share-hashtags="" title="Share on Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+            <a share="" href="javascript:void(0);" class="social-share" data-share-action="share-twitter" data-share-url="{{project.meta.uris.shortened || project.sharing.url}}" data-share-text="{{project.sharing.text}}" data-share-hashtags="" title="Share on Twitter" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
           </div>
         </div>
       </div>
