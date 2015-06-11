@@ -18,9 +18,10 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  // require('../api/vimeo/vimeo.socket').register(socket);
   // require('../api/execution/execution.socket').register(socket);
   // require('../api/project/project.socket').register(socket);
-  require('../api/thing/thing.socket').register(socket);
+  // require('../api/thing/thing.socket').register(socket);
 }
 
 module.exports = function (socketio) {
