@@ -2,7 +2,8 @@
 
 angular.module('espnCreativeworksShowcaseApp')
   .controller('CollectionsListCtrl', ['$rootScope', '$scope', '$stateParams', 'underscore', 'Account', 'Me', 'Page', 'Collection', 'CollectionItem', function ($rootScope, $scope, $stateParams, _, Account, Me, Page, Collection, CollectionItem) {
-
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
     Page.body.class = 'collections-list';
     var title = null;
 

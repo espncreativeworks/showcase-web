@@ -3,7 +3,8 @@
 angular.module('espnCreativeworksShowcaseApp')
   .controller('ImagesDetailCtrl', ['$scope', '$stateParams', '$location', 'Page', 'Image', 'fullDescriptionFilter', function ($scope, $stateParams, $location, Page, Image, fullDescriptionFilter) {
     Page.body.class = 'image-detail';
-
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
     $scope.image = Image.get({ id: $stateParams.id });
 
     $scope.image.$promise.then(function (image){

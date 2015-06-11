@@ -5,6 +5,8 @@ angular.module('espnCreativeworksShowcaseApp')
     Page.meta.title = 'Projects';
     Page.meta.description = 'ESPN CreativeWorks projects.';
     Page.meta.keywords = 'espn creativeworks projects, espn ads';
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
     Page.meta.twitter['twitter:title'] = Page.meta.title;
     Page.meta.twitter['twitter:description'] = Page.meta.description;
     Page.meta.facebook['og:description'] = Page.meta.description;

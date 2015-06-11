@@ -2,6 +2,8 @@
 
 angular.module('espnCreativeworksShowcaseApp')
   .controller('CollectionsDetailCtrl', ['$rootScope', '$scope', '$stateParams', 'jQuery', 'Page', 'Me', 'Account', 'Collection', 'CollectionItem', function ($rootScope, $scope, $stateParams, $, Page, Me, Account, Collection, CollectionItem) {
+    Page.meta.twitter.reset();
+    Page.meta.facebook.reset();
     Page.body.class = 'collection-detail';
 
     if ($rootScope.$state.includes('me')){
