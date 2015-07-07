@@ -172,11 +172,12 @@ angular.module('espnCreativeworksShowcaseApp')
       
       // run at most 3 tasks in parallel 
       async.parallelLimit(tasks, 3, function (err, results){
-        if (!err) {
-          Page.meta.title = oldTitle;
-          Page.body.class = oldClass;
-          $modalInstance.close(results); 
-        }
+        // if (!err) {
+        //   Page.meta.title = oldTitle;
+        //   Page.body.class = oldClass;
+        //   $modalInstance.close(results); 
+        // }
+        window.location.reload(true);
       });
 
     };
