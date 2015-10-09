@@ -18,6 +18,7 @@ angular.module('espnCreativeworksShowcaseApp')
     } 
 
     $scope.collection.$promise.then(function (collection){
+      console.log("collection: ", collection);
       console.log(collection.creator);
       collection.creator.$displayName = collection.creator.name.indexOf(' ') >= 0 ? collection.creator.name.split(' ')[0] : collection.creator.name;
       collection.creator.$profileImageUrl = $.cloudinary.url('default_profile_image'); // jshint ignore:line

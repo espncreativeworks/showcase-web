@@ -53,7 +53,10 @@
       <div class="row">
         <div class="col-xs-12 col-md-8">
           <div class="collection-item-body">
-            <h3 class="collection-item-title"><a ng-href="{{item.url}}" ng-attr-title="{{item.title}}">{{item.title}}</a></h3>
+            <h3 class="collection-item-title">
+              <a ng-href="{{item.url}}" ng-attr-title="{{item.title}}">{{item.title}}</a>
+              <toggle-collection class="btn btn-link btn-espn-link" media="image" type="'image'" mode="'link'"></toggle-collection>
+            </h3>
             <p class="collection-item-description" ng-bind-html="item.description.html"></p>
             <p class="collection-item-notes"><span class="notes-label">{{collection.creator.$displayName}}'s notes: </span> {{item.notes}}</p>
           </div>
