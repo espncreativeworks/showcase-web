@@ -90,8 +90,8 @@ angular.module('espnCreativeworksShowcaseApp')
     $scope.deleteItem = function(item) {
       console.log("delete item: ", item);
       // console.log("delete item.id: ", item._id);
-
       CollectionItem.destroy({id: item._id});
+      window.location.reload();
     }
     
   }]);
