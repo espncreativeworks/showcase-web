@@ -16,7 +16,7 @@
               <span class="h4 creator-label">By </span>
               <a ui-sref="users.collections.list({ userId: collection.creator._id })" class="h4 creator-name">{{collection.creator.name}}</a>
               <div>
-                <span class="collection-item-count-label">Items</span>: <strong class="collection-item-count">{{collection.items.length}}</strong> <a ui-sref="collections.edit({ id: collection._id })" title="Edit" class="edit-button">Edit</a>
+                <span class="collection-item-count-label">Items</span>: <strong class="collection-item-count">{{collection.items.length}}</strong> <a ui-sref="collections.edit({ id: collection._id })" title="Edit" class="hide edit-button">Edit</a>
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@
   </div>
   <div class="row collection-item-container" ng-repeat="item in collection.$items">
     <div class="col-xs-12 col-sm-6 col-md-4">
-      <div class="btn-group btn-group-justified visible-xs visible-sm collection-item-edit-controls" role="group">
+      <div class="btn-group btn-group-justified visible-xs visible-sm collection-item-edit-controls" ng-show="canEdit" role="group">
         <div class="btn-group" role="group">
           <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Change</button>
         </div>
@@ -55,7 +55,7 @@
           <div class="collection-item-body">
             <h3 class="collection-item-title">
               <a ng-href="{{item.url}}" ng-attr-title="{{item.title}}">{{item.title}}</a>
-              <toggle-collection class="btn btn-link btn-espn-link" media="image" type="'image'" mode="'link'"></toggle-collection>
+              <!-- <toggle-collection class="btn btn-link btn-espn-link" media="image" type="'image'" mode="'link'"></toggle-collection> -->
             </h3>
             <p class="collection-item-description" ng-bind-html="item.description.html"></p>
             <p class="collection-item-notes"><span class="notes-label">{{collection.creator.$displayName}}'s notes: </span> {{item.notes}}</p>
@@ -65,9 +65,21 @@
           <!-- large meta cell -->
         </div>
       </div>
-      <div class="row">
+      <div class="row" ng-show="canEdit">
+        <div class="hidden-xs hidden-sm col-md-4">
+          <div class="btn-group btn-group-justified collection-item-edit-controls" role="group">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" ng-click="showNote(item)"><i class="fa fa-pencil-square-o"></i> Change</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" ng-click="deleteItem(item)"><i class="fa fa-trash-o"></i> Remove</button>
+            </div>
+          </div>  
+        </div>
+      </div>
+      <div class="row" ng-show="canEdit">
         <div class="col-xs-12 col-md-8">
-          <div class="collection-item-form-container collection-item-edit-controls">
+          <div class="collection-item-form-container collection-item-edit-controls {{item.slug}}">
             <form class="form update-collection-item-form" ng-attr-name="form_{{item._id}}" ng-submit="updateCollectionItem('form_' + item._id, item)" novalidate>
               <div class="form-group">
                 <label class="sr-only">Add a Note</label>
@@ -77,21 +89,11 @@
               </div>
               <div class="form-group">
                 <div class="input-group col-xs-12 col-sm-4 col-sm-offset-8 text-right">
-                  <button type="submit" class="btn btn-default">Add Note</button>
+                  <button type="submit" class="btn btn-default">Save Note</button>
                 </div>
               </div>
             </form>
           </div>
-        </div>
-        <div class="hidden-xs hidden-sm col-md-4">
-          <div class="btn-group btn-group-justified collection-item-edit-controls" role="group">
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Change</button>
-            </div>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Remove</button>
-            </div>
-          </div>  
         </div>
       </div>
     </div>

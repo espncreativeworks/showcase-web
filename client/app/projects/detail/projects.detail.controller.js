@@ -95,5 +95,4 @@ angular.module('espnCreativeworksShowcaseApp')
         });   
       });
     });
-    
   }]);

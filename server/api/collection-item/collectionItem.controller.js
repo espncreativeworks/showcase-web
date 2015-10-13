@@ -46,6 +46,8 @@ exports.update = function(req, res) {
 
 // Deletes a project from the DB.
 exports.destroy = function(req, res) {
+  console.log("req.query: ", req.query);
+  console.log("req.params.id: ", req.params.id);
   request({ 
     method: 'DELETE', 
     uri: resourceBase + '/' + req.params.id,
