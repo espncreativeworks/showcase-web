@@ -35,13 +35,13 @@
   <div class="row collection-item-container" ng-repeat="item in collection.$items">
     <div class="col-xs-12 col-sm-6 col-md-4">
       <div class="btn-group btn-group-justified visible-xs visible-sm collection-item-edit-controls" ng-show="canEdit" role="group">
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Change</button>
-        </div>
-        <div class="btn-group" role="group">
-          <button type="button" class="btn btn-default"><i class="fa fa-trash-o"></i> Remove</button>
-        </div>
-      </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" ng-click="showNote(item)"><i class="fa fa-pencil-square-o"></i> Change</button>
+            </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default" ng-click="deleteItem(item)"><i class="fa fa-trash-o"></i> Remove</button>
+            </div>
+          </div>  
       <div class="collection-item-image-container">
         <a class="btn btn-link btn-cover" ng-href="{{item.url}}" ng-attr-title="{{item.title}}">
           <img class="img-responsive" ng-src="{{item.thumbnailUrl}}" ng-attr-alt="{{item.title}}">
