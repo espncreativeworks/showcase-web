@@ -15,6 +15,10 @@ body.collection-detail {
     padding-bottom: 3px;
   }
 
+  .collection-item-form-container {
+    display: none;
+  }
+
   .collection-item-image-container {
     position: relative;
     width: 100%;
@@ -35,7 +39,7 @@ body.collection-detail {
 
   .collection-item-edit-controls,
   .edit-button {
-    display: none !important;
+    /*display: none !important;*/
   }
 
   textarea {

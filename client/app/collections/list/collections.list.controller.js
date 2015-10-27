@@ -10,7 +10,8 @@ angular.module('espnCreativeworksShowcaseApp')
     if ($rootScope.$state.includes('me')){
       title = 'My Collections';
       $scope.collectionDetailRoute = function (collection){ 
-        return '/me/collections/' + collection.slug;
+        // return '/me/collections/' + collection.slug;
+        return '/collections/' + collection.slug;
       };
       $scope.collections = Me.queryCollections();
     } else if ($rootScope.$state.includes('users')){
