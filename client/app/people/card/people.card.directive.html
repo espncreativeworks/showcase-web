@@ -1,0 +1,16 @@
+<div ng-attr-class="person-card-container {{cols}}" ng-class="{ featured: person.isTalent }">
+  <div class="card">
+    <div class="card-image text-center" ng-class="{ fallback: !person.headshot.file.public_id }">
+      <!-- <a class="card-image-link" ui-sref="person.detail({ id: person.slug })" title="{{person.name.first}} {{person.name.last}}"> -->
+      <a class="card-image-link" ui-sref="people.detail({ id: person.slug })" title="{{person.name.first}} {{person.name.last}}">
+        <cl-image public-id="{{person.headshot.file.public_id || 'fallback_project_card'}}" version="{{person.headshot.file.version}}" class="project-thumbnail img-responsive center-block">
+          <cl-transformation width="250" height="250" crop="fit" />
+        </cl-image>
+        <i class="fa fa-picture-o fa-4x transform-translate-align vertical horizontal absolute" ng-if="!person.headshot.file.public_id"></i>
+      </a>
+    </div>
+    <div class="card-body">
+      <h4 class="card-header people">{{person.name.first}} {{person.name.last}}</h4>
+    </div>
+  </div>
+</div>

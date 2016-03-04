@@ -92,7 +92,7 @@ angular.module('espnCreativeworksShowcaseApp')
             var person = People.get({ id: personId });
             video.$people.push(person);
           });
-        });   
+        }); 
       });
     });
   }]);

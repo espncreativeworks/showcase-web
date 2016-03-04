@@ -3,9 +3,9 @@
 angular.module('espnCreativeworksShowcaseApp')
   .config(function ($stateProvider) {
     $stateProvider
-      .state('people.list', {
+      .state('shows.list', {
         url: '',
-        templateUrl: 'app/people/list/people.list.html',
-        controller: 'PeopleListCtrl'
+        templateUrl: 'app/shows/list/shows.list.html',
+        controller: 'ShowsListCtrl'
       });
   });

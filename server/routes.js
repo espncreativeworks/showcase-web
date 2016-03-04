@@ -21,6 +21,7 @@ module.exports = function(app) {
   app.use('/api/projects', require('./api/project'));
   app.use('/api/execution-tags', require('./api/execution-tag'));
   app.use('/api/industries', require('./api/industry'));
+  app.use('/api/shows', require('./api/show'));
   app.use('/api/sports', require('./api/sport'));
   app.use('/api/platforms', require('./api/platform'));
   app.use('/api/things', require('./api/thing'));

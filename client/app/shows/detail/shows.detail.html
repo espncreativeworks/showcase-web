@@ -1,0 +1,13 @@
+<div class="col-xs-12" style="background-image: url({{show.hero.file.secure_url}}); background-size: contain; min-height: 960px;">
+  <h1>Executions</h1>
+  <ul class="list-unstyled">
+    <li ng-repeat="person in show.$people">
+      <a ui-sref="person.detail({ id: person.slug })" title="{{person.name}}">{{person.name}}</a>
+    </li>
+  </ul>
+
+  <h1>Tags</h1>
+  <ul class="list-unstyled">
+    <li ng-repeat="tag in show.$tags">{{tag}}</li>
+  </ul>
+</div>

@@ -1,0 +1,13 @@
+<div class="col-xs-12">
+  <h3>ESPN Shows</h3>
+  <ul class="media-list">
+    <li class="media" ng-repeat="show in shows">
+      <div class="media-left pull-left">
+        <!-- <a ui-sref="show.detail({ id: show.slug })" title="{{show.name}}"> -->
+          <h4 class="media-heading">{{show.name}}</h4>
+        <!-- </a> -->
+        <p ng-bind-html="sport.description.brief.html"></p>
+      </div>
+    </li>
+  </ul>
+</div>

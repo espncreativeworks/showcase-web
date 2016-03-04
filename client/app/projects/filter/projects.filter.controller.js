@@ -19,15 +19,17 @@ angular.module('espnCreativeworksShowcaseApp')
         , _tags = [];
 
       angular.forEach(filteredProjects, function (project){
+
+        // console.log('filteredprojects: ', project);
         
         _sports = _sports.concat(project.sports);
         _brands = _brands.concat(project.brands);
         _industries = _industries.concat(project.industries);
         _executions = _executions.concat(project.executions);
 
-        angular.forEach(project.brands, function (brand){
-          _industries = _industries.concat(brand.industries);
-        });
+        // angular.forEach(project.brands, function (brand){
+        //   _industries = _industries.concat(brand.industries);
+        // });
 
         angular.forEach(project.executions, function (execution){
           _platforms.push(execution.platform);
@@ -40,7 +42,7 @@ angular.module('espnCreativeworksShowcaseApp')
       $scope.brands = _.uniq(_brands, function (b){ return b._id; });
       $scope.industries = _.uniq(_industries, function (i){ return i._id; });
       $scope.executions = _.uniq(_executions, function (e){ return e._id; });
-      $scope.platforms = _.uniq(_platforms, function (p){ return p._id; });
+      $scope.platforms = _.uniq(_platforms, function (p){ return p._id;  });
       $scope.tags = _.uniq(_tags, function (t){ return t._id; });
     }
 
@@ -50,7 +52,11 @@ angular.module('espnCreativeworksShowcaseApp')
       var exists = false
         , params = $location.search();
 
+        // console.log('projects add filter data: ', data);
+
       $scope.filters.active[category] = $scope.filters.active[category] || [];
+
+      // console.log('project add filter:', $scope.filters.active[category]);
       
       angular.forEach($scope.filters.active[category], function(filter){
         if (filter._id === data._id){
@@ -181,6 +187,7 @@ angular.module('espnCreativeworksShowcaseApp')
         $location.search('term', null);
       }
 
+      console.log("project scope: ", $scope);
     };
 
     $scope.initFilter();

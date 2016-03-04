@@ -1,0 +1,13 @@
+<div class="container people-list-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="espn-title">{{pageTitle}}</h1>
+      <hr class="thick light">
+    </div>
+  </div>
+  <div class="row">
+    <ng-include src="'app/people/filter/people.filter.html'"></ng-include>
+
+    <people-card person="person" cols="'col-xs-12 col-sm-6 col-md-4'" personDetailRoute="personDetailRoute(person)" ng-repeat="person in people | filter:showsFilter | filter:sportsFilter | filter:filters.term | as:$parent:'filteredPeople'" ng-if="person.isTalent"></people-card>
+  </div>
+</div>

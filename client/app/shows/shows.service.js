@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .factory('People', function ($resource) {
-    var populate = ['related', 'headshot', 'hero', 'thumbnail', 'logo', 'shows', 'sports', 'video', 'projects'];
-    return $resource('/api/people/:id/:controller', {
+  .factory('Show', function ($resource) {
+    var populate = ['related'];
+    return $resource('/api/shows/:id/:controller', {
       id: '@_id'
     },
     {
@@ -27,10 +27,10 @@ angular.module('espnCreativeworksShowcaseApp')
         },
         isArray: true
       },
-      executions: {
+      people: {
         method: 'GET',
         params: {
-          controller: 'executions',
+          controller: 'people',
           populate: ['platform', 'images', 'videos', 'documents', 'tags', 'related'].join(',')
         },
         isArray: true

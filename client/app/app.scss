@@ -47,7 +47,10 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 @import 'page/logos.scss';
 @import 'page/modals.scss';
 @import 'page/page.scss';
+@import 'people/card/people.card.directive.scss';
+@import 'people/card/people.card.scss';
 @import 'people/detail/people.detail.scss';
+@import 'people/filter/people.filter.scss';
 @import 'people/list/people.list.scss';
 @import 'platforms/detail/platforms.detail.scss';
 @import 'platforms/list/platforms.list.scss';
@@ -56,6 +59,8 @@ $font-family-sans-serif: $espn-font-family-sans-serif, "Helvetica Neue", Helveti
 @import 'projects/detail/projects.detail.scss';
 @import 'projects/filter/projects.filter.scss';
 @import 'projects/list/projects.list.scss';
+@import 'shows/detail/shows.detail.scss';
+@import 'shows/list/shows.list.scss';
 @import 'sports/detail/sports.detail.scss';
 @import 'sports/list/sports.list.scss';
 @import 'videos/detail/videos.detail.scss';

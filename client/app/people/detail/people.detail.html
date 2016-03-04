@@ -1,0 +1,48 @@
+<div class="container people-detail-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 class="espn-title">{{person.name.first}} {{person.name.last}}</h1>
+      <hr class="thick light">
+    </div>
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-4 people-detail-image-container">
+          <img ng-attr-alt="{{person.name.first}} {{person.name.last}}" class="img-responsive" ng-src="{{person.headshot.file.url}}">
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4 people-detail-highlights-container">
+          <h4>Quick Hits</h4>
+          <div class="project-highlights" ng-bind-html="person.highlights.html"></div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-4">
+          <h4>ESPN Shows</h4>
+          <ul>
+            <li ng-repeat="show in shows">
+              <a ng-href="{{show.href}}" title="{{show.name}}">{{show.name}}</a>
+            </li>
+          </ul>     
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 people-detail-description-container">
+          <h3>Biography</h3>
+          <div class="project-highlights" ng-bind-html="person.description.extended.html"></div>
+        </div>
+      </div>
+      <div class="row" ng-if="video">
+        <!-- <div class="col-xs-12" ng-repeat="vid in video"> -->
+        <div class="col-xs-12"><h3>Reel</h3></div>
+        <div class="col-xs-12">
+          <video-embed video="video" is-inline="true"></video-embed>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <h3>Related Projects</h3>
+        </div>
+        <div class="col-xs-12">
+          <project-card project="project" cols="'col-xs-12 col-sm-6 col-md-4'" ng-repeat="project in $projects"></project-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

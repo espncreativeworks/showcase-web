@@ -60,6 +60,10 @@ hr {
   &.horizontal.vertical {
     transform: translateX(-50%) translateY(-50%);
   }
+
+  &.horizontal.bottom {
+    transform: translateX(-50%) translateY(-100%);
+  }
 }
 
 @mixin diamond($width: 50px, $height: 50px, $border: 1px solid $espn-red, $degrees: 45deg, $margin: 20px auto 0 auto){

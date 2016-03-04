@@ -53,11 +53,12 @@ angular.module('espnCreativeworksShowcaseApp')
               video: function (){ return scope.video; }
             }
           });
-        };
+        };        
 
         if (scope.video.embed) {
           scope.src = generateSrc(scope);
         } else {
+
           scope.$watch('video.$resolved', function (newVal) {
             if (newVal) {
               scope.src = generateSrc(scope);

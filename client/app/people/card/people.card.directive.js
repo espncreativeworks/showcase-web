@@ -1,12 +1,12 @@
 'use strict';
 
 angular.module('espnCreativeworksShowcaseApp')
-  .directive('projectCard', function () {
+  .directive('peopleCard', function () {
     return {
-      templateUrl: 'app/projects/card/projects.card.directive.html',
+      templateUrl: 'app/people/card/people.card.directive.html',
       restrict: 'EA',
       scope: {
-        project: '=',
+        person: '=',
         cols: '='
       },
       replace: true,

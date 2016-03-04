@@ -1,0 +1,12 @@
+body.shows-list {
+  color: $espn-dark;
+  background-color: $espn-light;
+  background-image: url($image-path + 'bg_project_execution.png');
+  background-repeat: repeat;
+  background-position: 0 0;
+  background-size: 32px 32px;
+
+  h4 {
+  	color: $espn-red;
+  }
+}

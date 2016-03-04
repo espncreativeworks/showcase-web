@@ -33,10 +33,11 @@ angular.module('espnCreativeworksShowcaseApp')
     function initFilter (key){
       $scope[key + 'Filter'] = function (project){
         var result = false;
+
         if ($scope.filters.active[key] && project[key]){
           var filterIds = _.map($scope.filters.active[key], function (item){ return item._id; })
             , projectKeyIds = _.map(project[key], function (item){ return item._id; });
-          
+
           // check each project keyId against those in the filter
           // if found, set result to true
           angular.forEach(projectKeyIds, function (keyId){
