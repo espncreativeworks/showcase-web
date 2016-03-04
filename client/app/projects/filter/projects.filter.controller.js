@@ -186,8 +186,6 @@ angular.module('espnCreativeworksShowcaseApp')
       } else {
         $location.search('term', null);
       }
-
-      console.log("project scope: ", $scope);
     };
 
     $scope.initFilter();

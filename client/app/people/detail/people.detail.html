@@ -14,12 +14,15 @@
           <div class="project-highlights" ng-bind-html="person.highlights.html"></div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-4">
-          <h4>ESPN Shows</h4>
+          <h4>ESPN Shows/Sports</h4>
           <ul>
             <li ng-repeat="show in shows">
               <a ng-href="{{show.href}}" title="{{show.name}}">{{show.name}}</a>
             </li>
-          </ul>     
+            <li ng-repeat="sport in sports">
+              <a ng-href="{{sport.href}}" title="{{sport.name}}">{{sport.name}}</a>
+            </li>
+          </ul>   
         </div>
       </div>
       <div class="row">
@@ -35,7 +38,8 @@
           <video-embed video="video" is-inline="true"></video-embed>
         </div>
       </div>
-      <div class="row">
+      <div class="padding" ng-if="related.length == 0"></div>
+      <div class="row" ng-if="related.length != 0">
         <div class="col-xs-12">
           <h3>Related Projects</h3>
         </div>

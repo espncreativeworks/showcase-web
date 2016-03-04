@@ -138,8 +138,6 @@ angular.module('espnCreativeworksShowcaseApp')
         $scope.shows = _.uniq(_shows, function (sh){ return sh._id; });
         $scope.sports = _.uniq(_sports, function (sp){ return sp._id; });
       });
-
-      console.log('init filter: ', $scope);
     };
 
     $scope.initFilter();

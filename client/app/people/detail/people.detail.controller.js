@@ -14,6 +14,8 @@ angular.module('espnCreativeworksShowcaseApp')
       $scope.related = person.projects;
       $scope.shows = person.shows;
       $scope.shows.$tags = [];
+      $scope.sports = person.sports;
+      $scope.sports.$tags = [];
 
       angular.forEach($scope.related, function(p) {
         $scope.$project = Project.get({ id: p._id });
@@ -31,5 +33,17 @@ angular.module('espnCreativeworksShowcaseApp')
         s.href = '/people?shows=' + s._id;
         $scope.shows.$tags.push(s);  
       });
+
+      angular.forEach($scope.sports, function (sp){
+        var sportId = sp._id + '';
+        sp.sport = {};
+        sp.sport._id = sportId;
+        sp.sport.slug = sp.slug;
+        sp.href = '/people?sports=' + sp._id;
+        $scope.sports.$tags.push(sp);  
+      });
+
+      console.log('people detail ctrl: ', $scope);
+
     });
   }]);
