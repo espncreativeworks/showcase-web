@@ -43,7 +43,7 @@ angular.module('espnCreativeworksShowcaseApp')
         $scope.sports.$tags.push(sp);  
       });
 
-      console.log('people detail ctrl: ', $scope);
+      // console.log('people detail ctrl: ', $scope);
 
     });
   }]);
